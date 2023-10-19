@@ -17,16 +17,163 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center|top"
         android:layout_marginTop="104dp"
-        android:orientation="vertical" >
+        android:orientation="vertical">
+
         <TextView
-            android:layout_width="74sp"
+            android:layout_width="wrap_content"
             android:layout_height="16sp"
-            android:text="First name"
-            android:gravity="center"/>
-        <ImageView
+            android:gravity="center"
+            android:text="First name" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="sign_rectangle"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/sign_rectangle">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="20sp"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:text="Temurbek" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="16sp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Last name" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/sign_rectangle">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="20sp"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:text="Temurbek" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="16sp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Data of birth" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/sign_rectangle">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="20sp"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:text="Temurbek" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="16sp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Phone number" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/sign_rectangle">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="20sp"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:text="Temurbek" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="16sp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Password" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/sign_rectangle">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="20sp"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:text="Temurbek" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="16sp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Gander" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="8dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="2dp"
+                android:background="@drawable/sign_round" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:text="male" />
+
+            <Space
+                android:layout_width="50dp"
+                android:layout_height="0dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="2dp"
+                android:background="@drawable/sign_round" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:text="male" />
+        </LinearLayout>
     </LinearLayout>
-    
+    <LinearLayout
+        android:layout_width="328dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="19.82dp"
+        android:layout_gravity="center|bottom"
+        android:background="@drawable/sign_rectangle"/>
+
 </FrameLayout>
