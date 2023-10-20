@@ -15,16 +15,16 @@ class SplashFragment1: Fragment(R.layout.fragment_splash1) {
 
         object :CountDownTimer(3000,1000){
             override fun onTick(p0: Long) {
+
+            }
+
+            override fun onFinish() {
                 parentFragmentManager.beginTransaction()
                     .setReorderingAllowed(true)
                     .replace(R.id.container,SplashFragment2())
                     .commit()
             }
 
-            override fun onFinish() {
-
-            }
-
-        }
+        }.start()
     }
 }
