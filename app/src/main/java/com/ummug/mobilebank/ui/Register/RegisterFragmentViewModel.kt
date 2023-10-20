@@ -1,9 +1,10 @@
 package com.ummug.mobilebank.ui.Register
 
 import androidx.lifecycle.ViewModel
+import com.ummug.mobilebank.data.RegisterRepository.registerRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class RegisterFragmentViewModel @Inject constructor(): ViewModel() {
+class RegisterFragmentViewModel @Inject constructor(private val registerRepository: registerRepository): ViewModel() {
 }
