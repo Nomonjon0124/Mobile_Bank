@@ -5,9 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.ummug.mobilebank.R
 import com.ummug.mobilebank.databinding.FragmentSplash2Binding
+import com.ummug.mobilebank.ui.Register.RegisterFragment
+import com.ummug.mobilebank.ui.Verification.VerificationFragment
 
 class SplashFragment2:Fragment(R.layout.fragment_splash2) {
     private var _binding: FragmentSplash2Binding?=null ;
@@ -33,6 +36,19 @@ class SplashFragment2:Fragment(R.layout.fragment_splash2) {
                 else if (!checkbox.isChecked){
                     bottom.setBackgroundResource(R.color.button_color_defoult)
                 }
+            }
+
+            bottom.setOnClickListener {
+                if (checkbox.isChecked){
+                    parentFragmentManager.beginTransaction()
+                        .setReorderingAllowed(true)
+                        .replace(R.id.container,RegisterFragment())
+                        .commit()
+                }
+                else{
+                    Toast.makeText(requireContext(), "Oferaviy shatrlarga rozimizsiz", Toast.LENGTH_SHORT).show()
+                }
+
             }
         }
     }
