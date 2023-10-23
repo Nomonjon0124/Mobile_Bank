@@ -1,9 +1,9 @@
 package com.ummug.mobilebank.di
 
-import com.ummug.mobilebank.data.HomeRepository.homeRepository
-import com.ummug.mobilebank.data.HomeRepository.homeRepositoryImpl
-import com.ummug.mobilebank.data.LoginRepository.loginRepository
-import com.ummug.mobilebank.data.LoginRepository.loginRepositoryImpl
+import com.ummug.mobilebank.data.repository.HomeRepository.homeRepository
+import com.ummug.mobilebank.data.repository.HomeRepository.homeRepositoryImpl
+import com.ummug.mobilebank.data.repository.LoginRepository.loginRepository
+import com.ummug.mobilebank.data.repository.LoginRepository.loginRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

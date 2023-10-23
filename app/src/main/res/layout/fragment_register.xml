@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white">
 
     <TextView
@@ -23,22 +24,24 @@
             android:layout_width="wrap_content"
             android:layout_height="16sp"
             android:gravity="center"
-            android:text="First name" />
+            android:text="First name"
+            />
 
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/sign_rectangle">
+            android:gravity="center|start"
+            android:id="@+id/firstNameError"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="20sp"
-                android:layout_gravity="center"
-                android:layout_marginStart="20dp"
-                android:text="Temurbek" />
-        </LinearLayout>
-
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:id="@+id/firstName"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="16sp"
@@ -46,40 +49,47 @@
             android:gravity="center"
             android:text="Last name" />
 
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/sign_rectangle">
+            android:gravity="center|start"
+            android:id="@+id/lastNameError"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="20sp"
-                android:layout_gravity="center"
-                android:layout_marginStart="20dp"
-                android:text="Temurbek" />
-        </LinearLayout>
-
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:id="@+id/lastName"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="16sp"
             android:layout_marginTop="10dp"
             android:gravity="center"
+
             android:text="Data of birth" />
 
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/sign_rectangle">
+            android:gravity="center|start"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
 
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="20sp"
-                android:layout_gravity="center"
-                android:layout_marginStart="20dp"
-                android:text="Temurbek" />
-        </LinearLayout>
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:id="@+id/date_et"
+                android:drawableEnd="@drawable/baseline_calendar_month_24"
+                android:layout_height="wrap_content"
+                android:inputType="text|number"
+                />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -88,19 +98,21 @@
             android:gravity="center"
             android:text="Phone number" />
 
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/sign_rectangle">
+            android:gravity="center|start"
+            android:id="@+id/phoneNameError"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="20sp"
-                android:layout_gravity="center"
-                android:layout_marginStart="20dp"
-                android:text="Temurbek" />
-        </LinearLayout>
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:id="@+id/phoneNumber"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -109,31 +121,23 @@
             android:gravity="center"
             android:text="Password" />
 
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/sign_rectangle">
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="20sp"
-                android:layout_gravity="center"
-                android:layout_marginStart="20dp"
-                android:text="Temurbek" />
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"/>
-
-            <ImageView
-                android:background="@drawable/sign_eye2"
-                android:layout_width="wrap_content"
+            android:gravity="center|start"
+            app:counterEnabled="true"
+            app:counterMaxLength="8"
+            android:id="@+id/passwordNameError"
+            app:passwordToggleEnabled="true"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:id="@+id/password"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginEnd="20dp"
-                android:text="Temurbek" />
-        </LinearLayout>
+                android:inputType="textPersonName"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -148,12 +152,11 @@
             android:layout_marginTop="8dp">
 
             <CheckBox
-                android:layout_width="20dp"
-                android:layout_height="19dp"
+                android:id="@+id/male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="2dp"
-                android:button="@drawable/custom"
-                android:background="@android:color/transparent"
+
                 />
 
             <TextView
@@ -168,28 +171,27 @@
                 android:layout_height="0dp" />
 
             <CheckBox
-                android:layout_width="20dp"
-                android:layout_height="19dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="2dp"
-                android:button="@drawable/custom"
-                android:background="@android:color/transparent"
-                />
+                android:id="@+id/famale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="18dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="5dp"
-                android:text="male" />
+                android:text="famale" />
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/register"
         android:layout_width="328dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="8dp"
+        android:background="#99CFCFCF"
         android:layout_marginBottom="19.82dp"
         android:layout_gravity="center|bottom"
-        android:background="@drawable/sign_rectangle"/>
+        android:orientation="horizontal" />
 
 </FrameLayout>
