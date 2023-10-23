@@ -1,7 +1,5 @@
 package com.ummug.mobilebank.di
 
-import com.ummug.mobilebank.data.repository.HomeRepository.homeRepository
-import com.ummug.mobilebank.data.repository.HomeRepository.homeRepositoryImpl
 import com.ummug.mobilebank.data.repository.VerificationRepository.verificationRepository
 import com.ummug.mobilebank.data.repository.VerificationRepository.verificationRepositoryImpl
 import dagger.Binds

@@ -23,6 +23,7 @@
                 android:src="@drawable/mastercard_logo_wine_1" />
 
             <TextView
+                android:id="@+id/card_number"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -36,6 +37,7 @@
                 android:layout_weight="1" />
 
             <TextView
+                android:id="@+id/card_vaqti"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -58,6 +60,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/card_balace"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="$ 5 300.00"
