@@ -64,7 +64,6 @@
                 android:textColor="@color/white"
                 android:textSize="32sp"
                 android:textStyle="bold"
-
                 />
 
         </LinearLayout>
