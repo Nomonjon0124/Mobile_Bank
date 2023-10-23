@@ -2,6 +2,7 @@ package com.ummug.mobilebank
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.ummug.mobilebank.ui.Home.HomeFragment
 import com.ummug.mobilebank.ui.SplashFragment1
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -14,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager.beginTransaction()
             .setReorderingAllowed(true)
-            .replace(R.id.container,SplashFragment1())
+            .replace(R.id.container,HomeFragment())
             .commit()
     }
 }
