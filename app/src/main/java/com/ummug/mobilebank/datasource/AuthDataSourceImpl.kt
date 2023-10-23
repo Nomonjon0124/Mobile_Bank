@@ -22,6 +22,7 @@ class AuthDataSourceImpl @Inject constructor(
 
     override suspend fun signUp(signUpEntity: SignUpEntity): SignUpResponse {
         return authApi.signUp(signUpEntity)
+    }
 
-    }
-    }
+
+}
