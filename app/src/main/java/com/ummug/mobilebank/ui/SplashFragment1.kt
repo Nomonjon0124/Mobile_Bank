@@ -8,21 +8,19 @@ import com.ummug.mobilebank.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SplashFragment1: Fragment(R.layout.fragment_splash1) {
+class SplashFragment1 : Fragment(R.layout.fragment_splash1) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        object :CountDownTimer(3000,1000){
+        object : CountDownTimer(3000, 1000) {
             override fun onTick(p0: Long) {
 
             }
 
             override fun onFinish() {
-                parentFragmentManager.beginTransaction()
-                    .setReorderingAllowed(true)
-                    .replace(R.id.container,SplashFragment2())
-                    .commit()
+                parentFragmentManager.beginTransaction().setReorderingAllowed(true)
+                    .replace(R.id.container, SplashFragment2()).commit()
             }
 
         }.start()
