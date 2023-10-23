@@ -1,5 +1,6 @@
 package com.ummug.mobilebank.data.repository.RegisterRepository
 
+import com.ummug.mobilebank.data.settings.Settings
 import com.ummug.mobilebank.domain.entity.SignUpEntity
 import com.ummug.mobilebank.domain.entity.SignUpResponse
 

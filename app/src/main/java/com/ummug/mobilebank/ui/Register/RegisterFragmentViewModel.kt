@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ummug.mobilebank.data.contacts.State
-import com.ummug.mobilebank.data.repository.RegisterRepository.registerRepository
 import com.ummug.mobilebank.domain.SignUpUseCase
 import com.ummug.mobilebank.domain.entity.SignUpResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -22,15 +21,22 @@ class RegisterFragmentViewModel @Inject constructor(
     private val _errorLiveData = MutableLiveData<Int>()
     val errorLiveData: LiveData<Int> get() = _errorLiveData
     private val _noNetworkLiveData = MutableLiveData<Unit>()
+
+
     val noNetworkLiveData: LiveData<Unit> get() = _noNetworkLiveData
+
+
 
 
     fun signUp(firstName: String?, lastName: String?, password: String?, phone: String?) {
         viewModelScope.launch {
             val state = signUpUseCase(firstName, lastName, password, phone)
+
             handleState(state)
         }
     }
+
+
     private fun handleState(state: State) {
         when (state) {
             is State.Success<*> -> _openVerifyLiveData.postValue(Unit)
