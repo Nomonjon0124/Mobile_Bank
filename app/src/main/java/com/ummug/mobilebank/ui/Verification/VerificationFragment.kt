@@ -24,7 +24,7 @@ class VerificationFragment :Fragment(R.layout.fragment_verification) {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentVerificationBinding.inflate(inflater, container, false)
         return binding.root
     }
