@@ -35,7 +35,11 @@ class HomeFragment : Fragment(R.layout.fragmnet_home) {
     private fun loadList() {
         data = ArrayList()
         for (i in 1..10) {
-            data.add(CardEntity(expire_month = i,expire_year =28, name = "Humo", pan = "4916990200137781"))
+            data.add(
+                CardEntity(
+                    expire_month = i, expire_year = 28, name = "Humo", pan = "4916990200137781"
+                )
+            )
         }
     }
 }
