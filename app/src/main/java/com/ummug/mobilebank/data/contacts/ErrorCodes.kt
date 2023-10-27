@@ -6,4 +6,6 @@ object ErrorCodes {
     const val LAST_NAME_ERROR = 2
     const val PHONE_NUMBER = 3
     const val PASSWORD = 4
+
+    const val CODE_ERROR=5
 }

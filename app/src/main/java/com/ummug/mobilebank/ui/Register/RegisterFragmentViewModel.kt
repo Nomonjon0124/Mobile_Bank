@@ -16,8 +16,8 @@ class RegisterFragmentViewModel @Inject constructor(
     private val signUpUseCase: SignUpUseCase
 ): ViewModel() {
 
-    private val _openVerifyLiveData = MutableLiveData<Unit>()
-    val openVerifyLiveData: LiveData<Unit> get() = _openVerifyLiveData
+    private val _openVerifyLiveData = MutableLiveData<String>()
+    val openVerifyLiveData: LiveData<String> get() = _openVerifyLiveData
     private val _errorLiveData = MutableLiveData<Int>()
     val errorLiveData: LiveData<Int> get() = _errorLiveData
     private val _noNetworkLiveData = MutableLiveData<Unit>()
@@ -31,7 +31,6 @@ class RegisterFragmentViewModel @Inject constructor(
     fun signUp(firstName: String?, lastName: String?, password: String?, phone: String?) {
         viewModelScope.launch {
             val state = signUpUseCase(firstName, lastName, password, phone)
-
             handleState(state)
         }
     }
@@ -39,7 +38,7 @@ class RegisterFragmentViewModel @Inject constructor(
 
     private fun handleState(state: State) {
         when (state) {
-            is State.Success<*> -> _openVerifyLiveData.postValue(Unit)
+            is State.Success<*> -> _openVerifyLiveData.postValue(state.data.toString())
             is State.Error -> _errorLiveData.postValue(state.code)
             State.NoNetwork -> _noNetworkLiveData.postValue(Unit)
         }

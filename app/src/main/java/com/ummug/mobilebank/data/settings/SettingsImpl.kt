@@ -3,7 +3,6 @@ package com.ummug.mobilebank.data.settings
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
-
 class SettingsImpl @Inject constructor(@ApplicationContext context: Context) : Settings {
     private val preferences = context.getSharedPreferences("settings", Context.MODE_PRIVATE)
 
@@ -13,4 +12,8 @@ class SettingsImpl @Inject constructor(@ApplicationContext context: Context) : S
     override var code: String?
         get() = preferences.getString("code", null)
         set(value) = preferences.edit().putString("code", value).apply()
+
+    override var usetoken: String?
+        get() = preferences.getString("usetoken",null)
+        set(value) =preferences.edit().putString("usetoken", value).apply()
 }

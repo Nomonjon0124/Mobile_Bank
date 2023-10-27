@@ -19,9 +19,19 @@ class AuthDataSourceImpl @Inject constructor(
         set(value) {
             settings.code = value
         }
+    override var usetoken: String?
+        get() = settings.usetoken
+        set(value) {
+            settings.usetoken=value
+        }
+
 
     override suspend fun signUp(signUpEntity: SignUpEntity): SignUpResponse {
         return authApi.signUp(signUpEntity)
+    }
+
+    override suspend fun getUseToken(signUpResponse: SignUpResponse): String {
+        return authApi.getUseToken(signUpResponse)
     }
 
 

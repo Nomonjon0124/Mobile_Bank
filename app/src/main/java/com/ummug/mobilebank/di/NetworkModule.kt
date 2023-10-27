@@ -25,7 +25,6 @@ class NetworkModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-
     @Provides
     @Singleton
     fun provideOkHttpClient(): OkHttpClient {

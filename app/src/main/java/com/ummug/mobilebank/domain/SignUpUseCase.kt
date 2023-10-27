@@ -31,7 +31,7 @@ class SignUpUseCase @Inject constructor(private val authRepository: registerRepo
             if (exception is IOException) return State.NoNetwork
             return State.Error(1)
         }
-        return State.Success<Unit>()
+        return State.Success(authRepository.code+authRepository.temporaryToken)
     }
 
 

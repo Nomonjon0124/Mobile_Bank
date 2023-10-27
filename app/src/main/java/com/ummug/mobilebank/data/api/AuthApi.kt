@@ -9,4 +9,7 @@ interface AuthApi {
 
     @POST("auth/sign-up")
     suspend fun signUp(@Body signUpEntity: SignUpEntity): SignUpResponse
+
+    @POST("auth/sign-up/verify")
+    suspend fun getUseToken(@Body signUpResponse: SignUpResponse):String
 }
