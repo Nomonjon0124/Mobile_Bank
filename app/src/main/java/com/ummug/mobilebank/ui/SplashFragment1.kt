@@ -13,7 +13,7 @@ class SplashFragment1 : Fragment(R.layout.fragment_splash1) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        object : CountDownTimer(3000, 1000) {
+        object : CountDownTimer(500, 1000) {
             override fun onTick(p0: Long) {
 
             }

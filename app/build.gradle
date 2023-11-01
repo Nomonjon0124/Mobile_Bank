@@ -89,7 +89,26 @@ dependencies {
     def fragment_version = "1.6.1"
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+
+    //chucker
+    debugImplementation ("com.github.chuckerteam.chucker:library:3.5.2")
+    releaseImplementation ("com.github.chuckerteam.chucker:library-no-op:3.5.2")
+
+    // OkHttp BOM
+    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.9.3"))
+
+    // OkHttp artifacts
+    implementation ("com.squareup.okhttp3:okhttp")
+    implementation ("com.squareup.okhttp3:logging-interceptor")
+
+    //Coroutines
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
+
+    testImplementation ("org.mockito:mockito-core:5.6.0")
+    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
 }
+
+
 
 kapt {
     correctErrorTypes=true

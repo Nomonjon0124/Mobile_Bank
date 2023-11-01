@@ -1,11 +1,6 @@
 package com.ummug.mobilebank.ui.Register
 
 import android.annotation.SuppressLint
-import android.app.Notification
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.content.Context
-import android.content.Context.NOTIFICATION_SERVICE
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,18 +8,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.ummug.mobilebank.R
 import com.ummug.mobilebank.data.contacts.ErrorCodes
 import com.ummug.mobilebank.databinding.FragmentRegisterBinding
 import com.ummug.mobilebank.ui.Verification.VerificationFragment
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class RegisterFragment : Fragment(R.layout.fragment_register) {
@@ -48,13 +43,36 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         return binding.root
     }
     @RequiresApi(Build.VERSION_CODES.O)
-    @SuppressLint("MissingPermission")
+    @SuppressLint("MissingPermission", "UnsafeRepeatOnLifecycleDetector")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.openVerifyLiveData.observe(viewLifecycleOwner, openVerifyLiveDataObserver)
-        viewModel.errorLiveData.observe(viewLifecycleOwner, errorLiveDataObserver)
-        viewModel.noNetworkLiveData.observe(viewLifecycleOwner, noNetworkLiveDataObserver)
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                viewModel.openVerifyFlow.collect {
+                    Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+                    parentFragmentManager.beginTransaction()
+                        .setReorderingAllowed(true)
+                        .replace(R.id.container,VerificationFragment::class.java, bundleOf("token" to it))
+                        .commit()
+                }
+            }
+            repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                viewModel.errorFlow.collect { error ->
+                    when (error) {
+                        ErrorCodes.FIRST_NAME_ERROR -> binding.firstNameError.error = "Noto'g'ri"
+                        ErrorCodes.LAST_NAME_ERROR -> binding.lastNameError.error = "Noto'g'ri"
+                        ErrorCodes.PHONE_NUMBER -> binding.phoneNameError.error = "Noto'g'ri"
+                        ErrorCodes.PASSWORD -> binding.passwordNameError.error = "Noto'g'ri"
+                    }
+                }
+            }
+            repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                viewModel.noNetworkFlow.collect {
+                    Toast.makeText(requireContext(), "Internet yo'q", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
 
         binding.apply {
             famale.setOnClickListener {
@@ -86,34 +104,5 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                     Toast.makeText(requireContext(), "choose your gender", Toast.LENGTH_SHORT).show()
                 }
             }
-
         }
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    @SuppressLint("MissingPermission")
-    private val openVerifyLiveDataObserver: Observer<String> = Observer { it->
-
-        Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
-        parentFragmentManager.beginTransaction()
-            .setReorderingAllowed(true)
-            .replace(R.id.container,VerificationFragment::class.java, bundleOf("token" to it))
-            .commit()
-    }
-
-    private val errorLiveDataObserver: Observer<Int> = Observer { error ->
-        when (error) {
-            ErrorCodes.FIRST_NAME_ERROR -> binding.firstNameError.error = "Noto'g'ri"
-            ErrorCodes.LAST_NAME_ERROR -> binding.lastNameError.error = "Noto'g'ri"
-            ErrorCodes.PHONE_NUMBER -> binding.passwordNameError.error = "Noto'g'ri"
-            ErrorCodes.PASSWORD -> binding.passwordNameError.error = "Noto'g'ri"
-        }
-    }
-
-    private val noNetworkLiveDataObserver: Observer<Unit> = Observer {
-        Toast.makeText(requireContext(), "Internet yo'q", Toast.LENGTH_SHORT).show()
-    }
-
-
-
-
 }

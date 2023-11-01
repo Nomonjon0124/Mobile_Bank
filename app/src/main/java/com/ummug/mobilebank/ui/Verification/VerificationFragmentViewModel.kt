@@ -1,13 +1,18 @@
 package com.ummug.mobilebank.ui.Verification
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ummug.mobilebank.data.contacts.State
-import com.ummug.mobilebank.data.repository.VerificationRepository.verificationRepository
+import com.ummug.mobilebank.data.settings.Settings
 import com.ummug.mobilebank.domain.SignVerifiUseToken
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -16,26 +21,27 @@ class VerificationFragmentViewModel @Inject constructor(
     private val signVerifiUseToken: SignVerifiUseToken
 ) : ViewModel(){
 
-    private val _openVerifyLiveData = MutableLiveData<String>()
-    val openVerifyLiveData: LiveData<String> get() = _openVerifyLiveData
-    private val _errorLiveData = MutableLiveData<Int>()
-    val errorLiveData: LiveData<Int> get() = _errorLiveData
-    private val _noNetworkLiveData = MutableLiveData<Unit>()
-    val noNetworkLiveData: LiveData<Unit> get() = _noNetworkLiveData
 
-    fun getToken( code: String?, token: String?) {
+    private val _openHomeFlow = MutableSharedFlow<String>()
+    val openHomeFlow: SharedFlow<String> = _openHomeFlow
+
+    private val _errorFlow = MutableStateFlow(0)
+    val errorFlow: StateFlow<Int> = _errorFlow
+    private val _noNetworkFlow = MutableSharedFlow<Unit>()
+    val noNetworkFlow: SharedFlow<Unit> = _noNetworkFlow
+
+    fun getToken(token: String?, code: String) {
         viewModelScope.launch {
-            val state = signVerifiUseToken(code,token)
+            val state = signVerifiUseToken(token,code)
             handleState(state)
         }
     }
 
-
-    private fun handleState(state: State) {
+    private suspend fun handleState(state: State) {
         when (state) {
-            is State.Success<*> -> _openVerifyLiveData.postValue(state.data.toString())
-            is State.Error -> _errorLiveData.postValue(state.code)
-            State.NoNetwork -> _noNetworkLiveData.postValue(Unit)
+            is State.Success<*> -> _openHomeFlow.emit(state.data.toString())
+            is State.Error -> _errorFlow.emit(state.code)
+            State.NoNetwork -> _noNetworkFlow.emit(Unit)
         }
 
     }

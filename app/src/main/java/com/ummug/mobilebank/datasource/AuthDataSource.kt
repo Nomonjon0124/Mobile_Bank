@@ -1,5 +1,6 @@
 package com.ummug.mobilebank.datasource
 
+import com.ummug.mobilebank.domain.entity.SignInEntity
 import com.ummug.mobilebank.domain.entity.SignUpEntity
 import com.ummug.mobilebank.domain.entity.SignUpResponse
 
@@ -13,4 +14,6 @@ interface AuthDataSource {
      suspend fun signUp(signUpEntity: SignUpEntity): SignUpResponse
 
      suspend fun getUseToken(signUpResponse: SignUpResponse):String
+
+     suspend fun signIn(signInEntity: SignInEntity): SignUpResponse
 }

@@ -2,6 +2,7 @@ package com.ummug.mobilebank.datasource
 
 import com.ummug.mobilebank.data.api.AuthApi
 import com.ummug.mobilebank.data.settings.Settings
+import com.ummug.mobilebank.domain.entity.SignInEntity
 import com.ummug.mobilebank.domain.entity.SignUpEntity
 import com.ummug.mobilebank.domain.entity.SignUpResponse
 import javax.inject.Inject
@@ -32,6 +33,10 @@ class AuthDataSourceImpl @Inject constructor(
 
     override suspend fun getUseToken(signUpResponse: SignUpResponse): String {
         return authApi.getUseToken(signUpResponse)
+    }
+
+    override suspend fun signIn(signInEntity: SignInEntity): SignUpResponse {
+        return authApi.SignIn(signInEntity)
     }
 
 

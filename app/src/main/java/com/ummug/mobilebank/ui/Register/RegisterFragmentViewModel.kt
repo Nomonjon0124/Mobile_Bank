@@ -8,6 +8,10 @@ import com.ummug.mobilebank.data.contacts.State
 import com.ummug.mobilebank.domain.SignUpUseCase
 import com.ummug.mobilebank.domain.entity.SignUpResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -16,14 +20,15 @@ class RegisterFragmentViewModel @Inject constructor(
     private val signUpUseCase: SignUpUseCase
 ): ViewModel() {
 
-    private val _openVerifyLiveData = MutableLiveData<String>()
-    val openVerifyLiveData: LiveData<String> get() = _openVerifyLiveData
-    private val _errorLiveData = MutableLiveData<Int>()
-    val errorLiveData: LiveData<Int> get() = _errorLiveData
-    private val _noNetworkLiveData = MutableLiveData<Unit>()
 
+    private val _openVerifyFlow = MutableSharedFlow<String>()
+    val openVerifyFlow: SharedFlow<String> = _openVerifyFlow
 
-    val noNetworkLiveData: LiveData<Unit> get() = _noNetworkLiveData
+    private val _errorFlow = MutableStateFlow(0)
+    val errorFlow: StateFlow<Int> = _errorFlow
+    private val _noNetworkFlow = MutableSharedFlow<Unit>()
+    val noNetworkFlow: SharedFlow<Unit> = _noNetworkFlow
+
 
 
 
@@ -36,11 +41,11 @@ class RegisterFragmentViewModel @Inject constructor(
     }
 
 
-    private fun handleState(state: State) {
+    private suspend fun handleState(state: State) {
         when (state) {
-            is State.Success<*> -> _openVerifyLiveData.postValue(state.data.toString())
-            is State.Error -> _errorLiveData.postValue(state.code)
-            State.NoNetwork -> _noNetworkLiveData.postValue(Unit)
+            is State.Success<*> -> _openVerifyFlow.emit(state.data.toString())
+            is State.Error -> _errorFlow.emit(state.code)
+            State.NoNetwork -> _noNetworkFlow.emit(Unit)
         }
 
     }

@@ -81,6 +81,8 @@
         android:id="@+id/pincodecheak"
         android:layout_width="328dp"
         android:layout_height="48dp"
+        android:clickable="true"
+        android:focusable="true"
         android:background="#99CFCFCF"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

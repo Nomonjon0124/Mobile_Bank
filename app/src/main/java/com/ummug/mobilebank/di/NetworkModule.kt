@@ -1,5 +1,7 @@
 package com.ummug.mobilebank.di
 
+import android.content.Context
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.ummug.mobilebank.data.api.AuthApi
 import dagger.Module
 import dagger.Provides

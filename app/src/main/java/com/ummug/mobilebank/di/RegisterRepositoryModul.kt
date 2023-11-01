@@ -1,7 +1,7 @@
 package com.ummug.mobilebank.di
 
-import com.ummug.mobilebank.data.repository.RegisterRepository.registerRepository
-import com.ummug.mobilebank.data.repository.RegisterRepository.registerRepositoryImpl
+import com.ummug.mobilebank.data.repository.RegisterRepository.AuthRepository
+import com.ummug.mobilebank.data.repository.RegisterRepository.AuthRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -14,5 +14,5 @@ interface RegisterRepositoryModul {
 
     @Singleton
     @Binds
-    fun provideMainRepositoryImpl(repository: registerRepositoryImpl): registerRepository
+    fun provideMainRepositoryImpl(repository: AuthRepositoryImpl): AuthRepository
 }

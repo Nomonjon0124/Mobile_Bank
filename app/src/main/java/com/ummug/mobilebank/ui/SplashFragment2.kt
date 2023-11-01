@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.ummug.mobilebank.R
 import com.ummug.mobilebank.databinding.FragmentSplash2Binding
+import com.ummug.mobilebank.ui.Login.LoginFragment
 import com.ummug.mobilebank.ui.Register.RegisterFragment
 import com.ummug.mobilebank.ui.Verification.VerificationFragment
 
@@ -42,7 +43,7 @@ class SplashFragment2:Fragment(R.layout.fragment_splash2) {
                 if (checkbox.isChecked){
                     parentFragmentManager.beginTransaction()
                         .setReorderingAllowed(true)
-                        .replace(R.id.container,RegisterFragment())
+                        .replace(R.id.container,LoginFragment())
                         .commit()
                 }
                 else{
