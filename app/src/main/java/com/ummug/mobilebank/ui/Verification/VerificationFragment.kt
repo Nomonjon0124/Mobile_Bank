@@ -1,6 +1,7 @@
 package com.ummug.mobilebank.ui.Verification
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -41,10 +42,23 @@ class VerificationFragment :Fragment(R.layout.fragment_verification) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.resend.setOnClickListener {
+            val code1 = binding.inputCode.text.toString()
+            Log.d("tag", it.toString())
+            if (code1.length==6){
+                viewModel.resend(code1,requireContext())
+            }
+        }
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 viewModel.openHomeFlow.collect {
                     Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+                    val dialog= AlertDialog.Builder(requireContext())
+                        .setMessage(it)
+                        .setTitle("Verification code")
+                        .setPositiveButton("ok") { dialog,i ->
+                            dialog.dismiss()
+                        }.show()
                     parentFragmentManager.beginTransaction()
                         .setReorderingAllowed(true)
                         .replace(R.id.container,HomeFragment())
@@ -64,18 +78,6 @@ class VerificationFragment :Fragment(R.layout.fragment_verification) {
                 }
             }
         }
-
-        val token=arguments?.getString("token")
-
-        val code=token.toString().substring(0,6).toString()
-        val tok=token.toString().substring(6,token.toString().length).toString()
-
-        Log.d("tag", code)
-        Log.d("tag", tok)
-        Log.d("tag", token.toString())
-
-
-        val text = binding.inputCode.text.toString()
         binding.inputCode.addTextChangedListener {
             if (it?.toString()?.length==6){
                 binding.pincodecheak.setBackgroundResource(R.color.button_color)
@@ -84,16 +86,11 @@ class VerificationFragment :Fragment(R.layout.fragment_verification) {
                 binding.pincodecheak.setBackgroundResource(R.color.button_color_defoult)
             }
         }
-
-        binding. pincodecheak.setOnClickListener {
+        binding.pincodecheak.setOnClickListener {
             val code1 = binding.inputCode.text.toString()
             Log.d("tag", it.toString())
                 Toast.makeText(requireContext(), "o'tdi", Toast.LENGTH_SHORT).show()
-            parentFragmentManager.beginTransaction()
-                .setReorderingAllowed(true)
-                .replace(R.id.container,HomeFragment())
-
-                viewModel.getToken(tok, code1)
+                viewModel.getToken(code1)
         }
     }
 }

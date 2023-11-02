@@ -27,7 +27,6 @@ class RegisterFragmentViewModelTest{
     private val signUpUseCase =Mockito.mock(SignUpUseCase::class.java)
     private lateinit var registerFragmentViewModel: RegisterFragmentViewModel
 
-
     @Before
     fun setup(){
         Dispatchers.setMain(StandardTestDispatcher())

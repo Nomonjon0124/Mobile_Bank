@@ -25,6 +25,8 @@ import com.ummug.mobilebank.R
 import com.ummug.mobilebank.data.contacts.ErrorCodes
 import com.ummug.mobilebank.databinding.FragmentLoginBinding
 import com.ummug.mobilebank.databinding.FragmentRegisterBinding
+import com.ummug.mobilebank.ui.Home.HomeFragment
+import com.ummug.mobilebank.ui.PinFragment
 import com.ummug.mobilebank.ui.Register.RegisterFragment
 import com.ummug.mobilebank.ui.Register.RegisterFragmentViewModel
 import com.ummug.mobilebank.ui.Verification.VerificationFragment
@@ -60,11 +62,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         viewModel.openVerifyLiveData.observe(viewLifecycleOwner, openVerifyLiveDataObserver)
         viewModel.errorLiveData.observe(viewLifecycleOwner, errorLiveDataObserver)
         viewModel.noNetworkLiveData.observe(viewLifecycleOwner, noNetworkLiveDataObserver)
+
             binding.bottomSignIn.setOnClickListener {
                 val phone = binding.phoneSignIn.text?.toString()
                 val password = binding.passwordSignIn.text?.toString()
                 viewModel.signIn(phone, password)
-
             }
         binding.registratsiya.setOnClickListener {
             parentFragmentManager.beginTransaction()
@@ -72,20 +74,16 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 .replace(R.id.container, RegisterFragment())
                 .commit()
         }
-
     }
-
         private val openVerifyLiveDataObserver: Observer<String> = Observer { it ->
-            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
             parentFragmentManager.beginTransaction()
                 .setReorderingAllowed(true)
-                .replace(R.id.container, VerificationFragment::class.java, bundleOf("token" to it))
+                .replace(R.id.container, PinFragment())
                 .commit()
         }
-
         private val errorLiveDataObserver: Observer<Int> = Observer { error ->
             when (error) {
-
                 ErrorCodes.PHONE_NUMBER -> binding.phoneSignInError.error = "Noto'g'ri"
                 ErrorCodes.PASSWORD -> binding.passwordSignInError.error = "Noto'g'ri"
             }
