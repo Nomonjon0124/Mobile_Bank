@@ -4,11 +4,12 @@ import com.ummug.mobilebank.domain.entity.AddCardEntity
 import com.ummug.mobilebank.domain.entity.cards.CardResponse
 import com.ummug.mobilebank.domain.entity.cards.GetCardsesponse
 import retrofit2.Response
+import retrofit2.http.Body
 import retrofit2.http.Header
 
 interface CardsDataSource {
 
-   suspend fun getCards(bearerToken: String):Response<GetCardsesponse>
+   suspend fun getCards(bearerToken:String):GetCardsesponse
 
-   suspend fun addCard(cardData: AddCardEntity, bearerToken: String):Response<CardResponse>
+   suspend fun addCard(@Body addCardEntity: AddCardEntity, bearerToken:String):Response<CardResponse>
 }

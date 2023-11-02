@@ -8,4 +8,9 @@ object ErrorCodes {
     const val PASSWORD = 4
 
     const val CODE_ERROR=5
+
+    const val Card_NUMBER=6
+    const val CARD_NAME=7
+    const val CARD_YEAR=8
+    const val CARD_MONTH=9
 }
