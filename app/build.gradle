@@ -1,6 +1,6 @@
 plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
+    id ("com.android.application")
+    id ("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     id ("com.google.dagger.hilt.android")
 }
@@ -15,6 +15,7 @@ android {
         targetSdk 34
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -47,7 +48,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
 
-
     implementation ("com.github.kirich1409:viewbindingpropertydelegate-full:1.5.9")
 
     implementation ("androidx.fragment:fragment-ktx:1.6.1")
@@ -69,6 +69,8 @@ dependencies {
 
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     implementation ("androidx.fragment:fragment-ktx:1.6.1")
+
+    implementation ("com.kevalpatel2106:passcodeview:2.0.0")
 
     /**
      *   viewBinding
@@ -106,6 +108,11 @@ dependencies {
 
     testImplementation ("org.mockito:mockito-core:5.6.0")
     testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
+
+   implementation("com.hanks:passcodeview:0.1.2")
+    implementation("androidx.multidex:multidex:2.0.1")
+    implementation fileTree(dir: 'libs',includes: ['*.jar'])
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
 }
 
 

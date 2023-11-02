@@ -1,7 +1,10 @@
 package com.ummug.mobilebank.data.repository.RegisterRepository
 
 import com.ummug.mobilebank.datasource.AuthDataSource
+import com.ummug.mobilebank.domain.entity.ResndCode
 import com.ummug.mobilebank.domain.entity.SignInEntity
+import com.ummug.mobilebank.domain.entity.SignInResend
+import com.ummug.mobilebank.domain.entity.SignInResponse
 import com.ummug.mobilebank.domain.entity.SignUpEntity
 import com.ummug.mobilebank.domain.entity.SignUpResponse
 import retrofit2.Response
@@ -31,11 +34,15 @@ class AuthRepositoryImpl @Inject constructor(
         return authDataSource.signUp(signUpEntity)
     }
 
-    override suspend fun signIn(signInEntity: SignInEntity): SignUpResponse {
+    override suspend fun signIn(signInEntity: SignInEntity): Response<SignInResponse> {
         return authDataSource.signIn(signInEntity)
     }
 
-    override suspend fun getUseToken(signUpResponse: SignUpResponse): String {
+    override suspend fun resendToken(resndCode: ResndCode): Response<SignInResend> {
+        return authDataSource.ResendCode(resndCode)
+    }
+
+    override suspend fun getUseToken(signUpResponse: SignUpResponse): Response<SignInResponse> {
         return authDataSource.getUseToken(signUpResponse)
     }
 }

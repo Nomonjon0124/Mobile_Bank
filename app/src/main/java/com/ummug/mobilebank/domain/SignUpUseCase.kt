@@ -3,7 +3,9 @@ package com.ummug.mobilebank.domain
 import com.ummug.mobilebank.data.contacts.ErrorCodes
 import com.ummug.mobilebank.data.contacts.State
 import com.ummug.mobilebank.data.repository.RegisterRepository.AuthRepository
+import com.ummug.mobilebank.domain.entity.SignInEntity
 import com.ummug.mobilebank.domain.entity.SignUpEntity
+import com.ummug.mobilebank.domain.entity.SignUpResponse
 import java.io.IOException
 import javax.inject.Inject
 
@@ -28,7 +30,7 @@ class SignUpUseCase @Inject constructor(private val authRepository: AuthReposito
             if (exception is IOException) return State.NoNetwork
             return State.Error(1)
         }
-        return State.Success(authRepository.code+authRepository.temporaryToken)
+        return State.Success(authRepository.code)
     }
 
 

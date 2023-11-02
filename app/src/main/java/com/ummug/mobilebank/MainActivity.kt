@@ -11,11 +11,11 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.fragmnet_home)
 
         supportFragmentManager.beginTransaction()
             .setReorderingAllowed(true)
-            .replace(R.id.container,HomeFragment())
+            .replace(R.id.container,SplashFragment1())
             .commit()
     }
 }

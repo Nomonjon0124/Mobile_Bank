@@ -1,6 +1,7 @@
 package com.ummug.mobilebank.ui.Register
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -51,9 +52,16 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 viewModel.openVerifyFlow.collect {
                     Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+                    val dialog= AlertDialog.Builder(requireContext())
+                        .setMessage(it)
+                        .setTitle("Verification code")
+                        .setPositiveButton("ok") { dialog,i ->
+                            dialog.dismiss()
+                        }.show()
+
                     parentFragmentManager.beginTransaction()
                         .setReorderingAllowed(true)
-                        .replace(R.id.container,VerificationFragment::class.java, bundleOf("token" to it))
+                        .replace(R.id.container,VerificationFragment())
                         .commit()
                 }
             }

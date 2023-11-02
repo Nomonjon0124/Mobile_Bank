@@ -18,7 +18,12 @@ class SignVerifiUseToken @Inject constructor(private val authRepository: AuthRep
 
             val entity = SignUpResponse(token,code)
             val response = authRepository.getUseToken(entity)
-            authRepository.useToken = response
+        if (response.isSuccessful){
+            authRepository.useToken = response.body()?.access_token
+        }
+        else{
+            return State.Error(ErrorCodes.CODE_ERROR)
+        }
 
 
         return State.Success(authRepository.useToken)

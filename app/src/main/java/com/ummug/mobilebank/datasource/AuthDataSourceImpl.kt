@@ -2,9 +2,13 @@ package com.ummug.mobilebank.datasource
 
 import com.ummug.mobilebank.data.api.AuthApi
 import com.ummug.mobilebank.data.settings.Settings
+import com.ummug.mobilebank.domain.entity.ResndCode
 import com.ummug.mobilebank.domain.entity.SignInEntity
+import com.ummug.mobilebank.domain.entity.SignInResend
+import com.ummug.mobilebank.domain.entity.SignInResponse
 import com.ummug.mobilebank.domain.entity.SignUpEntity
 import com.ummug.mobilebank.domain.entity.SignUpResponse
+import retrofit2.Response
 import javax.inject.Inject
 
 class AuthDataSourceImpl @Inject constructor(
@@ -31,13 +35,14 @@ class AuthDataSourceImpl @Inject constructor(
         return authApi.signUp(signUpEntity)
     }
 
-    override suspend fun getUseToken(signUpResponse: SignUpResponse): String {
+    override suspend fun getUseToken(signUpResponse: SignUpResponse): Response<SignInResponse> {
         return authApi.getUseToken(signUpResponse)
     }
 
-    override suspend fun signIn(signInEntity: SignInEntity): SignUpResponse {
+    override suspend fun signIn(signInEntity: SignInEntity): Response<SignInResponse> {
         return authApi.SignIn(signInEntity)
     }
-
-
+    override suspend fun ResendCode(resndCode: ResndCode): Response<SignInResend> {
+        return authApi.Resend(resndCode)
+    }
 }
