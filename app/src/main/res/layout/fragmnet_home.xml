@@ -49,23 +49,26 @@
         <FrameLayout
             android:layout_width="78dp"
             android:layout_height="90dp">
+
             <FrameLayout
                 android:layout_width="match_parent"
 
                 android:layout_height="match_parent">
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:layout_gravity="center|top"
                     app:cardCornerRadius="100dp">
+
                     <ImageView
                         android:id="@+id/addCard"
-                        android:clickable="true"
-                        android:focusable="true"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:background="@drawable/payment" />
+                        android:background="@drawable/payment"
+                        android:clickable="true"
+                        android:focusable="true" />
                 </androidx.cardview.widget.CardView>
 
                 <TextView
@@ -101,12 +104,12 @@
 
                     <ImageView
                         android:id="@+id/Pay"
-                        android:clickable="true"
-                        android:focusable="true"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:background="@drawable/receipt" />
+                        android:background="@drawable/receipt"
+                        android:clickable="true"
+                        android:focusable="true" />
                 </androidx.cardview.widget.CardView>
 
                 <TextView
@@ -193,13 +196,34 @@
             </FrameLayout>
         </FrameLayout>
     </LinearLayout>
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:layout_gravity="bottom"
-        app:menu="@menu/bottom_nav_menu"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical">
+
+            <com.google.android.material.bottomsheet.BottomSheetDragHandleView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@color/white">
+            </com.google.android.material.bottomsheet.BottomSheetDragHandleView>
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigationView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:menu="@menu/bottom_nav_menu" />
+
+        </LinearLayout>
+    </FrameLayout>
+
 
 </FrameLayout>

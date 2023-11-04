@@ -1,4 +1,5 @@
 package com.ummug.mobilebank.domain.adapters
+
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ummug.mobilebank.R
 import com.ummug.mobilebank.domain.entity.cards.Data
 
-class CardAdapter : ListAdapter<Data, CardViewHolder>(CharacterComparator){
+class CardAdapter : ListAdapter<Data, CardViewHolder>(CharacterComparator) {
     private var onClickListener: ((Int) -> Unit)? = null
 
     fun setOnClickClickListener(clickListener: (Int) -> Unit) {
@@ -19,8 +20,7 @@ class CardAdapter : ListAdapter<Data, CardViewHolder>(CharacterComparator){
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_card, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_card, parent, false)
         return CardViewHolder(view, onClickListener)
     }
 
@@ -47,6 +47,7 @@ class CardViewHolder(val view: View, val onClickListener: ((Int) -> Unit)?) :
         val findViewById = view.findViewById<CardView>(R.id.laout)
         findViewById.setOnClickListener { onClickListener }
     }
+
     private val name: TextView = view.findViewById(R.id.balance)
 
     fun bind(card: Data) {

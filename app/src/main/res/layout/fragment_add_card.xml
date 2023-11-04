@@ -2,7 +2,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <FrameLayout
         android:layout_width="358dp"
@@ -25,91 +26,96 @@
             android:textStyle="bold" />
     </FrameLayout>
 
-    <FrameLayout
-        android:id="@+id/card_item"
+    <androidx.cardview.widget.CardView
         android:layout_width="312dp"
         android:layout_height="168dp"
         android:layout_gravity="center|top"
         android:layout_marginTop="100dp"
-        android:background="@drawable/card"
-        android:padding="20dp">
+        app:cardCornerRadius="16dp">
 
-
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="56dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="28dp"
-                android:src="@drawable/mastercard_logo_wine_1" />
-
-            <TextView
-                android:id="@+id/card_number"
-                android:layout_width="wrap_content"
-                android:layout_height="28dp"
-                android:gravity="center"
-                android:text="Mastercard"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:background="@drawable/card"
+            android:padding="20dp">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="56dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:src="@drawable/mastercard_logo_wine_1" />
+
+                <TextView
+                    android:id="@+id/card_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:gravity="center"
+                    android:text="Mastercard"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="28dp"
+                        android:gravity="center"
+                        android:text="Expired date"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/card_vaqti"
+                        android:layout_width="wrap_content"
+                        android:layout_height="28dp"
+                        android:layout_gravity="end"
+                        android:gravity="center"
+                        android:text="02/24"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="69dp"
+                android:layout_gravity="bottom"
                 android:orientation="vertical">
 
                 <TextView
+                    android:layout_marginStart="8dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="28dp"
-                    android:gravity="center"
-                    android:text="Expired date"
+                    android:layout_height="21dp"
+                    android:text="Card number"
                     android:textColor="@color/white"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/card_vaqti"
-                    android:layout_width="wrap_content"
-                    android:layout_height="28dp"
-                    android:layout_gravity="end"
-                    android:gravity="center"
-                    android:text="02/24"
+                    android:id="@+id/card_balace"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="8600 1005 8898 2249"
                     android:textColor="@color/white"
-                    android:textSize="16sp" />
+                    android:textSize="26sp"
+                    android:gravity="center"
+                    android:textStyle="bold" />
+
             </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="69dp"
-            android:layout_gravity="bottom"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_marginStart="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="21dp"
-                android:text="Card number"
-                android:textColor="@color/white"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/card_balace"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="8600 1005 8898 2249"
-                android:textColor="@color/white"
-                android:textSize="26sp"
-                android:gravity="center"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-    </FrameLayout>
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -143,8 +149,8 @@
                 tools:ignore="TouchTargetSizeCheck" />
 
 
-
         </com.google.android.material.textfield.TextInputLayout>
+
         <Space
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -176,10 +182,12 @@
 
 
         </com.google.android.material.textfield.TextInputLayout>
+
         <Space
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="16sp"
@@ -207,6 +215,7 @@
 
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
+
     <TextView
         android:text="submit"
         android:textSize="16sp"
@@ -216,7 +225,7 @@
         android:layout_height="56dp"
         android:background="@drawable/card"
         android:layout_gravity="bottom|center"
-        android:layout_marginBottom="40dp"/>
+        android:layout_marginBottom="40dp" />
 
 
 </FrameLayout>
