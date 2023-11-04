@@ -8,17 +8,14 @@ import retrofit2.Response
 import javax.inject.Inject
 
 class CardsRepositoryImpl @Inject constructor(
-    private val cardsDataSource: CardsDataSource
+    private val dataSource: CardsDataSource
 ) :CardsRepository{
-    override suspend fun getCards(bearerToken: String): Response<GetCardsesponse> {
-        return cardsDataSource.getCards(bearerToken)
+    override suspend fun addCards(addCardEntity: AddCardEntity, bearerToken: String): Response<CardResponse> {
+        return dataSource.addCard(addCardEntity,bearerToken)
     }
 
-    override suspend fun addCrad(
-        addCardEntity: AddCardEntity,
-        bearerToken: String
-    ): Response<CardResponse> {
-        return cardsDataSource.addCard(addCardEntity,bearerToken)
+    override suspend fun getCards(bearerToken: String): GetCardsesponse {
+        return dataSource.getCards(bearerToken)
     }
 
 }
