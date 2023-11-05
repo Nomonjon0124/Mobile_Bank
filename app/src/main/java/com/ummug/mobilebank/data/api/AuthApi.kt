@@ -1,16 +1,23 @@
 package com.ummug.mobilebank.data.api
 
-import com.ummug.mobilebank.domain.entity.ListCards
+import com.ummug.mobilebank.domain.entity.AddCardEntity
 import com.ummug.mobilebank.domain.entity.ResndCode
 import com.ummug.mobilebank.domain.entity.SignInEntity
 import com.ummug.mobilebank.domain.entity.SignInResend
 import com.ummug.mobilebank.domain.entity.SignInResponse
 import com.ummug.mobilebank.domain.entity.SignUpEntity
 import com.ummug.mobilebank.domain.entity.SignUpResponse
+import com.ummug.mobilebank.domain.CardNameUpdate
+import com.ummug.mobilebank.domain.entity.cards.CardResponse
+import com.ummug.mobilebank.domain.entity.cards.GetCardsesponse
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
+import retrofit2.http.PUT
+import retrofit2.http.Path
 
 interface AuthApi {
 
@@ -24,8 +31,18 @@ interface AuthApi {
     @POST("auth/sign-up/resend")
     suspend fun Resend(@Body resndCode: ResndCode):Response<SignInResend>
 
-    @GET
-    suspend fun Profile(@Body bearer_Token: ListCards)
+
+    @GET("cards")
+    suspend fun getCards(@Header("Authorization") bearerToken :String): GetCardsesponse
+
+    @POST("cards")
+    suspend fun addCard(@Body cardData: AddCardEntity,  @Header("Authorization") bearerToken:String):Response<CardResponse>
+
+    @DELETE("cards/{cardId}")
+    suspend fun deleteCard(@Path("cardId") cardId: String, @Header("Authorization") bearerToken: String):Response<String>
+
+    @PUT
+    suspend fun Update(@Body cardNameUpdate: CardNameUpdate, @Path("cardId") cardId: String, @Header("Authorization") bearerToken: String):Response<CardResponse>
 
 
 }

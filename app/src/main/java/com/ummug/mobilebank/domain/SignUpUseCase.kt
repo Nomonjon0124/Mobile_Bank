@@ -19,11 +19,11 @@ class SignUpUseCase @Inject constructor(private val authRepository: AuthReposito
         if (phone == null || phone.length != 13) return State.Error(ErrorCodes.PHONE_NUMBER)
 
         try {
-            val entity = SignUpEntity(firstName, lastName, password, phone)
+                val entity = SignUpEntity(firstName, lastName, password, phone)
 
-            val response = authRepository.signUp(entity)
-            authRepository.temporaryToken = response.token
-            authRepository.code = response.code
+                val response = authRepository.signUp(entity)
+                authRepository.temporaryToken = response.token
+                authRepository.code = response.code
 
         } catch (exception: Exception) {
             exception.printStackTrace()

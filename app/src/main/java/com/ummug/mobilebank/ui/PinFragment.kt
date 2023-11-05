@@ -1,7 +1,5 @@
 package com.ummug.mobilebank.ui
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -11,8 +9,9 @@ import com.hanks.passcodeview.PasscodeView.PasscodeViewListener
 import com.ummug.mobilebank.R
 import com.ummug.mobilebank.data.settings.Preferens
 import com.ummug.mobilebank.ui.Home.HomeFragment
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class PinFragment:Fragment(R.layout.fragment_pin) {
 
     private lateinit var passcodeView: PasscodeView
@@ -20,12 +19,9 @@ class PinFragment:Fragment(R.layout.fragment_pin) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         preferens=Preferens.getSettings(requireContext())
 
-
         passcodeView=view.findViewById(R.id.passcodeView)
-
 
         if (preferens.getPincode()?.isNullOrEmpty()==true){
             Toast.makeText(requireContext(), "otdi", Toast.LENGTH_SHORT).show()
@@ -41,7 +37,6 @@ class PinFragment:Fragment(R.layout.fragment_pin) {
                         Toast.makeText(requireContext(), "Wrong password", Toast.LENGTH_SHORT)
                             .show()
                     }
-
                     override fun onSuccess(number: String?) {
                         parentFragmentManager.beginTransaction()
                             .setReorderingAllowed(true)

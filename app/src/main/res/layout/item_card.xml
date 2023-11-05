@@ -1,76 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="350dp"
     android:layout_height="wrap_content"
-    android:layout_marginEnd="10dp"
-    android:paddingStart="22dp"
+    android:layout_marginHorizontal="10dp">
 
-    >
-
-    <FrameLayout
-        android:id="@+id/card_item"
-        android:layout_width="312dp"
-        android:layout_height="168dp"
-        android:background="@drawable/card"
-        android:padding="20dp">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="28dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/mastercard_logo_wine_1" />
-
-            <TextView
-                android:id="@+id/card_number"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="**** 2236"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-
-            <TextView
-                android:id="@+id/card_vaqti"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="02/24"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/laout"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:backgroundTint="#3862F7"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="69dp"
-            android:layout_gravity="bottom"
+            android:layout_height="match_parent"
+            android:layout_margin="24dp"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="21dp"
-                android:text="Balance"
-                android:textColor="@color/white"
-                android:textSize="14sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp">
 
-            <TextView
-                android:id="@+id/card_balace"
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:src="@drawable/img_card" />
+
+                <TextView
+                    android:id="@+id/card_nomer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="12dp"
+                    android:text="**** 2236"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="02/24"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="$ 5 300.00"
-                android:textColor="@color/white"
-                android:textSize="32sp"
-                android:textStyle="bold"
-                />
+                android:orientation="vertical">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Card Name"
+                    android:id="@+id/adaptercardname"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/balance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$ 5 300.00"
+                    android:textColor="@color/white"
+                    android:textSize="32sp" />
+            </LinearLayout>
         </LinearLayout>
-    </FrameLayout>
-</LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

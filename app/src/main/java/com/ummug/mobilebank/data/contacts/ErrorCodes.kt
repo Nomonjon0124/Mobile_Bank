@@ -8,4 +8,10 @@ object ErrorCodes {
     const val PASSWORD = 4
 
     const val CODE_ERROR=5
+
+    const val PEN_ERROR=6
+    const val CARD_NAME=7
+    const val YEAR=8
+    const val MONH=9
+
 }
