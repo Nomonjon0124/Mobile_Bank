@@ -41,8 +41,13 @@ interface AuthApi {
     @DELETE("cards/{cardId}")
     suspend fun deleteCard(@Path("cardId") cardId: String, @Header("Authorization") bearerToken: String):Response<String>
 
-    @PUT
-    suspend fun Update(@Body cardNameUpdate: CardNameUpdate, @Path("cardId") cardId: String, @Header("Authorization") bearerToken: String):Response<CardResponse>
+
+    @PUT("cards/{cardId}")
+    suspend fun updateCard(
+        @Path("cardId") cardId: String,
+        @Body cardNameUpdate: CardNameUpdate,
+        @Header("Authorization") bearerToken: String
+    ): Response<CardResponse>
 
 
 }

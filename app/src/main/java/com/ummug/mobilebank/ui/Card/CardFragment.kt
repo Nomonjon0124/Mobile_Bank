@@ -37,22 +37,25 @@ class CardFragment : Fragment(R.layout.fragment_card) {
                 .setMessage("Kartani ochirmoqchimisiz")
                 .setPositiveButton("OK") { dialog, _ ->
                     viewModel.delete(id.toString())
+                    parentFragmentManager.beginTransaction()
+                        .replace(R.id.container,HomeFragment())
+                        .commit()
                     dialog.dismiss()
                 }.show()
         }
         binding.Saqlash.setOnClickListener {
-            viewModel.update(binding.CardName.text.toString(),1,id.toString())
+            viewModel.update(binding.CardName.text.toString(),3,id.toString())
         }
-
         viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.RESUMED){
-                viewModel.openErrorFlow.collect{code->
-                    when(code){
-                        ErrorCodes.CARD_NAME->binding.CardNameError.error="Card name error"
-                    }
+//            repeatOnLifecycle(Lifecycle.State.RESUMED){
+//                viewModel.openErrorFlow.collect{code->
+//                    when(code){
+//                        ErrorCodes.CARD_NAME->binding.CardNameError.error="Card name error"
+//                    }
+//
+//                }
+//            }
 
-                }
-            }
             repeatOnLifecycle(Lifecycle.State.RESUMED){
                 viewModel.openSuccesUpdateFlow.collect{
                     Toast.makeText(requireContext(), "Ishladi", Toast.LENGTH_SHORT).show()
@@ -61,11 +64,11 @@ class CardFragment : Fragment(R.layout.fragment_card) {
                         .commit()
                 }
             }
-            repeatOnLifecycle(Lifecycle.State.RESUMED){
-                viewModel.openNetworkFlow.collect{
-                    Toast.makeText(requireContext(), "Internet Mavjud emas", Toast.LENGTH_SHORT).show()
-                }
-            }
+//            repeatOnLifecycle(Lifecycle.State.RESUMED){
+//                viewModel.openNetworkFlow.collect{
+//                    Toast.makeText(requireContext(), "Internet Mavjud emas", Toast.LENGTH_SHORT).show()
+//                }
+//            }
             repeatOnLifecycle(Lifecycle.State.RESUMED){
                 viewModel.openSuccesDeleteFlow.collect{
                     Toast.makeText(requireContext(), "message", Toast.LENGTH_SHORT).show()
