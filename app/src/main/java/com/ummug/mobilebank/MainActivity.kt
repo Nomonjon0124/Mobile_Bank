@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.ummug.mobilebank.data.settings.Preferens
 import com.ummug.mobilebank.ui.PinFragment
 import com.ummug.mobilebank.ui.SplashFragment1
+import com.ummug.mobilebank.ui.Transfer.TransferFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -29,5 +30,6 @@ class MainActivity : AppCompatActivity() {
                 .replace(R.id.container, SplashFragment1())
                 .commit()
         }
+
     }
 }
