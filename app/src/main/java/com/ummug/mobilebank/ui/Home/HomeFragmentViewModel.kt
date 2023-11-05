@@ -3,25 +3,25 @@ package com.ummug.mobilebank.ui.Home
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ummug.mobilebank.data.contacts.State
+import com.ummug.mobilebank.domain.DeleteUseCase
 import com.ummug.mobilebank.domain.GetCardsUseCase
 import com.ummug.mobilebank.domain.entity.cards.Data
-import com.ummug.mobilebank.domain.entity.cards.GetCardsesponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeFragmentViewModel @Inject constructor(
-    private val getCardUseCase: GetCardsUseCase
+    private val getCardUseCase: GetCardsUseCase,
+    private val deleteUseCase: DeleteUseCase
 ):ViewModel() {
 
 
     private val _openSuccsesFlow = MutableSharedFlow<List<Data>>()
     val openSuccesFlow:SharedFlow<List<Data>> =_openSuccsesFlow
+
 
     private val _openErrorFlow = MutableSharedFlow<Int>()
     val openErrorFlow:SharedFlow<Int> =_openErrorFlow
@@ -35,6 +35,9 @@ class HomeFragmentViewModel @Inject constructor(
             handleState(state)
         }
     }
+
+
+
 
     private suspend fun handleState(state: State) {
         when(state){

@@ -13,14 +13,15 @@ class AddCardUseCase @Inject constructor(
 ) {
 
     private var messege:String=""
-    suspend operator fun invoke(addCardEntity: AddCardEntity):State{
-        if (addCardEntity.pan.length!=16) return State.Error(6)
-        if (addCardEntity.name.length<3)return State.Error(7)
-        if (addCardEntity.expire_year<2023) return State.Error(8)
-        if (addCardEntity.expire_month<1||addCardEntity.expire_month>12) return State.Error(9)
+    suspend operator fun invoke(pan:String?,cardname:String?,year:Int?,month:Int?):State{
+
+        if (pan==null || pan.length != 16) return State.Error(ErrorCodes.PEN_ERROR)
+        if (cardname==null || cardname.length<3)return State.Error(ErrorCodes.CARD_NAME)
+        if (year==null || year<2023) return State.Error(ErrorCodes.YEAR)
+        if (month==null || month<1||month>12) return State.Error(ErrorCodes.MONH)
 
         try {
-            val response = repository.addCards(addCardEntity, "Bearer ${settings.usetoken}")
+            val response = repository.addCards(AddCardEntity(month,year, cardname,pan), "Bearer ${settings.usetoken}")
             val successful = response.isSuccessful
             if (!successful){
                 if (response.code()==422||response.code()==400){

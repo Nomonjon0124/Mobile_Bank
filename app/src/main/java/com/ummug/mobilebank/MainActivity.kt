@@ -3,8 +3,6 @@ package com.ummug.mobilebank
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.ummug.mobilebank.data.settings.Preferens
-import com.ummug.mobilebank.ui.Home.HomeFragment
-import com.ummug.mobilebank.ui.Login.LoginFragment
 import com.ummug.mobilebank.ui.PinFragment
 import com.ummug.mobilebank.ui.SplashFragment1
 import dagger.hilt.android.AndroidEntryPoint

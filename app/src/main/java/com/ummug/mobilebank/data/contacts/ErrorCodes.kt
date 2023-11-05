@@ -9,8 +9,9 @@ object ErrorCodes {
 
     const val CODE_ERROR=5
 
-    const val Card_NUMBER=6
+    const val PEN_ERROR=6
     const val CARD_NAME=7
-    const val CARD_YEAR=8
-    const val CARD_MONTH=9
+    const val YEAR=8
+    const val MONH=9
+
 }

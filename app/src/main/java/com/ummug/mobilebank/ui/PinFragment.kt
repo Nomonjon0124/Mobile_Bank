@@ -19,9 +19,7 @@ class PinFragment:Fragment(R.layout.fragment_pin) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         preferens=Preferens.getSettings(requireContext())
-
 
         passcodeView=view.findViewById(R.id.passcodeView)
 
