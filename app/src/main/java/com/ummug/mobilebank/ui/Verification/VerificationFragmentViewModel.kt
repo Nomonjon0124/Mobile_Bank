@@ -1,10 +1,7 @@
 package com.ummug.mobilebank.ui.Verification
 
 import android.content.Context
-import android.util.Log
 import android.widget.Toast
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ummug.mobilebank.data.contacts.State

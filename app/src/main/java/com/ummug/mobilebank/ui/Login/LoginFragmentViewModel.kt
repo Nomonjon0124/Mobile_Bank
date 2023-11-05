@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ummug.mobilebank.data.contacts.State
 import com.ummug.mobilebank.domain.SignInUseCase
-import com.ummug.mobilebank.domain.SignUpUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

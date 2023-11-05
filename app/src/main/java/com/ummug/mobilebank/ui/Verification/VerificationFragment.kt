@@ -16,12 +16,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.ummug.mobilebank.R
 import com.ummug.mobilebank.data.contacts.ErrorCodes
-import com.ummug.mobilebank.data.settings.Settings
 import com.ummug.mobilebank.databinding.FragmentVerificationBinding
 import com.ummug.mobilebank.ui.Home.HomeFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class VerificationFragment :Fragment(R.layout.fragment_verification) {

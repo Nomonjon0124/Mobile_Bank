@@ -7,6 +7,7 @@ import com.ummug.mobilebank.domain.entity.SignInResend
 import com.ummug.mobilebank.domain.entity.SignInResponse
 import com.ummug.mobilebank.domain.entity.SignUpEntity
 import com.ummug.mobilebank.domain.entity.SignUpResponse
+import com.ummug.mobilebank.domain.CardNameUpdate
 import com.ummug.mobilebank.domain.entity.cards.CardResponse
 import com.ummug.mobilebank.domain.entity.cards.GetCardsesponse
 import retrofit2.Response
@@ -15,6 +16,7 @@ import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Path
 
 interface AuthApi {
@@ -37,7 +39,10 @@ interface AuthApi {
     suspend fun addCard(@Body cardData: AddCardEntity,  @Header("Authorization") bearerToken:String):Response<CardResponse>
 
     @DELETE("cards/{cardId}")
-    suspend fun deleteCard(@Path("cardId") cardId: String, @Header("Authorization") bearerToken: String)
+    suspend fun deleteCard(@Path("cardId") cardId: String, @Header("Authorization") bearerToken: String):Response<String>
+
+    @PUT
+    suspend fun Update(@Body cardNameUpdate: CardNameUpdate, @Path("cardId") cardId: String, @Header("Authorization") bearerToken: String):Response<CardResponse>
 
 
 }
