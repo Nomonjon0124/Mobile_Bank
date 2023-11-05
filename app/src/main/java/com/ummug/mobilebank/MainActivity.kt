@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         if (preferens.getPincode()?.isNullOrEmpty() == false){
             supportFragmentManager.beginTransaction()
                 .setReorderingAllowed(true)
-                .replace(R.id.container,PinFragment())
+                .replace(R.id.container, PinFragment())
                 .commit()
         }
         else {
