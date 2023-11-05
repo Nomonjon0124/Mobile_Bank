@@ -42,7 +42,7 @@ class HomeFragment : Fragment(R.layout.fragmnet_home) {
             Pay.setOnClickListener {
                 val dialog= AlertDialog.Builder(requireContext())
                     .setTitle("Kartani ochirish")
-                    .setMessage("Kartan ocirasizmi")
+                    .setMessage("Kartan ochirasizmi")
                     .setPositiveButton("OK",){dialog,_->
                         dataList.removeAt(dataList.size-1)
                         adapter.notifyItemRemoved(dataList.size-1)
@@ -87,5 +87,4 @@ class HomeFragment : Fragment(R.layout.fragmnet_home) {
             }
         }
     }
-
 }
