@@ -28,7 +28,8 @@ class CardsDataSourceImpl @Inject constructor(
         id: String,
         bearerToken: String
     ): Response<CardResponse> {
-        return authApi.Update(cardNameUpdate,id,bearerToken)
+        return authApi.updateCard(id,cardNameUpdate,bearerToken)
     }
+
 
 }
