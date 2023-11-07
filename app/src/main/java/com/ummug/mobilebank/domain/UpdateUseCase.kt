@@ -3,10 +3,9 @@ package com.ummug.mobilebank.domain
 import android.annotation.SuppressLint
 import com.ummug.mobilebank.data.contacts.ErrorCodes
 import com.ummug.mobilebank.data.contacts.State
-import com.ummug.mobilebank.data.repository.Profile.CardsRepository
+import com.ummug.mobilebank.data.repository.CardsRepository
 import com.ummug.mobilebank.data.settings.Settings
 import com.ummug.mobilebank.domain.entity.cards.CardResponse
-import com.ummug.mobilebank.domain.entity.cards.GetCardsesponse
 import java.io.IOException
 import javax.inject.Inject
 

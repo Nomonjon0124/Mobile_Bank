@@ -1,4 +1,5 @@
 package com.ummug.mobilebank.domain.adapters
+
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,10 @@ import com.ummug.mobilebank.domain.entity.cards.Data
 
 class CardAdapter : ListAdapter<Data, CardViewHolder>(CharacterComparator){
     private var onClickListener: ((Int) -> Unit)? = null
+    private var onItemClickListener: OnItemClickListener? = null
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        onItemClickListener = listener
+    }
 
     fun setOnClickClickListener(clickListener: (Int) -> Unit) {
         onClickListener = clickListener
@@ -21,7 +26,7 @@ class CardAdapter : ListAdapter<Data, CardViewHolder>(CharacterComparator){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.item_card, parent, false)
-        return CardViewHolder(view, onClickListener)
+        return CardViewHolder(view, onItemClickListener!!)
     }
 
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
@@ -41,15 +46,20 @@ class CardAdapter : ListAdapter<Data, CardViewHolder>(CharacterComparator){
     }
 }
 
-class CardViewHolder(val view: View, val onClickListener: ((Int) -> Unit)?) :
+class CardViewHolder(val view: View, val onItemClickListener: OnItemClickListener ) :
     RecyclerView.ViewHolder(view) {
     init {
         val findViewById = view.findViewById<CardView>(R.id.laout)
-        findViewById.setOnClickListener { onClickListener }
+        findViewById.setOnClickListener { onItemClickListener.onItemClick(bindingAdapterPosition) }
     }
     private val name: TextView = view.findViewById(R.id.balance)
+    private val cardname:TextView=view.findViewById(R.id.adaptercardname)
 
     fun bind(card: Data) {
-        name.setText("$ " + card.amount)
+        name.setText("$ " + card.amount.substring(0,9))
+        cardname.setText(card.name)
     }
+}
+interface OnItemClickListener {
+    fun onItemClick(position: Int)
 }
