@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="327dp"
+        android:layout_height="108dp"
+        android:elevation="5dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp">
+
+            <TextView
+                android:id="@+id/month"
+                android:layout_width="67dp"
+                android:layout_height="24dp"
+                android:text="October"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="39dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center|start"
+                android:text="Status"
+                android:textColor="#979797"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="39dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center|start"
+                android:text="Status"
+                android:textColor="#979797"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:layout_gravity="center|end"
+                android:layout_marginEnd="40dp"
+                android:text="Amount"
+                android:textColor="#979797"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/item_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|top"
+                android:text="30/10/2019"
+                android:textColor="#979797"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:layout_gravity="bottom|start"
+                android:text="Company"
+                android:textColor="#979797"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="93dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center|start"
+                android:layout_marginStart="70dp"
+                android:text="Unsuccessfully"
+                android:textColor="#FF4267"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/company"
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:layout_gravity="bottom|start"
+                android:layout_marginStart="70dp"
+                android:text="Capi Telecom"
+                android:textColor="#3629B7"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/item_money"
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:layout_gravity="center|end"
+                android:text="50$"
+                android:textColor="#3629B7"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
