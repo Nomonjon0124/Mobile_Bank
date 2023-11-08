@@ -1,7 +1,7 @@
 package com.ummug.mobilebank.domain
 
 import com.ummug.mobilebank.data.contacts.State
-import com.ummug.mobilebank.data.repository.Profile.CardsRepository
+import com.ummug.mobilebank.data.repository.CardsRepository
 import com.ummug.mobilebank.data.settings.Settings
 import com.ummug.mobilebank.domain.entity.cards.GetCardsesponse
 import java.io.IOException

@@ -20,6 +20,7 @@ import com.ummug.mobilebank.domain.adapters.CardAdapter
 import com.ummug.mobilebank.domain.entity.cards.Data
 import com.ummug.mobilebank.ui.AddCard.AddCardFragment
 import com.ummug.mobilebank.ui.Card.CardFragment
+import com.ummug.mobilebank.ui.Transfer.Transfer
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -45,6 +46,13 @@ class HomeFragment : Fragment(R.layout.fragmnet_home) {
                 beginTransaction().
                     addToBackStack("HomeFragment").
                 replace(R.id.container,AddCardFragment())
+                    .commit()
+            }
+            Pay.setOnClickListener {
+                parentFragmentManager
+                    .beginTransaction()
+                    .addToBackStack("HomeFragment")
+                    .replace(R.id.container,Transfer())
                     .commit()
             }
         }

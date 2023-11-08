@@ -1,9 +1,11 @@
-package com.ummug.mobilebank.ui.Register
+package com.ummug.mobilebank.ui.Transfer
 
+import android.provider.Settings
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ummug.mobilebank.data.contacts.State
-import com.ummug.mobilebank.domain.SignUpUseCase
+import com.ummug.mobilebank.domain.TransferMoney
+import com.ummug.mobilebank.domain.VarifyTransfer
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,13 +15,16 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class RegisterFragmentViewModel @Inject constructor(
-    private val signUpUseCase: SignUpUseCase
-): ViewModel() {
+class TransferViewModel @Inject constructor(
 
+    private val transferMoney: TransferMoney,
+    private val varifyTransfer: VarifyTransfer,
 
-    private val _openVerifyFlow = MutableSharedFlow<String>()
-    val openVerifyFlow: SharedFlow<String> = _openVerifyFlow
+) : ViewModel() {
+
+    private val _openTransferFlow = MutableSharedFlow<String>()
+    val openTransferFlow: SharedFlow<String> = _openTransferFlow
+
 
     private val _errorFlow = MutableStateFlow(0)
     val errorFlow: StateFlow<Int> = _errorFlow
@@ -27,24 +32,21 @@ class RegisterFragmentViewModel @Inject constructor(
     private val _noNetworkFlow = MutableSharedFlow<Unit>()
     val noNetworkFlow: SharedFlow<Unit> = _noNetworkFlow
 
-
-
-
-
-    fun signUp(firstName: String?, lastName: String?, password: String?, phone: String?) {
+    fun transferMoney(from_id:Int,money:Int,pan:String){
         viewModelScope.launch {
-            val state = signUpUseCase(firstName, lastName, password, phone)
+            val state = transferMoney.invoke(from_id, money, pan)
             handleState(state)
         }
     }
 
 
+
+
     private suspend fun handleState(state: State) {
         when (state) {
-            is State.Success<*> -> _openVerifyFlow.emit(state.data.toString())
+            is State.Success<*> -> _openTransferFlow.emit(state.data.toString())
             is State.Error -> _errorFlow.emit(state.code)
             State.NoNetwork -> _noNetworkFlow.emit(Unit)
         }
-
     }
 }

@@ -1,8 +1,8 @@
-package com.ummug.mobilebank.data.repository.Profile
+package com.ummug.mobilebank.data.repository
 
 import com.ummug.mobilebank.datasource.CardsDataSource
-import com.ummug.mobilebank.domain.entity.AddCardEntity
 import com.ummug.mobilebank.domain.CardNameUpdate
+import com.ummug.mobilebank.domain.entity.AddCardEntity
 import com.ummug.mobilebank.domain.entity.cards.CardResponse
 import com.ummug.mobilebank.domain.entity.cards.GetCardsesponse
 import retrofit2.Response
@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 class CardsRepositoryImpl @Inject constructor(
     private val dataSource: CardsDataSource
-) :CardsRepository{
+) : CardsRepository {
     override suspend fun addCards(addCardEntity: AddCardEntity, bearerToken: String): Response<CardResponse> {
         return dataSource.addCard(addCardEntity,bearerToken)
     }

@@ -16,4 +16,12 @@ class SettingsImpl @Inject constructor(@ApplicationContext context: Context) : S
     override var usetoken: String?
         get() = preferences.getString("usetoken",null)
         set(value) =preferences.edit().putString("usetoken", value).apply()
+
+    override var transfercode: String?
+        get() = preferences.getString("transfercode",null)
+        set(value) =preferences.edit().putString("transfercode", value).apply()
+
+    override var transfertoken: String?
+        get() = preferences.getString("transfertoken",null)
+        set(value) =preferences.edit().putString("transfertoken", value).apply()
 }

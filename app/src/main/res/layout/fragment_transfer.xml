@@ -63,12 +63,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center|start"
-            android:id="@+id/firstNameError"
+            android:id="@+id/transferAmountError"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:id="@+id/firstName"
+                android:id="@+id/transferAmount"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:hint="Enter amount"
@@ -94,7 +94,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_marginTop="10dp"
-            android:id="@+id/recycler_view"
+            android:id="@+id/transferRV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -126,11 +126,13 @@
                     android:layout_gravity="center"
                     android:layout_marginStart="15dp"/>
 
-                <TextView
+                <EditText
+                    android:id="@+id/transferCradNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:text="Enter the Card Number"
+                    android:textSize="18sp"
+                    android:background="@null"
+                    android:hint="Enter the Card Number"
                     android:textColor="@color/black"
                     android:layout_gravity="center"
                     android:layout_marginStart="60dp"/>
@@ -159,6 +161,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Identified user"
+            android:id="@+id/UserName"
             android:textColor="#80000000"
             android:textSize="32sp"
             android:layout_marginTop="20dp"/>

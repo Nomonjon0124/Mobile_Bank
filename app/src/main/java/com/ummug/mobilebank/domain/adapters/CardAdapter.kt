@@ -56,7 +56,7 @@ class CardViewHolder(val view: View, val onItemClickListener: OnItemClickListene
     private val cardname:TextView=view.findViewById(R.id.adaptercardname)
 
     fun bind(card: Data) {
-        name.setText("$ " + card.amount.substring(0,9))
+        name.setText("$ " + card.amount)
         cardname.setText(card.name)
     }
 }
