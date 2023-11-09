@@ -54,8 +54,6 @@ interface AuthApi {
     @POST
     suspend fun Transfer(@Body transferRequest: TransferRequest,@Header("Authorization") bearerToken: String):Response<TransferRespons>
 
-    @POST
-    suspend fun TransferVerify(@Body transferRespons: TransferRespons,@Header("Authorization") bearerToken: String)
 
 
 }

@@ -39,9 +39,6 @@ class TransferViewModel @Inject constructor(
         }
     }
 
-
-
-
     private suspend fun handleState(state: State) {
         when (state) {
             is State.Success<*> -> _openTransferFlow.emit(state.data.toString())
