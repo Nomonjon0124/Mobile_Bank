@@ -15,13 +15,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var preferens: Preferens
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.fragmnet_home)
 
         preferens=Preferens.getSettings(this)
         if (preferens.getPincode()?.isNullOrEmpty() == false){
             supportFragmentManager.beginTransaction()
                 .setReorderingAllowed(true)
-                .replace(R.id.container,PinFragment())
+                .replace(R.id.container, PinFragment())
                 .commit()
         }
         else {

@@ -14,4 +14,6 @@ object ErrorCodes {
     const val YEAR=8
     const val MONH=9
 
+    const val MONEY=10
+
 }

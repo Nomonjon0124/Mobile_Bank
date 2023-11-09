@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ummug.mobilebank.R
 import com.ummug.mobilebank.domain.entity.cards.Data
 
-class CardAdapter : ListAdapter<Data, IstoriyaViewHolder>(CharacterComparator){
+class IstoriyaAdapter : ListAdapter<Data, IstoriyaViewHolder>(CharacterComparator){
     private var onClickListener: ((Int) -> Unit)? = null
     private var onItemClickListener: OnItemIstoriyaClickListener? = null
     fun setOnItemClickListener(listener: OnItemIstoriyaClickListener) {
@@ -46,7 +46,7 @@ class CardAdapter : ListAdapter<Data, IstoriyaViewHolder>(CharacterComparator){
     }
 }
 
-class CardViewHolder(val view: View, val onItemClickListener: OnItemIstoriyaClickListener ) :
+class IstoriyaViewHolder(val view: View, val onItemClickListener: OnItemIstoriyaClickListener ) :
     RecyclerView.ViewHolder(view) {
     init {
         val findViewById = view.findViewById<CardView>(R.id.laout)
@@ -56,10 +56,10 @@ class CardViewHolder(val view: View, val onItemClickListener: OnItemIstoriyaClic
     private val cardname:TextView=view.findViewById(R.id.adaptercardname)
 
     fun bind(card: Data) {
-        name.setText("$ " + card.amount.substring(0,9))
+        name.setText("$ " + card.amount)
         cardname.setText(card.name)
     }
 }
-interface OnItemClickListener {
+interface OnItemIstoriyaClickListener {
     fun onItemClick(position: Int)
 }

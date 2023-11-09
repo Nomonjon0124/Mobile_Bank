@@ -5,4 +5,7 @@ interface Settings {
     var code: String?
 
     var usetoken:String?
+
+    var transfertoken:String?
+    var transfercode:String?
 }

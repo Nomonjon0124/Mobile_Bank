@@ -1,4 +1,4 @@
-package com.ummug.mobilebank.data.repository.Profile
+package com.ummug.mobilebank.data.repository
 
 import com.ummug.mobilebank.domain.entity.AddCardEntity
 import com.ummug.mobilebank.domain.CardNameUpdate
