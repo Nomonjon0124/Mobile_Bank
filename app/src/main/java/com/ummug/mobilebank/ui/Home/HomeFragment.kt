@@ -3,8 +3,6 @@ package com.ummug.mobilebank.ui.Home
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
-import android.widget.AdapterView.OnItemClickListener
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.os.bundleOf
@@ -22,7 +20,6 @@ import com.ummug.mobilebank.ui.AddCard.AddCardFragment
 import com.ummug.mobilebank.ui.Card.CardFragment
 import com.ummug.mobilebank.ui.Transfer.Transfer
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -56,7 +53,7 @@ class HomeFragment : Fragment(R.layout.fragmnet_home) {
                     .commit()
             }
         }
-        adapter.setOnItemClickListener(object : com.ummug.mobilebank.domain.adapters.OnItemClickListener{
+        adapter.setOnItemClickListener(object : com.ummug.mobilebank.domain.adapters.OnItemIstoriyaClickListener{
             @SuppressLint("NotifyDataSetChanged")
             override fun onItemClick(position: Int) {
                 AlertDialog.Builder(requireContext())
