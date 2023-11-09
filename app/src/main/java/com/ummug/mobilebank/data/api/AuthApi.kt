@@ -10,6 +10,8 @@ import com.ummug.mobilebank.domain.entity.SignUpResponse
 import com.ummug.mobilebank.domain.CardNameUpdate
 import com.ummug.mobilebank.domain.entity.cards.CardResponse
 import com.ummug.mobilebank.domain.entity.cards.GetCardsesponse
+import com.ummug.mobilebank.domain.entity.transfer.TransferRequest
+import com.ummug.mobilebank.domain.entity.transfer.TransferRespons
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.DELETE
@@ -48,6 +50,12 @@ interface AuthApi {
         @Body cardNameUpdate: CardNameUpdate,
         @Header("Authorization") bearerToken: String
     ): Response<CardResponse>
+
+    @POST
+    suspend fun Transfer(@Body transferRequest: TransferRequest,@Header("Authorization") bearerToken: String):Response<TransferRespons>
+
+    @POST
+    suspend fun TransferVerify(@Body transferRespons: TransferRespons,@Header("Authorization") bearerToken: String)
 
 
 }
