@@ -3,6 +3,8 @@ package com.ummug.mobilebank.domain
 import com.ummug.mobilebank.data.contacts.State
 import com.ummug.mobilebank.data.repository.CardsRepository
 import com.ummug.mobilebank.data.settings.Settings
+import com.ummug.mobilebank.database.AppDatabase
+import com.ummug.mobilebank.database.Database
 import com.ummug.mobilebank.domain.entity.cards.GetCardsesponse
 import java.io.IOException
 import javax.inject.Inject
@@ -10,6 +12,8 @@ import javax.inject.Inject
 class GetCardsUseCase @Inject constructor(
     private val repository:CardsRepository,private val settings: Settings
 ) {
+
+    private lateinit var database: AppDatabase
 
     private lateinit var getCard:GetCardsesponse
 
@@ -19,6 +23,7 @@ class GetCardsUseCase @Inject constructor(
             val cards = repository.getCards("Bearer ${settings.usetoken}")
 
             val data = cards.data
+
             return State.Success(cards.data)
 
 

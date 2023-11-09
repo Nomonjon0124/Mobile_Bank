@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var preferens: Preferens
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragmnet_home)
+        setContentView(R.layout.activity_main)
 
         preferens=Preferens.getSettings(this)
         if (preferens.getPincode()?.isNullOrEmpty() == false){

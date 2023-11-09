@@ -12,22 +12,25 @@ import androidx.lifecycle.repeatOnLifecycle
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ummug.mobilebank.R
 import com.ummug.mobilebank.data.contacts.ErrorCodes
-import com.ummug.mobilebank.databinding.FragmentAddcardBinding
+import com.ummug.mobilebank.databinding.FragmentAddBinding
 import com.ummug.mobilebank.domain.entity.AddCardEntity
 import com.ummug.mobilebank.ui.Home.HomeFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class AddCardFragment : Fragment(R.layout.fragment_addcard) {
+ class AddCardFragment : Fragment(R.layout.fragment_add) {
 
-    private val biding:FragmentAddcardBinding by viewBinding()
+    private val biding: FragmentAddBinding by viewBinding()
+
     private val viewModel:AddCardFragmentViewModel by viewModels()
     private lateinit var addCardEntity: AddCardEntity
+
 
     @SuppressLint("UnsafeRepeatOnLifecycleDetector")
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         biding.apply {
             submit.setOnClickListener{
                 if (biding.eDate.text.length==5){

@@ -12,10 +12,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ummug.mobilebank.R
 import com.ummug.mobilebank.domain.entity.cards.Data
 
-class CardAdapter : ListAdapter<Data, IstoriyaViewHolder>(CharacterComparator){
+class CardAdapter : ListAdapter<Data, CardViewHolder>(CharacterComparator){
     private var onClickListener: ((Int) -> Unit)? = null
-    private var onItemClickListener: OnItemIstoriyaClickListener? = null
-    fun setOnItemClickListener(listener: OnItemIstoriyaClickListener) {
+    private var onItemClickListener: OnItemClickListener? = null
+    fun setOnItemClickListener(listener: OnItemClickListener) {
         onItemClickListener = listener
     }
 
@@ -23,13 +23,13 @@ class CardAdapter : ListAdapter<Data, IstoriyaViewHolder>(CharacterComparator){
         onClickListener = clickListener
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IstoriyaViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.item_card, parent, false)
-        return IstoriyaViewHolder(view, onItemClickListener!!)
+        return CardViewHolder(view, onItemClickListener!!)
     }
 
-    override fun onBindViewHolder(holder: IstoriyaViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
         val character = getItem(position)
         character?.let { holder.bind(it) }
     }
@@ -46,18 +46,30 @@ class CardAdapter : ListAdapter<Data, IstoriyaViewHolder>(CharacterComparator){
     }
 }
 
-class CardViewHolder(val view: View, val onItemClickListener: OnItemIstoriyaClickListener ) :
+class CardViewHolder(val view: View, val onItemClickListener: OnItemClickListener ) :
     RecyclerView.ViewHolder(view) {
     init {
         val findViewById = view.findViewById<CardView>(R.id.laout)
         findViewById.setOnClickListener { onItemClickListener.onItemClick(bindingAdapterPosition) }
     }
-    private val name: TextView = view.findViewById(R.id.balance)
-    private val cardname:TextView=view.findViewById(R.id.adaptercardname)
+    private val balance: TextView = view.findViewById(R.id.card_balance)
+    private val cardname:TextView=view.findViewById(R.id.name)
+    private val card_number:TextView=view.findViewById(R.id.card_number)
+    private val date:TextView=view.findViewById(R.id.montandyear)
 
     fun bind(card: Data) {
-        name.setText("$ " + card.amount.substring(0,9))
+        val d=card.amount
+        var index=-1
+        var counter=0
+        for (i in d){
+            if (i=='.'){
+               index=counter
+            }else counter++
+        }
+        balance.setText("$ " + card.amount.substring(0,index+3))
         cardname.setText(card.name)
+        card_number.setText(card.pan.substring(0,4)+" **** **** "+card.pan.substring(12,card.pan.length))
+        date.setText(card.expire_month.toString()+"/"+card.expire_year.toString())
     }
 }
 interface OnItemClickListener {

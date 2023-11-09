@@ -32,7 +32,7 @@ class TransferViewModel @Inject constructor(
     private val _noNetworkFlow = MutableSharedFlow<Unit>()
     val noNetworkFlow: SharedFlow<Unit> = _noNetworkFlow
 
-    fun transferMoney(from_id:Int,money:Int,pan:String){
+    fun transferMoney(from_id:Int,money:String,pan:String){
         viewModelScope.launch {
             val state = transferMoney.invoke(from_id, money, pan)
             handleState(state)
