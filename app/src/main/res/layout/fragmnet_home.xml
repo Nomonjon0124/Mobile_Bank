@@ -60,11 +60,11 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:id="@+id/addCard"
                     android:layout_gravity="center|top"
                     app:cardCornerRadius="10dp">
 
                     <ImageView
-                        android:id="@+id/addCard"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center|top"
@@ -99,6 +99,7 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:id="@+id/Pay"
                     android:layout_gravity="center|top"
                     app:cardCornerRadius="10dp">
 
