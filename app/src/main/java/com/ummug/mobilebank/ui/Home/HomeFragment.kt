@@ -32,7 +32,6 @@ class HomeFragment : Fragment(R.layout.fragmnet_home) {
     private lateinit var adapter: CardAdapter
     private val binding: FragmnetHomeBinding by viewBinding ()
 
-    private val database by lazy { Database.getDatabase(requireContext()) }
 
     @SuppressLint("UnsafeRepeatOnLifecycleDetector")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -79,9 +78,9 @@ class HomeFragment : Fragment(R.layout.fragmnet_home) {
                 viewModel.openSuccesFlow.collect { data ->
                     dataList.addAll(data)
                     adapter.submitList(dataList)
-                    if (database.contactDao().getCards().isEmpty()){
-                        database.contactDao().insertAll(data)
-                    }
+//                    if (database.contactDao().getCards().isEmpty()){
+//                        database.contactDao().insertAll(data)
+//                    }
                 }
             }
 
