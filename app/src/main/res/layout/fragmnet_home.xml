@@ -58,12 +58,11 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:id="@+id/addCard"
                     android:layout_gravity="center|top"
                     app:cardCornerRadius="100dp">
 
                     <ImageView
-
+                        android:id="@+id/addCard"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -100,12 +99,11 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:id="@+id/Pay"
                     android:layout_gravity="center|top"
                     app:cardCornerRadius="100dp">
 
                     <ImageView
-
+                        android:id="@+id/Pay"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
