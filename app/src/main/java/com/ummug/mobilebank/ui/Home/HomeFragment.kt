@@ -13,11 +13,13 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ummug.mobilebank.R
+import com.ummug.mobilebank.database.Database
 import com.ummug.mobilebank.databinding.FragmnetHomeBinding
 import com.ummug.mobilebank.domain.adapters.CardAdapter
 import com.ummug.mobilebank.domain.entity.cards.Data
 import com.ummug.mobilebank.ui.AddCard.AddCardFragment
 import com.ummug.mobilebank.ui.Card.CardFragment
+import com.ummug.mobilebank.ui.Transfer.Transfer
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -29,6 +31,8 @@ class HomeFragment : Fragment(R.layout.fragmnet_home) {
     private lateinit var dataList:ArrayList<Data>
     private lateinit var adapter: CardAdapter
     private val binding: FragmnetHomeBinding by viewBinding ()
+
+    private val database by lazy { Database.getDatabase(requireContext()) }
 
     @SuppressLint("UnsafeRepeatOnLifecycleDetector")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -44,8 +48,15 @@ class HomeFragment : Fragment(R.layout.fragmnet_home) {
                 replace(R.id.container,AddCardFragment())
                     .commit()
             }
+            Pay.setOnClickListener {
+                parentFragmentManager.
+                beginTransaction().
+                addToBackStack("HomeFragment").
+                replace(R.id.container,Transfer())
+                    .commit()
+            }
         }
-        adapter.setOnItemClickListener(object : com.ummug.mobilebank.domain.adapters.OnItemIstoriyaClickListener{
+        adapter.setOnItemClickListener(object : com.ummug.mobilebank.domain.adapters.OnItemClickListener{
             @SuppressLint("NotifyDataSetChanged")
             override fun onItemClick(position: Int) {
                 AlertDialog.Builder(requireContext())
@@ -68,6 +79,9 @@ class HomeFragment : Fragment(R.layout.fragmnet_home) {
                 viewModel.openSuccesFlow.collect { data ->
                     dataList.addAll(data)
                     adapter.submitList(dataList)
+                    if (database.contactDao().getCards().isEmpty()){
+                        database.contactDao().insertAll(data)
+                    }
                 }
             }
 

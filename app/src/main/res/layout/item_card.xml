@@ -63,7 +63,7 @@
 
                 <TextView
                     android:id="@+id/card_balance"
-                    android:layout_width="150dp"
+                    android:layout_width="230dp"
                     android:layout_height="31dp"
                     android:layout_gravity="bottom|start"
                     android:text="$3.469"
@@ -72,7 +72,8 @@
                     android:textSize="25sp" />
 
                 <TextView
-                    android:layout_width="46dp"
+                    android:id="@+id/montandyear"
+                    android:layout_width="60dp"
                     android:layout_height="16dp"
                     android:layout_gravity="bottom|end"
                     android:text="CARD"

@@ -59,7 +59,7 @@
         android:orientation="vertical"
         android:paddingHorizontal="20dp">
 
-        <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center|start"
@@ -70,7 +70,7 @@
                 android:layout_width="match_parent"
                 android:id="@+id/transferAmount"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 android:hint="Enter amount"
                 />
 
@@ -131,6 +131,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
+                    android:inputType="number"
                     android:background="@null"
                     android:hint="Enter the Card Number"
                     android:textColor="@color/black"
