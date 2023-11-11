@@ -29,5 +29,6 @@ class MainActivity : AppCompatActivity() {
                 .replace(R.id.container, SplashFragment1())
                 .commit()
         }
+
     }
 }
