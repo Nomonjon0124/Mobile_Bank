@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/button_color">
+    android:background="#3F51B5">
 
     <ImageView
         android:id="@+id/back"
@@ -46,7 +46,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="25dp"
                 android:text="Push Puttichai"
-                android:textColor="#3629B7"
+                android:textColor="#3F51B5"
                 android:textSize="20sp" />
 
             <FrameLayout
@@ -62,17 +62,17 @@
                     android:text="Password" />
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="end|center"
                     android:layout_marginEnd="10dp"
                     android:src="@drawable/group" />
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="2dp"
                     android:layout_gravity="bottom"
-                    android:background="#ECECEC" />
+                    android:background="#D6D6D6" />
             </FrameLayout>
 
             <FrameLayout
@@ -88,8 +88,8 @@
                     android:text="Touch ID" />
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="end|center"
                     android:layout_marginEnd="10dp"
                     android:src="@drawable/group" />
@@ -98,7 +98,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_gravity="bottom"
-                    android:background="#ECECEC" />
+                    android:background="#D6D6D6" />
             </FrameLayout>
 
             <FrameLayout
@@ -114,8 +114,8 @@
                     android:text="Languages" />
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="end|center"
                     android:layout_marginEnd="10dp"
                     android:src="@drawable/group" />
@@ -124,7 +124,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_gravity="bottom"
-                    android:background="#ECECEC" />
+                    android:background="#D6D6D6" />
             </FrameLayout>
 
             <FrameLayout
@@ -140,8 +140,8 @@
                     android:text="App information" />
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="end|center"
                     android:layout_marginEnd="10dp"
                     android:src="@drawable/group" />
@@ -150,7 +150,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_gravity="bottom"
-                    android:background="#ECECEC" />
+                    android:background="#D6D6D6" />
             </FrameLayout>
 
             <FrameLayout
@@ -166,8 +166,8 @@
                     android:text="Customer care" />
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="end|center"
                     android:layout_marginEnd="10dp"
                     android:src="@drawable/group" />
@@ -184,7 +184,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_gravity="bottom"
-                    android:background="#ECECEC" />
+                    android:background="#D6D6D6" />
             </FrameLayout>
 
 
