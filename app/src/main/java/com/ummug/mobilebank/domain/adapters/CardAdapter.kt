@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ummug.mobilebank.R
 import com.ummug.mobilebank.domain.entity.cards.Data
 
-class CardAdapter : ListAdapter<Data, CardViewHolder>(CharacterComparator){
+class CardAdapter : ListAdapter<Data, CardViewHolder>(CharacterComparator) {
     private var onClickListener: ((Int) -> Unit)? = null
     private var onItemClickListener: OnItemClickListener? = null
     fun setOnItemClickListener(listener: OnItemClickListener) {
@@ -46,32 +46,39 @@ class CardAdapter : ListAdapter<Data, CardViewHolder>(CharacterComparator){
     }
 }
 
-class CardViewHolder(val view: View, val onItemClickListener: OnItemClickListener ) :
+class CardViewHolder(val view: View, val onItemClickListener: OnItemClickListener) :
     RecyclerView.ViewHolder(view) {
     init {
         val findViewById = view.findViewById<CardView>(R.id.laout)
         findViewById.setOnClickListener { onItemClickListener.onItemClick(bindingAdapterPosition) }
     }
+
     private val balance: TextView = view.findViewById(R.id.card_balance)
-    private val cardname:TextView=view.findViewById(R.id.name)
-    private val card_number:TextView=view.findViewById(R.id.card_number)
-    private val date:TextView=view.findViewById(R.id.montandyear)
+    private val cardname: TextView = view.findViewById(R.id.name)
+    private val card_number: TextView = view.findViewById(R.id.card_number)
+    private val date: TextView = view.findViewById(R.id.montandyear)
 
     fun bind(card: Data) {
-        val d=card.amount
-        var index=-1
-        var counter=0
-        for (i in d){
-            if (i=='.'){
-               index=counter
-            }else counter++
+        val d = card.amount
+        var index = -1
+        var counter = 0
+        for (i in d) {
+            if (i == '.') {
+                index = counter
+            } else counter++
         }
-        balance.setText("$ " + card.amount.substring(0,index+3))
+        balance.setText("$ " + card.amount.substring(0, index + 3))
         cardname.setText(card.name)
-        card_number.setText(card.pan.substring(0,4)+" **** **** "+card.pan.substring(12,card.pan.length))
-        date.setText(card.expire_month.toString()+"/"+card.expire_year.toString())
+        card_number.setText(
+            card.pan.substring(0, 4) + " **** **** " + card.pan.substring(
+                12,
+                card.pan.length
+            )
+        )
+        date.setText(card.expire_month.toString() + "/" + card.expire_year.toString())
     }
 }
+
 interface OnItemClickListener {
     fun onItemClick(position: Int)
 }
