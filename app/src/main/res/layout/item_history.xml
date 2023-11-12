@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:padding="10dp"
-    android:layout_height="wrap_content">
+    android:layout_height="130dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="327dp"
         android:layout_height="108dp"
+        android:layout_gravity="center"
         android:elevation="5dp"
-        android:padding="10dp"
         app:cardCornerRadius="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -37,37 +36,24 @@
                 android:textColor="#979797"
                 android:textSize="12sp" />
 
-            <TextView
-                android:layout_width="39dp"
-                android:layout_height="16dp"
-                android:layout_gravity="center|start"
-                android:text="Status"
-                android:textColor="#979797"
-                android:textSize="12sp" />
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="16dp"
-                android:layout_gravity="center|end"
-                android:layout_marginEnd="40dp"
+                android:layout_gravity="end"
                 android:text="Amount"
-                android:textColor="#979797"
+                android:textStyle="bold"
+                android:textColor="#3F51B5"
                 android:textSize="12sp" />
 
-            <TextView
-                android:id="@+id/item_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|top"
-                android:text="30/10/2019"
-                android:textColor="#979797"
-                android:textSize="12sp" />
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="16dp"
                 android:layout_gravity="bottom|start"
-                android:text="Company"
+                android:text="Owner"
                 android:textColor="#979797"
                 android:textSize="12sp" />
 
@@ -106,4 +92,4 @@
         </FrameLayout>
     </androidx.cardview.widget.CardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
