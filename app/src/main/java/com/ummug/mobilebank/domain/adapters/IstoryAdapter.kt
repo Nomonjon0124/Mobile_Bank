@@ -11,17 +11,34 @@ import com.ummug.mobilebank.databinding.ItemHistoryBinding
 import com.ummug.mobilebank.domain.entity.History.HistoryRsponse
 
 class IstoryAdapter (
-    val list:List<HistoryRsponse>,
-    val onItemClick:(HistoryRsponse,Int)->Unit
+    var list:List<com.ummug.mobilebank.domain.entity.History.Data>,
+    val onItemClick:(com.ummug.mobilebank.domain.entity.History.Data,Int)->Unit
      ) : RecyclerView.Adapter<IstoryAdapter.VH>() {
 
 inner class VH(var itemHistoryBinding: ItemHistoryBinding):RecyclerView.ViewHolder(itemHistoryBinding.root){
-    fun onBind(historyRsponse: HistoryRsponse,position:Int){
+
+   open fun setList(data: List<com.ummug.mobilebank.domain.entity.History.Data>){
+        list=data
+        notifyDataSetChanged()
+    }
+    fun onBind(historyRsponse: com.ummug.mobilebank.domain.entity.History.Data,position:Int){
            itemHistoryBinding.apply {
-               itemDate.text=historyRsponse.data[position].card.expire_month.toString()+historyRsponse.data[position].card.expire_year.toString()
-               status.text=historyRsponse.data[position].is_output.toString()
-               company.text=historyRsponse.data[position].card.owner
-               itemMoney.text=historyRsponse.data[position].card.amount
+               var statusd=""
+               if (historyRsponse.is_output){
+                   statusd="Succesfully"
+               }else{
+                   statusd="Unsuccesfully"
+               }
+               status.text=statusd
+               company.text=historyRsponse.card.owner
+
+               var counter=0;
+               for (i in historyRsponse.card.amount){
+                   if (i== '.'){
+                       break
+                   }else counter++;
+               }
+               itemMoney.text=historyRsponse.amount.toString()
 
                itemView.setOnClickListener { onItemClick.invoke(historyRsponse,position)}
 

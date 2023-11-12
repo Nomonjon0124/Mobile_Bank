@@ -24,8 +24,7 @@ class CardAdapter : ListAdapter<Data, CardViewHolder>(CharacterComparator) {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_card, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_card, parent, false)
         return CardViewHolder(view, onItemClickListener!!)
     }
 
@@ -71,8 +70,7 @@ class CardViewHolder(val view: View, val onItemClickListener: OnItemClickListene
         cardname.setText(card.name)
         card_number.setText(
             card.pan.substring(0, 4) + " **** **** " + card.pan.substring(
-                12,
-                card.pan.length
+                12, card.pan.length
             )
         )
         date.setText(card.expire_month.toString() + "/" + card.expire_year.toString())

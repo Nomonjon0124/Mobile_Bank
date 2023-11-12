@@ -37,12 +37,12 @@ class Transfer  : Fragment(R.layout.fragment_transfer) {
         binding.send.setOnClickListener {
             viewModel.transferMoney(62,binding.transferAmount.text.toString(),binding.transferCradNumber.text.toString())
         }
-        adapter= CardAdapter()
-        adapter.submitList(database.contactDao().getCards())
-        Toast.makeText(requireContext(), database.contactDao().getCards().get(0).pan, Toast.LENGTH_SHORT).show()
-        Toast.makeText(requireContext(), "salom", Toast.LENGTH_SHORT).show()
-
-        binding.transferRV.adapter=adapter
+//        adapter= CardAdapter()
+//        adapter.submitList(database.contactDao().getCards())
+//        Toast.makeText(requireContext(), database.contactDao().getCards().get(0).pan, Toast.LENGTH_SHORT).show()
+//        Toast.makeText(requireContext(), "salom", Toast.LENGTH_SHORT).show()
+//
+//        binding.transferRV.adapter=adapter
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {

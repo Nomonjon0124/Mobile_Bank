@@ -8,6 +8,7 @@ import com.hanks.passcodeview.PasscodeView
 import com.hanks.passcodeview.PasscodeView.PasscodeViewListener
 import com.ummug.mobilebank.R
 import com.ummug.mobilebank.data.settings.Preferens
+import com.ummug.mobilebank.ui.History.HistoryFragment
 import com.ummug.mobilebank.ui.Home.HomeFragment
 import dagger.hilt.android.AndroidEntryPoint
 
