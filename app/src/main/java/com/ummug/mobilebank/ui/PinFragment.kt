@@ -8,6 +8,7 @@ import com.hanks.passcodeview.PasscodeView
 import com.hanks.passcodeview.PasscodeView.PasscodeViewListener
 import com.ummug.mobilebank.R
 import com.ummug.mobilebank.data.settings.Preferens
+import com.ummug.mobilebank.ui.History.HistoryFragment
 import com.ummug.mobilebank.ui.Home.HomeFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -40,7 +41,7 @@ class PinFragment:Fragment(R.layout.fragment_pin) {
                     override fun onSuccess(number: String?) {
                         parentFragmentManager.beginTransaction()
                             .setReorderingAllowed(true)
-                            .replace(R.id.container, HomeFragment())
+                            .replace(R.id.container, HistoryFragment())
                             .commit()
                     }
                 })

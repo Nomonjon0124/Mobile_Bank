@@ -8,6 +8,7 @@ import com.ummug.mobilebank.domain.entity.SignInResponse
 import com.ummug.mobilebank.domain.entity.SignUpEntity
 import com.ummug.mobilebank.domain.entity.SignUpResponse
 import com.ummug.mobilebank.domain.CardNameUpdate
+import com.ummug.mobilebank.domain.entity.History.HistoryRsponse
 import com.ummug.mobilebank.domain.entity.cards.CardResponse
 import com.ummug.mobilebank.domain.entity.cards.GetCardsesponse
 import com.ummug.mobilebank.domain.entity.transfer.TransferEntity
@@ -61,6 +62,9 @@ interface AuthApi {
     suspend fun verifyTransfer(
         @Body transferRespons: TransferRespons,@Header("Authorization") bearerToken: String
     ):Response<String>
+
+    @GET("history")
+    suspend fun listhistory(@Header("Authorization") bearerToken: String):Response<HistoryRsponse>
 
 
 }

@@ -76,7 +76,6 @@ class HomeFragment : Fragment(R.layout.fragmnet_home) {
 
 
         viewLifecycleOwner.lifecycleScope.launch {
-
             repeatOnLifecycle(Lifecycle.State.RESUMED){
                 viewModel.openSuccesFlow.collect { data ->
                     dataList.addAll(data)

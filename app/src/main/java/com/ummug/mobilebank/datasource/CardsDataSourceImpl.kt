@@ -4,6 +4,7 @@ import com.ummug.mobilebank.data.api.AuthApi
 import com.ummug.mobilebank.data.settings.Settings
 import com.ummug.mobilebank.domain.entity.AddCardEntity
 import com.ummug.mobilebank.domain.CardNameUpdate
+import com.ummug.mobilebank.domain.entity.History.HistoryRsponse
 import com.ummug.mobilebank.domain.entity.cards.CardResponse
 import com.ummug.mobilebank.domain.entity.cards.GetCardsesponse
 import com.ummug.mobilebank.domain.entity.transfer.TransferEntity
@@ -58,6 +59,10 @@ class CardsDataSourceImpl @Inject constructor(
         bearerToken: String
     ): Response<String> {
         return authApi.verifyTransfer(transferRespons,bearerToken)
+    }
+
+    override suspend fun listHistory(bearerToken: String): Response<HistoryRsponse> {
+        return authApi.listhistory(bearerToken)
     }
 
 

@@ -2,6 +2,7 @@ package com.ummug.mobilebank.datasource
 
 import com.ummug.mobilebank.domain.entity.AddCardEntity
 import com.ummug.mobilebank.domain.CardNameUpdate
+import com.ummug.mobilebank.domain.entity.History.HistoryRsponse
 import com.ummug.mobilebank.domain.entity.cards.CardResponse
 import com.ummug.mobilebank.domain.entity.cards.GetCardsesponse
 import com.ummug.mobilebank.domain.entity.transfer.TransferEntity
@@ -27,4 +28,6 @@ interface CardsDataSource {
    suspend fun transferMoney(transferEntity: TransferEntity,bearerToken: String):Response<TransferRespons>
 
    suspend fun transferVerify(transferRespons: TransferRespons,bearerToken: String):Response<String>
+
+   suspend fun listHistory(bearerToken: String):Response<HistoryRsponse>
 }
