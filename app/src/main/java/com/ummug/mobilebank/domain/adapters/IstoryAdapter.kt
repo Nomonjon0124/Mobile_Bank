@@ -23,8 +23,13 @@ inner class VH(var itemHistoryBinding: ItemHistoryBinding):RecyclerView.ViewHold
     }
     fun onBind(historyRsponse: com.ummug.mobilebank.domain.entity.History.Data,position:Int){
            itemHistoryBinding.apply {
-               itemDate.text=historyRsponse.card.expire_month.toString()+historyRsponse.card.expire_year.toString()
-               status.text=historyRsponse.is_output.toString()
+               var statusd=""
+               if (historyRsponse.is_output){
+                   statusd="Succesfully"
+               }else{
+                   statusd="Unsuccesfully"
+               }
+               status.text=statusd
                company.text=historyRsponse.card.owner
 
                var counter=0;
@@ -33,7 +38,7 @@ inner class VH(var itemHistoryBinding: ItemHistoryBinding):RecyclerView.ViewHold
                        break
                    }else counter++;
                }
-               itemMoney.text=historyRsponse.card.amount.substring(0,counter+2)
+               itemMoney.text=historyRsponse.amount.toString()
 
                itemView.setOnClickListener { onItemClick.invoke(historyRsponse,position)}
 
