@@ -42,376 +42,332 @@
         tools:listitem="@layout/item_card" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="350dp"
         android:layout_height="350dp"
         android:layout_gravity="center"
         android:layout_marginTop="112dp"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="350dp"
-            android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/addCard"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center|top"
+                app:cardCornerRadius="10dp">
 
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:id="@+id/addCard"
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center|top"
-                    app:cardCornerRadius="10dp">
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/vector"
+                    android:clickable="true"
+                    android:focusable="true" />
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center|top"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/vector"
-                        android:clickable="true"
-                        android:focusable="true" />
+                <TextView
+                    android:layout_width="58dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center|bottom"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center"
+                    android:text="Account and Card"
+                    android:textColor="#979797"
+                    android:textSize="12sp" />
 
-                    <TextView
-                        android:layout_width="58dp"
-                        android:layout_height="32dp"
-                        android:layout_gravity="center|bottom"
-                        android:layout_marginBottom="15dp"
-                        android:gravity="center"
-                        android:text="Account and Card"
-                        android:textColor="#979797"
-                        android:textSize="12sp" />
-
-                </androidx.cardview.widget.CardView>
-            </FrameLayout>
+            </androidx.cardview.widget.CardView>
 
             <Space
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <FrameLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="100dp"
-                android:layout_height="100dp">
+                android:layout_height="100dp"
+                android:layout_gravity="center|top"
+                app:cardCornerRadius="10dp">
 
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:id="@+id/Pay"
+                <ImageView
+                    android:id="@+id/prepaid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center|top"
-                    app:cardCornerRadius="10dp">
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/mobile_banking_2"
+                    android:clickable="true"
+                    android:focusable="true" />
 
-                    <ImageView
-                        android:id="@+id/transfer"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center|top"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/sync_devices_1"
-                        android:clickable="true"
-                        android:focusable="true" />
+                <TextView
+                    android:layout_width="58dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center|bottom"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center"
+                    android:text="Mobile prepaid"
+                    android:textColor="#979797"
+                    android:textSize="12sp" />
 
-                    <TextView
-                        android:layout_width="58dp"
-                        android:layout_height="32dp"
-                        android:layout_gravity="center|bottom"
-                        android:layout_marginBottom="15dp"
-                        android:gravity="center"
-                        android:text="Transfer"
-                        android:textColor="#979797"
-                        android:textSize="12sp" />
-
-                </androidx.cardview.widget.CardView>
-
-            </FrameLayout>
+            </androidx.cardview.widget.CardView>
 
             <Space
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <FrameLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="100dp"
-                android:layout_height="100dp">
+                android:layout_height="100dp"
+                android:layout_gravity="center|top"
+                app:cardCornerRadius="10dp">
 
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                <ImageView
+                    android:id="@+id/Credit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center|top"
-                    app:cardCornerRadius="10dp">
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/credit_card_2"
+                    android:clickable="true"
+                    android:focusable="true" />
 
-                    <ImageView
-                        android:id="@+id/withdraw"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center|top"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/credit_card_in_1"
-                        android:clickable="true"
-                        android:focusable="true" />
+                <TextView
+                    android:layout_width="58dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center|bottom"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center"
+                    android:text="Credit card"
+                    android:textColor="#979797"
+                    android:textSize="12sp" />
 
-                    <TextView
-                        android:layout_width="58dp"
-                        android:layout_height="32dp"
-                        android:layout_gravity="center|bottom"
-                        android:layout_marginBottom="15dp"
-                        android:gravity="center"
-                        android:text="Withdraw"
-                        android:textColor="#979797"
-                        android:textSize="12sp" />
-
-                </androidx.cardview.widget.CardView>
-            </FrameLayout>
+            </androidx.cardview.widget.CardView>
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
         </LinearLayout>
-
         <Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
         <LinearLayout
-            android:layout_width="350dp"
-            android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <FrameLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="100dp"
-                android:layout_height="100dp">
+                android:layout_height="100dp"
+                android:id="@+id/Pay"
+                android:layout_gravity="center|top"
+                app:cardCornerRadius="10dp">
 
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                <ImageView
+                    android:id="@+id/transfer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center|top"
-                    app:cardCornerRadius="10dp">
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/sync_devices_1"
+                    android:clickable="true"
+                    android:focusable="true" />
 
-                    <ImageView
-                        android:id="@+id/prepaid"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center|top"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/mobile_banking_2"
-                        android:clickable="true"
-                        android:focusable="true" />
+                <TextView
+                    android:layout_width="58dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center|bottom"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center"
+                    android:text="Transfer"
+                    android:textColor="#979797"
+                    android:textSize="12sp" />
 
-                    <TextView
-                        android:layout_width="58dp"
-                        android:layout_height="32dp"
-                        android:layout_gravity="center|bottom"
-                        android:layout_marginBottom="15dp"
-                        android:gravity="center"
-                        android:text="Mobile prepaid"
-                        android:textColor="#979797"
-                        android:textSize="12sp" />
-
-                </androidx.cardview.widget.CardView>
-            </FrameLayout>
+            </androidx.cardview.widget.CardView>
 
             <Space
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <FrameLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="100dp"
-                android:layout_height="100dp">
+                android:layout_height="100dp"
+                android:layout_gravity="center|top"
+                app:cardCornerRadius="10dp">
 
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                <ImageView
+                    android:id="@+id/pay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center|top"
-                    app:cardCornerRadius="10dp">
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/receipt_list_43_1"
+                    android:clickable="true"
+                    android:focusable="true" />
 
-                    <ImageView
-                        android:id="@+id/pay"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center|top"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/receipt_list_43_1"
-                        android:clickable="true"
-                        android:focusable="true" />
+                <TextView
+                    android:layout_width="58dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center|bottom"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center"
+                    android:text="Pay the bill"
+                    android:textColor="#979797"
+                    android:textSize="12sp" />
 
-                    <TextView
-                        android:layout_width="58dp"
-                        android:layout_height="32dp"
-                        android:layout_gravity="center|bottom"
-                        android:layout_marginBottom="15dp"
-                        android:gravity="center"
-                        android:text="Pay the bill"
-                        android:textColor="#979797"
-                        android:textSize="12sp" />
-
-                </androidx.cardview.widget.CardView>
-
-            </FrameLayout>
+            </androidx.cardview.widget.CardView>
 
             <Space
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <FrameLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="100dp"
-                android:layout_height="100dp">
+                android:layout_height="100dp"
+                android:layout_gravity="center|top"
+                app:cardCornerRadius="10dp">
 
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                <ImageView
+                    android:id="@+id/report"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center|top"
-                    app:cardCornerRadius="10dp">
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/file_paragraph_1"
+                    android:clickable="true"
+                    android:focusable="true" />
 
-                    <ImageView
-                        android:id="@+id/save"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center|top"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/pig_1"
-                        android:clickable="true"
-                        android:focusable="true" />
+                <TextView
+                    android:layout_width="58dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center|bottom"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center"
+                    android:text="Transaction report"
+                    android:textColor="#979797"
+                    android:textSize="10sp" />
 
-                    <TextView
-                        android:layout_width="58dp"
-                        android:layout_height="32dp"
-                        android:layout_gravity="center|bottom"
-                        android:layout_marginBottom="15dp"
-                        android:gravity="center"
-                        android:text="Save online"
-                        android:textColor="#979797"
-                        android:textSize="12sp" />
-
-                </androidx.cardview.widget.CardView>
-            </FrameLayout>
+            </androidx.cardview.widget.CardView>
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
         </LinearLayout>
-
         <Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
         <LinearLayout
-            android:layout_width="350dp"
-            android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <FrameLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="100dp"
-                android:layout_height="100dp">
+                android:layout_height="100dp"
+                android:layout_gravity="center|top"
+                app:cardCornerRadius="10dp">
 
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                <ImageView
+                    android:id="@+id/withdraw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center|top"
-                    app:cardCornerRadius="10dp">
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/credit_card_in_1"
+                    android:clickable="true"
+                    android:focusable="true" />
 
-                    <ImageView
-                        android:id="@+id/Credit"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center|top"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/credit_card_2"
-                        android:clickable="true"
-                        android:focusable="true" />
+                <TextView
+                    android:layout_width="58dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center|bottom"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center"
+                    android:text="Withdraw"
+                    android:textColor="#979797"
+                    android:textSize="12sp" />
 
-                    <TextView
-                        android:layout_width="58dp"
-                        android:layout_height="32dp"
-                        android:layout_gravity="center|bottom"
-                        android:layout_marginBottom="15dp"
-                        android:gravity="center"
-                        android:text="Credit card"
-                        android:textColor="#979797"
-                        android:textSize="12sp" />
-
-                </androidx.cardview.widget.CardView>
-            </FrameLayout>
+            </androidx.cardview.widget.CardView>
 
             <Space
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <FrameLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="100dp"
-                android:layout_height="100dp">
+                android:layout_height="100dp"
+                android:layout_gravity="center|top"
+                app:cardCornerRadius="10dp">
 
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                <ImageView
+                    android:id="@+id/save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center|top"
-                    app:cardCornerRadius="10dp">
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/pig_1"
+                    android:clickable="true"
+                    android:focusable="true" />
 
-                    <ImageView
-                        android:id="@+id/report"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center|top"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/file_paragraph_1"
-                        android:clickable="true"
-                        android:focusable="true" />
+                <TextView
+                    android:layout_width="58dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center|bottom"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center"
+                    android:text="Save online"
+                    android:textColor="#979797"
+                    android:textSize="12sp" />
 
-                    <TextView
-                        android:layout_width="58dp"
-                        android:layout_height="32dp"
-                        android:layout_gravity="center|bottom"
-                        android:layout_marginBottom="15dp"
-                        android:gravity="center"
-                        android:text="Transaction report"
-                        android:textColor="#979797"
-                        android:textSize="10sp" />
-
-                </androidx.cardview.widget.CardView>
-
-            </FrameLayout>
+            </androidx.cardview.widget.CardView>
 
             <Space
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <FrameLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="100dp"
-                android:layout_height="100dp">
+                android:layout_height="100dp"
+                android:layout_gravity="center|top"
+                app:cardCornerRadius="10dp">
 
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                <ImageView
+                    android:id="@+id/beneficiary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center|top"
-                    app:cardCornerRadius="10dp">
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/contacts_2_1"
+                    android:clickable="true"
+                    android:focusable="true" />
 
-                    <ImageView
-                        android:id="@+id/beneficiary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center|top"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/contacts_2_1"
-                        android:clickable="true"
-                        android:focusable="true" />
+                <TextView
+                    android:layout_width="58dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center|bottom"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center"
+                    android:text="Beneficiary"
+                    android:textColor="#979797"
+                    android:textSize="11sp" />
 
-                    <TextView
-                        android:layout_width="58dp"
-                        android:layout_height="32dp"
-                        android:layout_gravity="center|bottom"
-                        android:layout_marginBottom="15dp"
-                        android:gravity="center"
-                        android:text="Beneficiary"
-                        android:textColor="#979797"
-                        android:textSize="11sp" />
-
-                </androidx.cardview.widget.CardView>
-            </FrameLayout>
+            </androidx.cardview.widget.CardView>
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
         </LinearLayout>
+
+
     </LinearLayout>
 
     <FrameLayout
