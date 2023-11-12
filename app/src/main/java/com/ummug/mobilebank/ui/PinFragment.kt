@@ -41,7 +41,7 @@ class PinFragment:Fragment(R.layout.fragment_pin) {
                     override fun onSuccess(number: String?) {
                         parentFragmentManager.beginTransaction()
                             .setReorderingAllowed(true)
-                            .replace(R.id.container, HistoryFragment())
+                            .replace(R.id.container, HomeFragment())
                             .commit()
                     }
                 })
