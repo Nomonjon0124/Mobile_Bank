@@ -4,11 +4,14 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SnapHelper
 import com.ummug.mobilebank.R
 import com.ummug.mobilebank.domain.entity.cards.Data
 
@@ -19,9 +22,6 @@ class CardAdapter : ListAdapter<Data, CardViewHolder>(CharacterComparator) {
         onItemClickListener = listener
     }
 
-    fun setOnClickClickListener(clickListener: (Int) -> Unit) {
-        onClickListener = clickListener
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_card, parent, false)
@@ -49,7 +49,9 @@ class CardViewHolder(val view: View, val onItemClickListener: OnItemClickListene
     RecyclerView.ViewHolder(view) {
     init {
         val findViewById = view.findViewById<CardView>(R.id.laout)
-        findViewById.setOnClickListener { onItemClickListener.onItemClick(bindingAdapterPosition) }
+        findViewById.setOnClickListener {
+            onItemClickListener.onItemClick(bindingAdapterPosition)
+        }
     }
 
     private val balance: TextView = view.findViewById(R.id.card_balance)
@@ -57,6 +59,7 @@ class CardViewHolder(val view: View, val onItemClickListener: OnItemClickListene
     private val card_number: TextView = view.findViewById(R.id.card_number)
     private val date: TextView = view.findViewById(R.id.montandyear)
 
+    @SuppressLint("SetTextI18n")
     fun bind(card: Data) {
         val d = card.amount
         var index = -1

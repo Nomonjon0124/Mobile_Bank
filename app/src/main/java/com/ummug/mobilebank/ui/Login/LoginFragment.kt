@@ -51,7 +51,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         viewModel.noNetworkLiveData.observe(viewLifecycleOwner, noNetworkLiveDataObserver)
 
             binding.bottomSignIn.setOnClickListener {
-                val phone = binding.phoneSignIn.text?.toString()
+
+                val phone = binding.phoneSignIn.text?.toString()?.trim()
                 val password = binding.passwordSignIn.text?.toString()
                 viewModel.signIn(phone, password)
             }

@@ -12,6 +12,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ummug.mobilebank.R
 import com.ummug.mobilebank.data.contacts.ErrorCodes
+import com.ummug.mobilebank.database.Database
 import com.ummug.mobilebank.databinding.FragmentAddBinding
 import com.ummug.mobilebank.domain.entity.AddCardEntity
 import com.ummug.mobilebank.ui.Home.HomeFragment
@@ -22,6 +23,8 @@ import kotlinx.coroutines.launch
  class AddCardFragment : Fragment(R.layout.fragment_add) {
 
     private val biding: FragmentAddBinding by viewBinding()
+
+    private val database by lazy { Database.getDatabase(requireContext()) }
 
     private val viewModel:AddCardFragmentViewModel by viewModels()
     private lateinit var addCardEntity: AddCardEntity
@@ -50,6 +53,7 @@ import kotlinx.coroutines.launch
                     return@setOnClickListener
                 }
                 viewModel.addCard(addCardEntity.expire_year,addCardEntity.expire_month,addCardEntity.name,addCardEntity.pan)
+                database.contactDao().nukeTable()
             }
         }
         viewLifecycleOwner.lifecycleScope.launch {

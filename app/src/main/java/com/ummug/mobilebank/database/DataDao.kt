@@ -25,4 +25,7 @@ interface DataDao {
     @Update
     fun updatecard(contact: Data)
 
+    @Query("DELETE FROM data")
+    fun nukeTable()
+
 }

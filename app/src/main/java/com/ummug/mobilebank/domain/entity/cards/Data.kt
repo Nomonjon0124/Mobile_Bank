@@ -15,7 +15,7 @@ data class Data(
     @ColumnInfo("year")
     val expire_year: Int,
     @PrimaryKey(autoGenerate = true)
-    val id: Int=0,
+    val id: Int,
     @ColumnInfo("name")
     val name: String,
     @ColumnInfo("pan")

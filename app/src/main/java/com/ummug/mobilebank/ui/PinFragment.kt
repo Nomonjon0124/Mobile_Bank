@@ -20,32 +20,33 @@ class PinFragment:Fragment(R.layout.fragment_pin) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        preferens=Preferens.getSettings(requireContext())
+        preferens = Preferens.getSettings(requireContext())
 
-        passcodeView=view.findViewById(R.id.passcodeView)
+        passcodeView = view.findViewById(R.id.passcodeView)
 
-        if (preferens.getPincode()?.isNullOrEmpty()==true){
-            Toast.makeText(requireContext(), "otdi", Toast.LENGTH_SHORT).show()
-            preferens.setPincode(passcodeView.firstInputTip)
-
-        }else
-        {
-            Toast.makeText(requireContext(), preferens.getPincode(), Toast.LENGTH_SHORT).show()
-            passcodeView.setPasscodeLength(4)
-                .setLocalPasscode("1234")
-                .setListener(object : PasscodeViewListener {
-                    override fun onFail() {
-                        Toast.makeText(requireContext(), "Wrong password", Toast.LENGTH_SHORT)
-                            .show()
-                    }
-                    override fun onSuccess(number: String?) {
-                        parentFragmentManager.beginTransaction()
-                            .setReorderingAllowed(true)
-                            .replace(R.id.container, HomeFragment())
-                            .commit()
-                    }
-                })
+        if (preferens.getPincode()?.isNullOrEmpty() == false){
+            passcodeView.localPasscode=preferens.getPincode().toString()
         }
+            passcodeView.listener = object : PasscodeViewListener {
+                override fun onFail() {
+                    Toast.makeText(requireContext(), "Wrong password", Toast.LENGTH_SHORT)
+                        .show()
+                }
+                override fun onSuccess(number: String?) {
+                    Toast.makeText(requireContext(), number.toString(), Toast.LENGTH_SHORT).show()
+                    preferens.setPincode(number.toString())
+                    parentFragmentManager.beginTransaction()
+                        .setReorderingAllowed(true)
+                        .replace(R.id.container, HomeFragment())
+                        .commit()
+
+                }
+            }
 
     }
 }
+
+
+
+
+

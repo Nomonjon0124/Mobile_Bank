@@ -32,12 +32,13 @@
         android:gravity="center|start"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.santalu.maskedittext.MaskEditText
             android:layout_width="match_parent"
-            android:id="@+id/phoneSignIn"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            tools:ignore="TouchTargetSizeCheck"/>
+            android:inputType="phone"
+            app:met_mask="+998#########"
+            android:id="@+id/phoneSignIn"/>
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -59,6 +60,9 @@
         app:counterMaxLength="8"
         app:passwordToggleEnabled="true"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+
+
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:id="@+id/passwordSignIn"

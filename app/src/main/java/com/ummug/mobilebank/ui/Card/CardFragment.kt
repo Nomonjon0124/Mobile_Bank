@@ -12,6 +12,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ummug.mobilebank.R
 import com.ummug.mobilebank.data.contacts.ErrorCodes
+import com.ummug.mobilebank.database.Database
 import com.ummug.mobilebank.databinding.FragmentCardBinding
 import com.ummug.mobilebank.ui.Home.HomeFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,11 +23,18 @@ class CardFragment : Fragment(R.layout.fragment_card) {
 
     private val viewModel:CardViewModel by viewModels()
     private val binding:FragmentCardBinding by viewBinding()
+    private val database by lazy { Database.getDatabase(requireContext()) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val id=arguments?.getString("id")
+        val index=arguments?.getInt("index")
+
+        binding.name.text= database.contactDao().getCards()[index!!].name
+        binding.cardNumber.text= database.contactDao().getCards()[index].pan
+        binding.cardBalance.text= database.contactDao().getCards()[index].amount
+
 
         binding.Ochirish.setOnClickListener {
             AlertDialog.Builder(requireContext())
@@ -38,10 +46,12 @@ class CardFragment : Fragment(R.layout.fragment_card) {
                         .replace(R.id.container,HomeFragment())
                         .commit()
                     dialog.dismiss()
+                    database.contactDao().nukeTable()
                 }.show()
         }
         binding.Saqlash.setOnClickListener {
             viewModel.update(binding.CardName.text.toString(),3,id.toString())
+            database.contactDao().nukeTable()
         }
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
