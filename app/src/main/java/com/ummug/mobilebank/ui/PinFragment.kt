@@ -37,7 +37,7 @@ class PinFragment:Fragment(R.layout.fragment_pin) {
                     preferens.setPincode(number.toString())
                     parentFragmentManager.beginTransaction()
                         .setReorderingAllowed(true)
-                        .replace(R.id.container, HomeFragment())
+                        .replace(R.id.container, BaseFragment())
                         .commit()
 
                 }

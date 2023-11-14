@@ -11,8 +11,12 @@ import com.ummug.mobilebank.domain.CardNameUpdate
 import com.ummug.mobilebank.domain.entity.History.HistoryRsponse
 import com.ummug.mobilebank.domain.entity.cards.CardResponse
 import com.ummug.mobilebank.domain.entity.cards.GetCardsesponse
+import com.ummug.mobilebank.domain.entity.profile.My_about
+import com.ummug.mobilebank.domain.entity.profile.UpdatePaswordRequest
+import com.ummug.mobilebank.domain.entity.profile.UpdatePhone
+import com.ummug.mobilebank.domain.entity.profile.UpdatePhoneRespons
+import com.ummug.mobilebank.domain.entity.profile.UpdateRequest
 import com.ummug.mobilebank.domain.entity.transfer.TransferEntity
-import com.ummug.mobilebank.domain.entity.transfer.TransferRequest
 import com.ummug.mobilebank.domain.entity.transfer.TransferRespons
 import retrofit2.Response
 import retrofit2.http.Body
@@ -66,6 +70,17 @@ interface AuthApi {
     @GET("history")
     suspend fun listhistory(@Header("Authorization") bearerToken: String):Response<HistoryRsponse>
 
+    @GET
+    suspend fun Account_about(@Header("Authorization") bearerToken: String):Response<My_about>
 
+    @POST
+    suspend fun UpdateFullName(@Body updateRequest: UpdateRequest,@Header("Authorization") bearerToken: String):Response<String>
 
+    @POST
+    suspend fun UpdatePasword(@Body updatePaswordRequest: UpdatePaswordRequest,@Header("Authorization") bearerToken: String):Response<String>
+
+    @POST
+    suspend fun UpdatePhone(@Body updatePhone: UpdatePhone,@Header("Authorization") bearerToken: String):Response<UpdatePhoneRespons>
+    @POST
+    suspend fun UpdatePhoneVerify(@Body updatePhoneRespons: UpdatePhoneRespons,@Header("Authorization") bearerToken: String):Response<String>
 }
