@@ -12,7 +12,7 @@ import com.ummug.mobilebank.domain.entity.History.HistoryRsponse
 import com.ummug.mobilebank.domain.entity.cards.CardResponse
 import com.ummug.mobilebank.domain.entity.cards.GetCardsesponse
 import com.ummug.mobilebank.domain.entity.transfer.TransferEntity
-import com.ummug.mobilebank.domain.entity.transfer.TransferError
+import com.ummug.mobilebank.domain.entity.transfer.TransferRequest
 import com.ummug.mobilebank.domain.entity.transfer.TransferRespons
 import retrofit2.Response
 import retrofit2.http.Body
@@ -55,7 +55,7 @@ interface AuthApi {
 
     @POST("transfers")
     suspend fun transferMoney(
-        @Body transferEntity: TransferEntity,@Header("Authorization") bearerToken: String
+        @Body transferEntity: TransferEntity, @Header("Authorization") bearerToken: String
     ):Response<TransferRespons>
 
     @POST("transfers/verify")
@@ -65,6 +65,7 @@ interface AuthApi {
 
     @GET("history")
     suspend fun listhistory(@Header("Authorization") bearerToken: String):Response<HistoryRsponse>
+
 
 
 }

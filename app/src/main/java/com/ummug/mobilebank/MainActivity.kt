@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
                 .replace(R.id.container, SplashFragment1())
                 .commit()
         }
+
     }
 
     private var timer: Timer? = null
