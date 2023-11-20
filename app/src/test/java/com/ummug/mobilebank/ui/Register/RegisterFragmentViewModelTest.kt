@@ -24,7 +24,7 @@ import org.mockito.Mockito
 @OptIn(ExperimentalCoroutinesApi::class)
 class RegisterFragmentViewModelTest{
 
-    private val signUpUseCase =Mockito.mock(SignUpUseCase::class.java)
+    private val signUpUseCase = Mockito.mock(SignUpUseCase::class.java)
     private lateinit var registerFragmentViewModel: RegisterFragmentViewModel
 
     @Before

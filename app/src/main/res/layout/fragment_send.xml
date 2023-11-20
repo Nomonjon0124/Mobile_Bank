@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="40dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="29.74dp"
+            android:layout_gravity="center|top"
+            android:gravity="center"
+            android:text="Confirm"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="327dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="90dp"
+        android:text="Confirm transaction information"
+        android:textColor="#989898" />
+
+    <LinearLayout
+        android:layout_width="328dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="120dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="16sp"
+            android:gravity="center"
+            android:text="From"
+            android:textColor="#979797" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/From"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="327dp"
+            android:layout_height="44dp"
+            android:gravity="center|start">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/from"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/placeholder"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="16sp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="To"
+            android:textColor="#979797" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/To"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="327dp"
+            android:layout_height="44dp"
+            android:gravity="center|start">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/to"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/placeholder"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="16sp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Amount"
+            android:textColor="#979797" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Amount"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="327dp"
+            android:layout_height="44dp"
+            android:gravity="center|start">
+
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/placeholder"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/register"
+        android:layout_width="327dp"
+        android:layout_height="44dp"
+        android:layout_gravity="center|bottom"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="19.82dp"
+        android:background="@drawable/button_primary"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Confirm"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</FrameLayout>
