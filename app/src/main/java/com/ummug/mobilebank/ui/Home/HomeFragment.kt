@@ -42,9 +42,6 @@ class HomeFragment : Fragment(R.layout.fragmnet_home) {
     private val binding: FragmnetHomeBinding by viewBinding ()
 
     private val database by lazy { Database.getDatabase(requireContext()) }
-
-
-
     @SuppressLint("UnsafeRepeatOnLifecycleDetector")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
     private var timer: Timer? = null
     private var task: TimerTask? = null
-    private val delayInMillis: Long = 1 * 10 * 1000
+    private val delayInMillis: Long = 1 * 5 * 1000
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onStop() {
          timer = Timer()
