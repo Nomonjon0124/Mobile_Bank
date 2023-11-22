@@ -1,10 +1,8 @@
 package com.ummug.mobilebank
 
-import android.icu.util.Calendar
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.ummug.mobilebank.data.settings.Preferens

@@ -7,7 +7,6 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
 import com.ummug.mobilebank.screen.LoginScreen
 import org.junit.Rule
-import org.hamcrest.core.IsNot.not
 import org.junit.Test
 import org.junit.runner.RunWith
 

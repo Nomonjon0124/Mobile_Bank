@@ -1,11 +1,11 @@
 package com.ummug.mobilebank.screen
 
-import android.widget.LinearLayout
 import com.kaspersky.kaspresso.screens.KScreen
+import com.ummug.mobilebank.R
 import io.github.kakaocup.kakao.edit.KEditText
 import io.github.kakaocup.kakao.text.KButton
 import io.github.kakaocup.kakao.text.KTextView
-import com.ummug.mobilebank.R
+
 object LoginScreen : KScreen<LoginScreen>() {
     override val layoutId: Int? = null
     override val viewClass: Class<*>? = null
