@@ -1,19 +1,24 @@
 package com.ummug.mobilebank.datasource
 
-import com.ummug.mobilebank.data.api.AuthApi
+import com.ummug.mobilebank.data.api.Api
 import com.ummug.mobilebank.data.settings.Settings
 import com.ummug.mobilebank.domain.entity.AddCardEntity
 import com.ummug.mobilebank.domain.CardNameUpdate
 import com.ummug.mobilebank.domain.entity.History.HistoryRsponse
 import com.ummug.mobilebank.domain.entity.cards.CardResponse
 import com.ummug.mobilebank.domain.entity.cards.GetCardsesponse
+import com.ummug.mobilebank.domain.entity.profile.My_about
+import com.ummug.mobilebank.domain.entity.profile.UpdatePaswordRequest
+import com.ummug.mobilebank.domain.entity.profile.UpdatePhone
+import com.ummug.mobilebank.domain.entity.profile.UpdatePhoneRespons
+import com.ummug.mobilebank.domain.entity.profile.UpdateRequest
 import com.ummug.mobilebank.domain.entity.transfer.TransferEntity
 import com.ummug.mobilebank.domain.entity.transfer.TransferRespons
 import retrofit2.Response
 import javax.inject.Inject
 
 class CardsDataSourceImpl @Inject constructor(
-    private val authApi: AuthApi,
+    private val authApi: Api,
     private val settings: Settings
 ):CardsDataSource {
     override var transferToken: String?
@@ -63,6 +68,39 @@ class CardsDataSourceImpl @Inject constructor(
 
     override suspend fun listHistory(bearerToken: String): Response<HistoryRsponse> {
         return authApi.listhistory(bearerToken)
+    }
+
+    override suspend fun My_about(bearerToken: String): Response<My_about> {
+        return authApi.Account_about(bearerToken)
+    }
+
+    override suspend fun Update_Fuul(
+        updateRequest: UpdateRequest,
+        bearerToken: String
+    ): Response<String> {
+        return authApi.UpdateFullName(updateRequest, bearerToken)
+    }
+
+
+    override suspend fun Update_parol(
+        updatePaswordRequest: UpdatePaswordRequest,
+        bearerToken: String
+    ): Response<String> {
+       return authApi.UpdatePasword(updatePaswordRequest,bearerToken)
+    }
+
+    override suspend fun Update_phone(
+        updatePhone: UpdatePhone,
+        bearerToken: String
+    ): Response<UpdatePhoneRespons> {
+        return authApi.UpdatePhone(updatePhone, bearerToken)
+    }
+
+    override suspend fun Update_phone_very(
+        updatePhoneRespons: UpdatePhoneRespons,
+        bearerToken: String
+    ): Response<String> {
+        return authApi.UpdatePhoneVerify(updatePhoneRespons, bearerToken)
     }
 
 

@@ -1,6 +1,6 @@
 package com.ummug.mobilebank.datasource
 
-import com.ummug.mobilebank.data.api.AuthApi
+import com.ummug.mobilebank.data.api.Api
 import com.ummug.mobilebank.data.settings.Settings
 import com.ummug.mobilebank.domain.entity.ResndCode
 import com.ummug.mobilebank.domain.entity.SignInEntity
@@ -12,7 +12,7 @@ import retrofit2.Response
 import javax.inject.Inject
 
 class AuthDataSourceImpl @Inject constructor(
-    private val authApi: AuthApi, private val settings: Settings
+    private val authApi: Api, private val settings: Settings
 ) :AuthDataSource {
     override var temporaryToken: String?
         get() = settings.temporaryToken

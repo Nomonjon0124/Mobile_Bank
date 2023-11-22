@@ -46,7 +46,7 @@ class CardFragment : Fragment(R.layout.fragment_card) {
                         .replace(R.id.container,HomeFragment())
                         .commit()
                     dialog.dismiss()
-                    database.contactDao().nukeTable()
+                    database.contactDao().deletecard(database.contactDao().getCards()[index])
                 }.show()
         }
         binding.Saqlash.setOnClickListener {
