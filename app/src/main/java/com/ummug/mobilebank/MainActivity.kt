@@ -1,10 +1,8 @@
 package com.ummug.mobilebank
 
-import android.icu.util.Calendar
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.ummug.mobilebank.data.settings.Preferens
@@ -43,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
     private var timer: Timer? = null
     private var task: TimerTask? = null
-    private val delayInMillis: Long = 1 * 10 * 1000
+    private val delayInMillis: Long = 1 * 5 * 1000
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onStop() {
          timer = Timer()

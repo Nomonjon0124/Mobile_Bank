@@ -3,13 +3,10 @@ package com.ummug.mobilebank.ui.Home
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuInflater
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.os.bundleOf
-import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -25,11 +22,9 @@ import com.ummug.mobilebank.domain.adapters.CardAdapter
 import com.ummug.mobilebank.domain.entity.cards.Data
 import com.ummug.mobilebank.ui.AddCard.AddCardFragment
 import com.ummug.mobilebank.ui.Card.CardFragment
-import com.ummug.mobilebank.ui.SettingsFragment.SettingsFragment
 import com.ummug.mobilebank.ui.Transfer.Transfer
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import java.util.Arrays
 
 @AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragmnet_home) {
@@ -42,9 +37,6 @@ class HomeFragment : Fragment(R.layout.fragmnet_home) {
     private val binding: FragmnetHomeBinding by viewBinding ()
 
     private val database by lazy { Database.getDatabase(requireContext()) }
-
-
-
     @SuppressLint("UnsafeRepeatOnLifecycleDetector")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

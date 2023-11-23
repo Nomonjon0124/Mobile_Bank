@@ -17,31 +17,31 @@ class BaseFragment : Fragment(R.layout.fragment_base) {
         super.onViewCreated(view, savedInstanceState)
 
         parentFragmentManager.beginTransaction()
-            .replace(R.id.basefrag,HomeFragment())
+            .replace(R.id.basefrag, HomeFragment())
             .commit()
+
         navicayion=view.findViewById(R.id.bottomNavigationViewbase)
-        navicayion.setOnNavigationItemSelectedListener { item->
+        navicayion.setOnItemSelectedListener { item->
             when(item.itemId){
                 R.id.settings -> {
                     parentFragmentManager.beginTransaction()
                         .replace(R.id.basefrag, SettingsFragment())
                         .commit()
-                    true
                 }
                 R.id.accounts -> {
                     parentFragmentManager.beginTransaction()
                         .replace(R.id.basefrag, HomeFragment())
                         .commit()
-                    true
                 }
                 R.id.statistics -> {
                     parentFragmentManager.beginTransaction()
                         .replace(R.id.basefrag, HistoryFragment())
                         .commit()
-                    true
                 }
-                else->false
+                else->{
+                }
             }
+            true
         }
     }
 }

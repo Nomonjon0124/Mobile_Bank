@@ -24,20 +24,20 @@
         android:text="Phone number" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_marginTop="5dp"
-        android:layout_marginHorizontal="30sp"
-        android:layout_height="wrap_content"
         android:id="@+id/phoneSignInError"
-        android:gravity="center|start"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30sp"
+        android:layout_marginTop="5dp"
+        android:gravity="center|start">
 
         <com.santalu.maskedittext.MaskEditText
+            android:id="@+id/phoneSignIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone"
-            app:met_mask="+998#########"
-            android:id="@+id/phoneSignIn"/>
+            app:met_mask="+998#########" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

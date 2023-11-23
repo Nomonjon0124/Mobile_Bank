@@ -1,6 +1,6 @@
 package com.ummug.mobilebank.di
 
-import com.ummug.mobilebank.data.api.AuthApi
+import com.ummug.mobilebank.data.api.Api
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,7 +33,7 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideAuthApi(retrofit: Retrofit): AuthApi {
+    fun provideAuthApi(retrofit: Retrofit): Api {
         return retrofit.create()
     }
 

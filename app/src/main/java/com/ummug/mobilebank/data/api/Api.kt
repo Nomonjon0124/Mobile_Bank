@@ -27,7 +27,7 @@ import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
 
-interface AuthApi {
+interface Api {
 
     @POST("auth/sign-up")
     suspend fun signUp(@Body signUpEntity: SignUpEntity): SignUpResponse
@@ -83,4 +83,8 @@ interface AuthApi {
     suspend fun UpdatePhone(@Body updatePhone: UpdatePhone,@Header("Authorization") bearerToken: String):Response<UpdatePhoneRespons>
     @POST
     suspend fun UpdatePhoneVerify(@Body updatePhoneRespons: UpdatePhoneRespons,@Header("Authorization") bearerToken: String):Response<String>
+
+
+
+
 }

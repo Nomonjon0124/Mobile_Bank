@@ -50,7 +50,7 @@
                 android:textSize="20sp" />
 
             <FrameLayout
-                android:id="@+id/password"
+                android:id="@+id/about"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_margin="15dp">
@@ -62,7 +62,7 @@
                     android:padding="5dp"
                     android:layout_marginLeft="20dp"
                     android:layout_gravity="center|start"
-                    android:text="Password" />
+                    android:text="My about" />
 
                 <ImageView
                     android:layout_width="40dp"
@@ -79,7 +79,7 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/touch_id"
+                android:id="@+id/phone_update"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_margin="15dp">
@@ -91,7 +91,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|start"
-                    android:text="Touch ID" />
+                    android:text="Phone update" />
 
                 <ImageView
                     android:layout_width="40dp"
@@ -108,7 +108,7 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/languages"
+                android:id="@+id/password_update"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_margin="15dp">
@@ -120,7 +120,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|start"
-                    android:text="Languages" />
+                    android:text="Password update" />
 
                 <ImageView
                     android:layout_width="40dp"
