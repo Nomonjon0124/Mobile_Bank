@@ -75,12 +75,19 @@
             android:text="Card number" />
 
         <com.google.android.material.textfield.TextInputLayout
-
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="359dp"
+            android:layout_width="match_parent"
+
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30sp"
             android:layout_marginTop="5dp"
+            app:boxCornerRadiusBottomEnd="25dp"
+            app:boxCornerRadiusTopStart="25dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:endIconMode="clear_text"
+            app:counterMaxLength="16"
+            app:helperTextTextColor="@color/red"
             android:gravity="center|start">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -88,7 +95,8 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/rectangle_2"
                 android:hint="0000 0000 0000 0000"
-                android:inputType="textPersonName"
+                android:inputType="number"
+
                 tools:ignore="TouchTargetSizeCheck" />
 
 
@@ -113,6 +121,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30sp"
             android:layout_marginTop="5dp"
+            app:helperTextTextColor="@color/red"
             android:gravity="center|start">
 
             <com.google.android.material.textfield.TextInputEditText
