@@ -7,10 +7,13 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.ummug.mobilebank.ui.Login.LoginFragment"
-        android:label="LoginFragment" >
+        android:label="LoginFragment"
+        >
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
-            app:destination="@id/registerFragment" />
+            app:destination="@id/registerFragment"
+
+            />
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -29,13 +32,43 @@
         android:label="HomeFragment" >
         <action
             android:id="@+id/action_homeFragment_to_cardFragment"
-            app:destination="@id/cardFragment" />
+            app:destination="@id/cardFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            />
         <action
             android:id="@+id/action_homeFragment_to_addCardFragment"
-            app:destination="@id/addCardFragment" />
+            app:destination="@id/addCardFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            />
         <action
             android:id="@+id/action_homeFragment_to_transfer2"
-            app:destination="@id/transfer2" />
+            app:destination="@id/transfer2"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            />
+        <action
+            android:id="@+id/action_homeFragment_to_historyFragment"
+            app:destination="@id/historyFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            />
+        <action
+            android:id="@+id/action_homeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/cardFragment"
@@ -58,6 +91,7 @@
         android:label="SplashFragment2" >
         <action
             android:id="@+id/action_splashFragment2_to_loginFragment"
+
             app:destination="@id/loginFragment" />
     </fragment>
     <fragment
@@ -76,4 +110,12 @@
         android:id="@+id/transfer2"
         android:name="com.ummug.mobilebank.ui.Transfer.Transfer"
         android:label="Transfer" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.ummug.mobilebank.ui.History.HistoryFragment"
+        android:label="HistoryFragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.ummug.mobilebank.ui.SettingsFragment.SettingsFragment"
+        android:label="SettingsFragment" />
 </navigation>
