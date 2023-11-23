@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_pinFragment"
+            app:destination="@id/pinFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -73,7 +76,11 @@
     <fragment
         android:id="@+id/cardFragment"
         android:name="com.ummug.mobilebank.ui.Card.CardFragment"
-        android:label="CardFragment" />
+        android:label="CardFragment" >
+        <action
+            android:id="@+id/action_cardFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/splashFragment1"
         android:name="com.ummug.mobilebank.ui.SplashFragment1"
@@ -101,15 +108,19 @@
         <action
             android:id="@+id/action_verificationFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_verificationFragment_to_pinFragment"
+            app:destination="@id/pinFragment" />
     </fragment>
     <fragment
         android:id="@+id/addCardFragment"
         android:name="com.ummug.mobilebank.ui.AddCard.AddCardFragment"
-        android:label="AddCardFragment" />
-    <fragment
-        android:id="@+id/transfer2"
-        android:name="com.ummug.mobilebank.ui.Transfer.Transfer"
-        android:label="Transfer" />
+        android:label="AddCardFragment" >
+        <action
+            android:id="@+id/action_addCardFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/historyFragment"
         android:name="com.ummug.mobilebank.ui.History.HistoryFragment"
@@ -118,4 +129,21 @@
         android:id="@+id/settingsFragment"
         android:name="com.ummug.mobilebank.ui.SettingsFragment.SettingsFragment"
         android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/pinFragment"
+        android:name="com.ummug.mobilebank.ui.PinFragment"
+        android:label="PinFragment" >
+        <action
+            android:id="@+id/action_pinFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transfer2"
+        android:name="com.ummug.mobilebank.ui.Transfer.Transfer"
+        android:label="Transfer" >
+
+        <action
+            android:id="@+id/action_transfer2_to_homeFragment2"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

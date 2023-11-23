@@ -12,6 +12,7 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.ummug.mobilebank.R
 import com.ummug.mobilebank.data.contacts.ErrorCodes
 import com.ummug.mobilebank.databinding.FragmentLoginBinding
@@ -57,18 +58,12 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 viewModel.signIn(phone, password)
             }
         binding.registratsiya.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .setReorderingAllowed(true)
-                .replace(R.id.container, RegisterFragment())
-                .commit()
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
     }
         private val openVerifyLiveDataObserver: Observer<String> = Observer { it ->
             Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
-            parentFragmentManager.beginTransaction()
-                .setReorderingAllowed(true)
-                .replace(R.id.container, PinFragment())
-                .commit()
+            findNavController().navigate(R.id.action_loginFragment_to_pinFragment)
         }
         private val errorLiveDataObserver: Observer<Int> = Observer { error ->
             when (error) {

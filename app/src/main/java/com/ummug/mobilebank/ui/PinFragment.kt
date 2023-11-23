@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.hardware.fingerprint.FingerprintManagerCompat.CryptoObject
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.hanks.passcodeview.PasscodeView
 import com.hanks.passcodeview.PasscodeView.PasscodeViewListener
 import com.ummug.mobilebank.R
@@ -46,12 +47,7 @@ class PinFragment:Fragment(R.layout.fragment_pin) {
                 }
                 override fun onSuccess(number: String?) {
                     Toast.makeText(requireContext(), number.toString(), Toast.LENGTH_SHORT).show()
-                    preferens.setPincode(number.toString())
-                    parentFragmentManager.beginTransaction()
-                        .setReorderingAllowed(true)
-                        .replace(R.id.container, BaseFragment())
-                        .commit()
-
+                    findNavController().navigate(R.id.action_pinFragment_to_homeFragment)
                 }
             }
 

@@ -14,6 +14,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.ummug.mobilebank.R
 import com.ummug.mobilebank.data.contacts.ErrorCodes
 import com.ummug.mobilebank.databinding.FragmentVerificationBinding
@@ -57,10 +58,7 @@ class VerificationFragment :Fragment(R.layout.fragment_verification) {
                         .setPositiveButton("ok") { dialog,i ->
                             dialog.dismiss()
                         }.show()
-                    parentFragmentManager.beginTransaction()
-                        .setReorderingAllowed(true)
-                        .replace(R.id.container,HomeFragment())
-                        .commit()
+                    findNavController().navigate(R.id.action_verificationFragment_to_pinFragment)
                 }
             }
             repeatOnLifecycle(Lifecycle.State.RESUMED) {

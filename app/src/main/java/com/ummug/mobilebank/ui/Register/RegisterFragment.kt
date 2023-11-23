@@ -14,6 +14,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.ummug.mobilebank.R
 import com.ummug.mobilebank.data.contacts.ErrorCodes
 import com.ummug.mobilebank.databinding.FragmentRegisterBinding
@@ -58,10 +59,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                             dialog.dismiss()
                         }.show()
 
-                    parentFragmentManager.beginTransaction()
-                        .setReorderingAllowed(true)
-                        .replace(R.id.container,VerificationFragment())
-                        .commit()
+                    findNavController().navigate(R.id.action_registerFragment_to_verificationFragment)
                 }
             }
             repeatOnLifecycle(Lifecycle.State.RESUMED) {

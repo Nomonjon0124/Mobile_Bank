@@ -12,6 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.SnapHelper
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -49,18 +50,10 @@ class HomeFragment : Fragment(R.layout.fragmnet_home) {
             snapHelper.attachToRecyclerView(rvCards)
 
             addCard.setOnClickListener{
-                parentFragmentManager.
-                beginTransaction().
-                    addToBackStack("HomeFragment").
-                replace(R.id.container,AddCardFragment())
-                    .commit()
+                findNavController().navigate(R.id.action_homeFragment_to_addCardFragment)
             }
             Pay.setOnClickListener {
-                parentFragmentManager.
-                beginTransaction().
-                addToBackStack("HomeFragment").
-                replace(R.id.container,Transfer())
-                    .commit()
+                findNavController().navigate(R.id.action_homeFragment_to_transfer2)
             }
         }
         adapter.setOnItemClickListener(object : com.ummug.mobilebank.domain.adapters.OnItemClickListener{
@@ -70,10 +63,10 @@ class HomeFragment : Fragment(R.layout.fragmnet_home) {
                     .setTitle("Karta")
                     .setMessage("Kartaning ma'lumotlari bolimiga otish")
                     .setPositiveButton("OK") { dialog, _ ->
-                        parentFragmentManager.beginTransaction()
-                            .addToBackStack("HomeFragment")
-                            .replace(R.id.container,CardFragment::class.java, bundleOf("id" to database.contactDao().getCards()[position].id.toString(),"index" to position))
-                            .commit()
+                        var bundle=Bundle()
+                        bundle.putSerializable("id",database.contactDao().getCards()[position].id.toString())
+                        bundle.putInt("index",position)
+                        findNavController().navigate(R.id.action_homeFragment_to_cardFragment,bundle)
                     }.show()
             }
         })

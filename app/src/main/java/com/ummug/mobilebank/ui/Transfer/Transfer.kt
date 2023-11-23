@@ -14,6 +14,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -109,10 +110,7 @@ class Transfer  : Fragment(R.layout.fragment_transfer) {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 viewModel.openTransferFlow.collect {
                     Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
-                    parentFragmentManager.beginTransaction()
-                        .setReorderingAllowed(true)
-                        .replace(R.id.container, HomeFragment())
-                        .commit()
+                    findNavController().navigate(R.id.action_transfer2_to_homeFragment2)
                 }
             }
         }

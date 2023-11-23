@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.ummug.mobilebank.R
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -18,8 +19,7 @@ class SplashFragment1 : Fragment(R.layout.fragment_splash1) {
 
             }
             override fun onFinish() {
-                parentFragmentManager.beginTransaction().setReorderingAllowed(true)
-                    .replace(R.id.container, SplashFragment2()).commit()
+                findNavController().navigate(R.id.action_splashFragment1_to_splashFragment2)
             }
 
         }.start()

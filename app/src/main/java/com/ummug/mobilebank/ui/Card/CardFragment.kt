@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ummug.mobilebank.R
 import com.ummug.mobilebank.data.contacts.ErrorCodes
@@ -42,9 +43,7 @@ class CardFragment : Fragment(R.layout.fragment_card) {
                 .setMessage("Kartani ochirmoqchimisiz")
                 .setPositiveButton("OK") { dialog, _ ->
                     viewModel.delete(id.toString())
-                    parentFragmentManager.beginTransaction()
-                        .replace(R.id.container,HomeFragment())
-                        .commit()
+                    findNavController().navigate(R.id.action_cardFragment_to_homeFragment)
                     dialog.dismiss()
                     database.contactDao().deletecard(database.contactDao().getCards()[index])
                 }.show()
