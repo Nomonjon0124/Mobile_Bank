@@ -39,6 +39,7 @@ class AddCardFragmentViewModel @Inject constructor(private val addCardUseCase: A
             is State.Error -> _openErrorFlow.emit(state.code)
             State.NoNetwork -> _openNetworkFlow.emit(Unit)
             is State.Success<*> -> _openSuccsesScreenFlow.emit(state.data.toString())
+            else -> {}
         }
     }
 }
