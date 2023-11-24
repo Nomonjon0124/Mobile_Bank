@@ -21,7 +21,7 @@ class UpdateParolUseCase @Inject constructor(
 
         try {
             cardsRepository.Update_parol(UpdatePaswordRequest(currentparol,parol,parol_confirmation),"Bearer ${settings.usetoken}")
-        }catch (e:Exception){
+         }catch (e:Exception){
             if (e is IOException){
                 return State.NoNetwork
             }
