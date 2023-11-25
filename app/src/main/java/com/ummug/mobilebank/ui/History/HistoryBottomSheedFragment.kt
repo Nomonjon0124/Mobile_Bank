@@ -62,6 +62,14 @@ class HistoryBottomSheedFragment : BottomSheetDialogFragment() {
         return super.onCreateDialog(savedInstanceState)
     }
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return binding.root
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.listHistory()
