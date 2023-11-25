@@ -1,5 +1,6 @@
 package com.ummug.mobilebank.ui.History
 
+import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,6 +13,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.ummug.mobilebank.R
 import com.ummug.mobilebank.databinding.FragmentHistoryBottomSheedBinding
@@ -47,7 +50,17 @@ class HistoryBottomSheedFragment : BottomSheetDialogFragment() {
         }
     }
 
-
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        dialog?.setOnShowListener {
+            val d = it as BottomSheetDialog
+            val bottomSheet = d.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
+            bottomSheet?.let {
+                val behavior = BottomSheetBehavior.from(it)
+                behavior.state = BottomSheetBehavior.STATE_EXPANDED
+            }
+        }
+        return super.onCreateDialog(savedInstanceState)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
