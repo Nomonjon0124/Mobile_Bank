@@ -23,6 +23,7 @@ import com.ummug.mobilebank.domain.adapters.CardAdapter
 import com.ummug.mobilebank.domain.entity.cards.Data
 import com.ummug.mobilebank.ui.AddCard.AddCardFragment
 import com.ummug.mobilebank.ui.Card.CardFragment
+import com.ummug.mobilebank.ui.History.HistoryBottomSheedFragment
 import com.ummug.mobilebank.ui.Transfer.Transfer
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -69,6 +70,7 @@ class HomeFragment : Fragment(R.layout.fragmnet_home) {
 
 
         }
+        setUpModels()
         adapter.setOnItemClickListener(object : com.ummug.mobilebank.domain.adapters.OnItemClickListener{
             @SuppressLint("NotifyDataSetChanged")
             override fun onItemClick(position: Int) {
@@ -128,7 +130,13 @@ class HomeFragment : Fragment(R.layout.fragmnet_home) {
             }
         }
 
-
-
+    }
+    fun setUpModels(){
+        binding.apply {
+            cardView.setOnClickListener {
+                var modal = HistoryBottomSheedFragment()
+                parentFragmentManager.let { modal.show(it,"") }
+            }
+        }
     }
 }
