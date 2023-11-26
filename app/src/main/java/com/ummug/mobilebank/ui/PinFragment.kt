@@ -31,8 +31,6 @@ class PinFragment:Fragment(R.layout.fragment_pin) {
         super.onViewCreated(view, savedInstanceState)
 
 
-
-
         preferens = Preferens.getSettings(requireContext())
 
         passcodeView = view.findViewById(R.id.passcodeView)
@@ -47,6 +45,7 @@ class PinFragment:Fragment(R.layout.fragment_pin) {
                 }
                 override fun onSuccess(number: String?) {
                     Toast.makeText(requireContext(), number.toString(), Toast.LENGTH_SHORT).show()
+                    preferens.setPincode(number!!)
                     findNavController().navigate(R.id.action_pinFragment_to_homeFragment)
                 }
             }

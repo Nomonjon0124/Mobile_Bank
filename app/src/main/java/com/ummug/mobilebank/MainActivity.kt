@@ -24,21 +24,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         preferens=Preferens.getSettings(this)
-        if (preferens.getPincode()?.isNullOrEmpty() == false){
-            supportFragmentManager.beginTransaction()
-                .setReorderingAllowed(true)
-                .replace(R.id.container, PinFragment())
-                .commit()
-        }
-        else {
-            supportFragmentManager.beginTransaction()
-                .setReorderingAllowed(true)
-                .replace(R.id.container, SplashFragment1())
-                .commit()
-        }
 
     }
-
     private var timer: Timer? = null
     private var task: TimerTask? = null
     private val delayInMillis: Long = 1 * 5 * 1000

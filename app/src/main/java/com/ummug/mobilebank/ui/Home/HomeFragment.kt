@@ -38,6 +38,7 @@ class HomeFragment : Fragment(R.layout.fragmnet_home) {
     private val binding: FragmnetHomeBinding by viewBinding ()
 
     private val database by lazy { Database.getDatabase(requireContext()) }
+
     @SuppressLint("UnsafeRepeatOnLifecycleDetector")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -55,6 +56,18 @@ class HomeFragment : Fragment(R.layout.fragmnet_home) {
             Pay.setOnClickListener {
                 findNavController().navigate(R.id.action_homeFragment_to_transfer2)
             }
+            account.setOnClickListener {
+                findNavController().navigate(R.id.action_homeFragment_to_settingsFragment)
+            }
+            payment.setOnClickListener {
+                findNavController().navigate(R.id.action_homeFragment_to_payment2)
+            }
+            istoriya.setOnClickListener {
+                findNavController().navigate(R.id.action_homeFragment_to_historyFragment)
+            }
+
+
+
         }
         adapter.setOnItemClickListener(object : com.ummug.mobilebank.domain.adapters.OnItemClickListener{
             @SuppressLint("NotifyDataSetChanged")

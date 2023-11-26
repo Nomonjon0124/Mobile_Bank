@@ -17,7 +17,7 @@ class VarifyTransfer @Inject constructor(
     suspend operator fun invoke():State{
 
         try {
-            val respons=transferRepository.verifyTransfer(TransferRespons(settings.transfercode.toString(),settings.temporaryToken.toString()),"Bearer ${settings.usetoken}")
+            val respons=transferRepository.verifyTransfer(TransferRespons(settings.transfercode.toString(),settings.transfertoken.toString()),"Bearer ${settings.usetoken}")
             message=respons.message()
         }catch (e:Exception){
             e.printStackTrace()

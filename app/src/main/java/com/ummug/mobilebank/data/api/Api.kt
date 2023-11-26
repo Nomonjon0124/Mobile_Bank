@@ -11,6 +11,7 @@ import com.ummug.mobilebank.domain.CardNameUpdate
 import com.ummug.mobilebank.domain.entity.History.HistoryRsponse
 import com.ummug.mobilebank.domain.entity.cards.CardResponse
 import com.ummug.mobilebank.domain.entity.cards.GetCardsesponse
+import com.ummug.mobilebank.domain.entity.pay.payment
 import com.ummug.mobilebank.domain.entity.profile.My_about
 import com.ummug.mobilebank.domain.entity.profile.UpdatePaswordRequest
 import com.ummug.mobilebank.domain.entity.profile.UpdatePhone
@@ -70,21 +71,31 @@ interface Api {
     @GET("history")
     suspend fun listhistory(@Header("Authorization") bearerToken: String):Response<HistoryRsponse>
 
-    @GET
+    @GET("profile")
     suspend fun Account_about(@Header("Authorization") bearerToken: String):Response<My_about>
 
-    @POST
+    @POST("profile/update")
     suspend fun UpdateFullName(@Body updateRequest: UpdateRequest,@Header("Authorization") bearerToken: String):Response<String>
 
-    @POST
+    @POST("profile/update-password")
     suspend fun UpdatePasword(@Body updatePaswordRequest: UpdatePaswordRequest,@Header("Authorization") bearerToken: String):Response<String>
 
-    @POST
+    @POST("profile/update-phone")
     suspend fun UpdatePhone(@Body updatePhone: UpdatePhone,@Header("Authorization") bearerToken: String):Response<UpdatePhoneRespons>
-    @POST
+    @POST("profile/update-phone/verify")
     suspend fun UpdatePhoneVerify(@Body updatePhoneRespons: UpdatePhoneRespons,@Header("Authorization") bearerToken: String):Response<String>
 
 
+    @POST("payments/pay")
+    suspend fun PaymentAmount(@Body payment: payment,@Header("Authorization") bearerToken: String):Response<UpdatePhoneRespons>
+
+    @POST("payments/pay/verify")
+    suspend fun PaymentVerify(@Body updatePhoneRespons: UpdatePhoneRespons,@Header("Authorization") bearerToken: String):Response<String>
 
 
+
+    @GET("history/for-card/{cardId}")
+    suspend fun getHistoryForCard(
+        @Path("cardId") cardId: Int,@Header("Authorization") bearerToken: String
+    ): Response<Unit>
 }

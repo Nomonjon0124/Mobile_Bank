@@ -16,4 +16,7 @@ object ErrorCodes {
 
     const val MONEY=10
 
+    const val new_parol=11
+    const val new_confirm_parol=11
+
 }

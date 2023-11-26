@@ -128,13 +128,13 @@
             app:helperTextTextColor="@color/red"
             android:gravity="center|start">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <com.santalu.maskedittext.MaskEditText
+                android:id="@+id/phoneSignIn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rectangle_2"
-                android:hint="02/24"
-                android:inputType="textPersonName"
-                tools:ignore="TouchTargetSizeCheck" />
+                android:inputType="phone"
+                app:met_mask="## ####"
+                />
 
 
         </com.google.android.material.textfield.TextInputLayout>

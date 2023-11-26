@@ -16,11 +16,14 @@ class UpdateParolUseCase @Inject constructor(
     suspend operator fun invoke(currentparol:String?,parol:String?,parol_confirmation:String?):State{
 
         if (currentparol==null || currentparol.length<4)return State.Error(ErrorCodes.PASSWORD)
-        if (parol==null || parol.length<4)return State.Error(ErrorCodes.CODE_ERROR)
-        if (parol_confirmation==null || parol_confirmation.length<4 || parol!=parol_confirmation)return State.Error(ErrorCodes.CODE_ERROR)
+        if (parol==null || parol.length<4)return State.Error(ErrorCodes.new_parol)
+        if (parol_confirmation==null || parol_confirmation.length<4 || parol!=parol_confirmation)return State.Error(ErrorCodes.new_confirm_parol)
 
         try {
-            cardsRepository.Update_parol(UpdatePaswordRequest(currentparol,parol,parol_confirmation),"Bearer ${settings.usetoken}")
+            val respons=cardsRepository.Update_parol(UpdatePaswordRequest(currentparol,parol,parol_confirmation),"Bearer ${settings.usetoken}")
+            if (respons.code()==422){
+                return State.Error(ErrorCodes.PASSWORD)
+            }
          }catch (e:Exception){
             if (e is IOException){
                 return State.NoNetwork

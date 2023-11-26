@@ -18,7 +18,8 @@ class UpdatePhoneVeryUseCase @Inject constructor(
         if (code==null || code.length!=6 || code!=settings.transfercode)return State.Error(ErrorCodes.PASSWORD)
 
         try {
-            cardsRepository.Update_phone_very(UpdatePhoneRespons(code,settings.transfertoken!!),"Bearer ${settings.usetoken}")
+
+            cardsRepository.Update_phone_very(UpdatePhoneRespons(code,cardsRepository.transferToken.toString()),"Bearer ${settings.usetoken}")
         }catch (e:Exception){
             if (e is IOException){
                 return  State.NoNetwork

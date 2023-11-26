@@ -106,17 +106,19 @@
             android:textColor="@color/black"
             android:textSize="18sp" />
 
-        <EditText
+        <com.santalu.maskedittext.MaskEditText
             android:id="@+id/e_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:inputType="number"
+            app:met_mask="#### #### #### ####"
             android:layout_marginVertical="2dp"
             android:layout_weight="1"
             android:background="@drawable/back1"
             android:ems="10"
             android:hint="0000 0000 0000 0000"
-            android:inputType="text"
-            android:paddingStart="8dp" />
+            android:paddingStart="8dp"
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -139,17 +141,19 @@
             android:textColor="@color/black"
             android:textSize="18sp" />
 
-        <EditText
+        <com.santalu.maskedittext.MaskEditText
             android:id="@+id/e_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:inputType="number"
+            app:met_mask="## ####"
             android:layout_marginVertical="2dp"
             android:layout_weight="1"
             android:background="@drawable/back1"
             android:ems="10"
-            android:hint="02/12"
-            android:inputType="number"
-            android:paddingStart="8dp" />
+            android:hint="02 20023"
+            android:paddingStart="8dp"
+            />
     </LinearLayout>
 
     <Button

@@ -5,6 +5,7 @@ import com.ummug.mobilebank.domain.CardNameUpdate
 import com.ummug.mobilebank.domain.entity.History.HistoryRsponse
 import com.ummug.mobilebank.domain.entity.cards.CardResponse
 import com.ummug.mobilebank.domain.entity.cards.GetCardsesponse
+import com.ummug.mobilebank.domain.entity.pay.payment
 import com.ummug.mobilebank.domain.entity.profile.My_about
 import com.ummug.mobilebank.domain.entity.profile.UpdatePaswordRequest
 import com.ummug.mobilebank.domain.entity.profile.UpdatePhone
@@ -45,4 +46,7 @@ interface CardsDataSource {
    suspend fun Update_phone(updatePhone: UpdatePhone,bearerToken: String):Response<UpdatePhoneRespons>
 
    suspend fun    Update_phone_very(updatePhoneRespons: UpdatePhoneRespons,bearerToken: String):Response<String>
+
+   suspend fun PaymentAmount(payment: payment,bearerToken: String):Response<UpdatePhoneRespons>
+   suspend fun PaymentVerify(updatePhoneRespons: UpdatePhoneRespons,bearerToken: String):Response<String>
 }

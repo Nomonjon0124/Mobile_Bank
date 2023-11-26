@@ -37,18 +37,21 @@ import kotlinx.coroutines.launch
 
         biding.apply {
             submit.setOnClickListener{
-                if (biding.eDate.text.length==5){
+
+                val date=biding.eDate.text?.toString()?.replace("\\s+".toRegex(), "")
+
+                if (date?.length==5){
                     addCardEntity=AddCardEntity(
-                        biding.eDate.text.substring(0,1).toInt()
-                        ,biding.eDate.text.substring(1,biding.eDate.text.length).toInt()
+                        date.substring(0,1).toInt()
+                        ,date.substring(1,date.length).toInt()
                         ,biding.eName.text.toString(),
-                        biding.eNumber.text.toString())
-                }else if (biding.eDate.text.length==6){
+                        biding.eNumber.text.toString().replace("\\s+".toRegex(), ""))
+                }else if (date?.length==6){
                     addCardEntity=AddCardEntity(
-                        biding.eDate.text.substring(0,2).toInt()
-                        ,biding.eDate.text.substring(2,biding.eDate.text.length).toInt()
+                        date.substring(0,2).toInt()
+                        ,date.substring(2,date.length).toInt()
                         ,biding.eName.text.toString(),
-                        biding.eNumber.text.toString())
+                        biding.eNumber.text.toString().replace("\\s+".toRegex(), ""))
                 }else{
                     Toast.makeText(requireContext(), "Nimadir Nato`g`ri kiritildi", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
@@ -61,8 +64,7 @@ import kotlinx.coroutines.launch
             repeatOnLifecycle(Lifecycle.State.RESUMED){
                 viewModel.openSuccsesScreenFlow.collect{it->
                     Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
-                    findNavController().navigate(R.id.action_cardFragment_to_homeFragment)
-
+                    findNavController().navigate(R.id.action_addCardFragment_to_succesFull)
                 }
 
             }

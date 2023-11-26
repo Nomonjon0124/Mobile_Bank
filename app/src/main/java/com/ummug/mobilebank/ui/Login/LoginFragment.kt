@@ -53,7 +53,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
             binding.bottomSignIn.setOnClickListener {
 
-                val phone = binding.phoneSignIn.text?.toString()?.trim()
+                var phone = binding.phoneSignIn.text?.toString()
+                phone = phone?.replace("\\s+".toRegex(), "")
+
+
                 val password = binding.passwordSignIn.text?.toString()
                 viewModel.signIn(phone, password)
             }

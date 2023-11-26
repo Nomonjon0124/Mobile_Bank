@@ -24,7 +24,6 @@ class UpdateFuulNameUseCase @Inject constructor(
             if (e is IOException){
                 return State.NoNetwork
             }
-            return State.Error(1)
         }
         return State.Success(Unit)
     }

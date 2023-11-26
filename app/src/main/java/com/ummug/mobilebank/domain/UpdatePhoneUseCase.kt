@@ -5,6 +5,7 @@ import com.ummug.mobilebank.data.contacts.State
 import com.ummug.mobilebank.data.repository.CardsRepository
 import com.ummug.mobilebank.data.settings.Settings
 import com.ummug.mobilebank.domain.entity.profile.UpdatePhone
+import com.ummug.mobilebank.domain.entity.profile.UpdatePhoneRespons
 import java.io.IOException
 import javax.inject.Inject
 
@@ -18,10 +19,16 @@ class UpdatePhoneUseCase @Inject constructor(
         if (phone==null || phone.length!=13) return State.Error(ErrorCodes.PHONE_NUMBER)
 
         try {
-            val updatePhone =
+            val respons =
                 cardsRepository.Update_phone(UpdatePhone(phone), "Bearer ${settings.usetoken}")
-            settings.transfercode=updatePhone.body()?.code
-            settings.transfertoken=updatePhone.body()?.token
+            cardsRepository.transfercode=respons.body()?.code
+            cardsRepository.transferToken=respons.body()?.token
+
+            cardsRepository.Update_phone_very(UpdatePhoneRespons(respons.body()?.code.toString(),respons.body()?.token.toString()),"Bearer ${settings.usetoken}")
+
+            if (respons.code()==400 || respons.code()==404 || respons.code()==422 || respons.code()==406  ){
+                return return State.Error(ErrorCodes.PHONE_NUMBER)
+            }
 
         }catch (e:Exception){
             if (e is IOException){
@@ -29,6 +36,6 @@ class UpdatePhoneUseCase @Inject constructor(
             }
         }
 
-        return State.Success(Unit)
+        return State.Success(cardsRepository.transfercode)
     }
 }

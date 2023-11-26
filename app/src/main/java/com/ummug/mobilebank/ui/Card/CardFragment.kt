@@ -43,7 +43,7 @@ class CardFragment : Fragment(R.layout.fragment_card) {
                 .setMessage("Kartani ochirmoqchimisiz")
                 .setPositiveButton("OK") { dialog, _ ->
                     viewModel.delete(id.toString())
-                    findNavController().navigate(R.id.action_cardFragment_to_homeFragment)
+
                     dialog.dismiss()
                     database.contactDao().deletecard(database.contactDao().getCards()[index])
                 }.show()
@@ -72,9 +72,7 @@ class CardFragment : Fragment(R.layout.fragment_card) {
                 repeatOnLifecycle(Lifecycle.State.RESUMED){
                     viewModel.openSuccesDeleteFlow.collect{
                         Toast.makeText(requireContext(), "message", Toast.LENGTH_SHORT).show()
-                        parentFragmentManager.beginTransaction()
-                            .replace(R.id.container,HomeFragment())
-                            .commit()
+                        findNavController().navigate(R.id.action_cardFragment_to_succesFull)
                     }
                 }
         }
@@ -91,9 +89,7 @@ class CardFragment : Fragment(R.layout.fragment_card) {
             repeatOnLifecycle(Lifecycle.State.RESUMED){
                 viewModel.openSuccesUpdateFlow.collect{
                     Toast.makeText(requireContext(), "Ishladi", Toast.LENGTH_SHORT).show()
-                    parentFragmentManager.beginTransaction()
-                        .replace(R.id.container,HomeFragment())
-                        .commit()
+                    findNavController().navigate(R.id.action_cardFragment_to_succesFull)
                 }
             }}
         viewLifecycleOwner.lifecycleScope.launch {

@@ -6,17 +6,32 @@ import com.ummug.mobilebank.domain.entity.AddCardEntity
 import com.ummug.mobilebank.domain.entity.History.HistoryRsponse
 import com.ummug.mobilebank.domain.entity.cards.CardResponse
 import com.ummug.mobilebank.domain.entity.cards.GetCardsesponse
+import com.ummug.mobilebank.domain.entity.pay.payment
 import com.ummug.mobilebank.domain.entity.profile.My_about
 import com.ummug.mobilebank.domain.entity.profile.UpdatePaswordRequest
 import com.ummug.mobilebank.domain.entity.profile.UpdatePhone
 import com.ummug.mobilebank.domain.entity.profile.UpdatePhoneRespons
 import com.ummug.mobilebank.domain.entity.profile.UpdateRequest
+import com.ummug.mobilebank.domain.entity.transfer.TransferEntity
+import com.ummug.mobilebank.domain.entity.transfer.TransferRespons
 import retrofit2.Response
 import javax.inject.Inject
 
 class CardsRepositoryImpl @Inject constructor(
     private val dataSource: CardsDataSource
 ) : CardsRepository {
+
+    override var transferToken: String?
+        get() = dataSource.transferToken
+        set(value) {
+            dataSource.transferToken=value
+        }
+    override var transfercode: String?
+        get() = dataSource.transfercode
+        set(value) {
+            dataSource.transfercode=value
+        }
+
     override suspend fun addCards(addCardEntity: AddCardEntity, bearerToken: String): Response<CardResponse> {
         return dataSource.addCard(addCardEntity,bearerToken)
     }
@@ -71,6 +86,34 @@ class CardsRepositoryImpl @Inject constructor(
         bearerToken: String
     ): Response<String> {
         return dataSource.Update_phone_very(updatePhoneRespons, bearerToken)
+    }
+
+    override suspend fun PaymentAmount(
+        payment: payment,
+        bearerToken: String
+    ): Response<UpdatePhoneRespons> {
+        return dataSource.PaymentAmount(payment, bearerToken)
+    }
+
+    override suspend fun PaymentVerify(
+        updatePhoneRespons: UpdatePhoneRespons,
+        bearerToken: String
+    ): Response<String> {
+        return dataSource.PaymentVerify(updatePhoneRespons, bearerToken)
+    }
+
+    override suspend fun transferMoney(
+        transferEntity: TransferEntity,
+        bearerToken: String
+    ): Response<TransferRespons> {
+        return dataSource.transferMoney(transferEntity, bearerToken)
+    }
+
+    override suspend fun verifyTransfer(
+        transferRespons: TransferRespons,
+        bearerToken: String
+    ): Response<String> {
+        return dataSource.transferVerify(transferRespons, bearerToken)
     }
 
 }

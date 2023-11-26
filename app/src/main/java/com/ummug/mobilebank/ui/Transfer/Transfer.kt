@@ -19,6 +19,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
+import androidx.work.NetworkType
+import androidx.work.OneTimeWorkRequest
+import androidx.work.WorkManager
+import androidx.work.WorkRequest
+import androidx.work.workDataOf
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ummug.mobilebank.R
 import com.ummug.mobilebank.data.contacts.ErrorCodes
@@ -29,8 +34,10 @@ import com.ummug.mobilebank.domain.adapters.CardAdapter
 import com.ummug.mobilebank.domain.entity.cards.Data
 import com.ummug.mobilebank.ui.Card.CardFragment
 import com.ummug.mobilebank.ui.Home.HomeFragment
+import com.ummug.mobilebank.ui.MyWork
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import java.util.concurrent.TimeUnit
 
 @AndroidEntryPoint
 class Transfer  : Fragment(R.layout.fragment_transfer) {
@@ -62,7 +69,6 @@ class Transfer  : Fragment(R.layout.fragment_transfer) {
             @SuppressLint("NotifyDataSetChanged")
             override fun onItemClick(position: Int) {
                 val item=database.contactDao().getCards().get(position)
-
                 AlertDialog.Builder(requireContext())
                     .setTitle("Karta ma'lumotlari")
                     .setMessage("${item.id} , ${item.expire_month}/${item.expire_year} , \n ${item.pan} , ${item.name}")
@@ -74,12 +80,13 @@ class Transfer  : Fragment(R.layout.fragment_transfer) {
             }
         })
         binding.send.setOnClickListener {
+            val amount=binding.transferAmount.text.toString().replace("\\s+".toRegex(), "")
             if (id!=-1){
-                if (index.toDouble()<binding.transferAmount.text.toString().toDouble()){
+                if (!amount.isEmpty() && index.toDouble()<amount.toDouble()){
                     Toast.makeText(requireContext(), "Mablag' yetarli emas", Toast.LENGTH_SHORT).show()
                 }
                 else{
-                    viewModel.transferMoney(id,binding.transferAmount.text.toString(),binding.transferCradNumber.text.toString())
+                    viewModel.transferMoney(id,amount,binding.transferCradNumber.text.toString().replace("\\s+".toRegex(), ""))
                     database.contactDao().nukeTable()
                 }
             }
@@ -110,9 +117,34 @@ class Transfer  : Fragment(R.layout.fragment_transfer) {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 viewModel.openTransferFlow.collect {
                     Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
-                    findNavController().navigate(R.id.action_transfer2_to_homeFragment2)
+                    onetime(it)
+                    android.app.AlertDialog.Builder(requireContext())
+                        .setMessage(it)
+                        .setTitle("Verification code")
+                        .setPositiveButton("ok") { dialog,i ->
+                            dialog.dismiss()
+                        }.show()
+                    findNavController().navigate(R.id.action_transfer2_to_transferVeryfication)
                 }
             }
         }
+    }
+
+
+    fun onetime(code:String){
+        val constraints=androidx.work.Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.NOT_REQUIRED)
+            .setRequiresCharging(true)
+            .build()
+
+        val data = workDataOf("code" to code)
+        val myWorkRequest: WorkRequest = OneTimeWorkRequest.Builder(MyWork::class.java)
+            .setConstraints(constraints)
+            .setInputData(data)
+            .build()
+
+
+        WorkManager.getInstance(requireContext()).enqueue(myWorkRequest)
+
     }
 }

@@ -15,8 +15,8 @@
        android:orientation="horizontal"
        >
        <ImageButton
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
+           android:layout_width="20dp"
+           android:layout_height="25dp"
            android:background="@drawable/back"
            android:id="@+id/backHome"
            android:layout_margin="20dp"
@@ -156,10 +156,6 @@
             android:inputType="textPersonName"
             />
     </com.google.android.material.textfield.TextInputLayout>
-    <Space
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
     <LinearLayout
         android:id="@+id/Saqlash"
         android:layout_width="328dp"
@@ -180,4 +176,12 @@
             android:textColor="@color/black"
             />
     </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCardHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/item_transacations"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        />
+
 </LinearLayout>

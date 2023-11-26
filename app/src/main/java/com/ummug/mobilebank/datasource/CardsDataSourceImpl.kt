@@ -7,6 +7,7 @@ import com.ummug.mobilebank.domain.CardNameUpdate
 import com.ummug.mobilebank.domain.entity.History.HistoryRsponse
 import com.ummug.mobilebank.domain.entity.cards.CardResponse
 import com.ummug.mobilebank.domain.entity.cards.GetCardsesponse
+import com.ummug.mobilebank.domain.entity.pay.payment
 import com.ummug.mobilebank.domain.entity.profile.My_about
 import com.ummug.mobilebank.domain.entity.profile.UpdatePaswordRequest
 import com.ummug.mobilebank.domain.entity.profile.UpdatePhone
@@ -101,6 +102,20 @@ class CardsDataSourceImpl @Inject constructor(
         bearerToken: String
     ): Response<String> {
         return authApi.UpdatePhoneVerify(updatePhoneRespons, bearerToken)
+    }
+
+    override suspend fun PaymentAmount(
+        payment: payment,
+        bearerToken: String
+    ): Response<UpdatePhoneRespons> {
+        return authApi.PaymentAmount(payment,bearerToken)
+    }
+
+    override suspend fun PaymentVerify(
+        updatePhoneRespons: UpdatePhoneRespons,
+        bearerToken: String
+    ): Response<String> {
+        return authApi.PaymentVerify(updatePhoneRespons, bearerToken)
     }
 
 
