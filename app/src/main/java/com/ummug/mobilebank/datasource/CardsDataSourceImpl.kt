@@ -118,5 +118,9 @@ class CardsDataSourceImpl @Inject constructor(
         return authApi.PaymentVerify(updatePhoneRespons, bearerToken)
     }
 
+    override suspend fun getHistoryForCard(cardId: Int, bearerToken: String): Response<Unit> {
+        return authApi.getHistoryForCard(cardId,bearerToken)
+    }
+
 
 }

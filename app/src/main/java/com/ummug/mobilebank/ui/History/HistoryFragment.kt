@@ -13,6 +13,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ummug.mobilebank.R
 import com.ummug.mobilebank.data.contacts.ErrorCodes
 import com.ummug.mobilebank.databinding.FragmentHistoryBinding
+import com.ummug.mobilebank.domain.adapters.ForHistoryCardAdapter
 import com.ummug.mobilebank.domain.adapters.IstoryAdapter
 import com.ummug.mobilebank.domain.entity.cards.Data
 import com.ummug.mobilebank.ui.Home.HomeFragment
@@ -28,12 +29,19 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
 
     private lateinit var dataList:ArrayList<com.ummug.mobilebank.domain.entity.History.Data>
 
+    private lateinit var carddateList:ArrayList<com.ummug.mobilebank.domain.entity.cardistory.Data>
+    private lateinit var cardadapter:ForHistoryCardAdapter
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.listHistory()
-
-
+        binding.payments.setOnClickListener {
+            viewModel.listHistory()
+        }
+        binding.cards.setOnClickListener {
+            viewModel.cardhistory(62)
+        }
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
@@ -41,6 +49,16 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
                    dataList= ArrayList(data.data)
                     adapter= IstoryAdapter(dataList) { _, _ -> }
                     binding.rvHistory.adapter=adapter
+                }
+            }
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                viewModel.openCardHistoryFlow.collect { data ->
+                    carddateList= ArrayList(data.data)
+                    cardadapter= ForHistoryCardAdapter(carddateList) { _, _ -> }
+                    binding.rvHistory.adapter=adapter
+
                 }
             }
         }

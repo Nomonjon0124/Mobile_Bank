@@ -15,7 +15,9 @@ import com.ummug.mobilebank.domain.entity.transfer.TransferEntity
 import com.ummug.mobilebank.domain.entity.transfer.TransferRespons
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.Header
+import retrofit2.http.Path
 
 interface CardsDataSource {
 
@@ -49,4 +51,7 @@ interface CardsDataSource {
 
    suspend fun PaymentAmount(payment: payment,bearerToken: String):Response<UpdatePhoneRespons>
    suspend fun PaymentVerify(updatePhoneRespons: UpdatePhoneRespons,bearerToken: String):Response<String>
+
+
+   suspend fun getHistoryForCard(cardId: Int,  bearerToken: String): Response<Unit>
 }

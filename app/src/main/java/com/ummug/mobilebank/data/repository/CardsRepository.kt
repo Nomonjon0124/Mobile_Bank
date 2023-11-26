@@ -48,4 +48,7 @@ interface CardsRepository {
     suspend fun transferMoney(transferEntity: TransferEntity, bearerToken: String):Response<TransferRespons>
 
     suspend fun verifyTransfer(transferRespons: TransferRespons, bearerToken: String):Response<String>
+
+    suspend fun getHistoryForCard(cardId: Int,  bearerToken: String): Response<Unit>
+
 }

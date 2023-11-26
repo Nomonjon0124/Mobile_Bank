@@ -116,4 +116,8 @@ class CardsRepositoryImpl @Inject constructor(
         return dataSource.transferVerify(transferRespons, bearerToken)
     }
 
+    override suspend fun getHistoryForCard(cardId: Int, bearerToken: String): Response<Unit> {
+        return dataSource.getHistoryForCard(cardId, bearerToken)
+    }
+
 }

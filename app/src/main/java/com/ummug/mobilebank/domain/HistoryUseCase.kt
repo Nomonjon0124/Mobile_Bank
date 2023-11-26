@@ -18,6 +18,7 @@ class HistoryUseCase @Inject constructor(
     suspend operator fun invoke():State{
         try {
             val response = cardsRepository.listHistory("Bearer ${settings.usetoken}")
+
             return State.Success(response.body())
         }catch (e:Exception){
             e.printStackTrace()
