@@ -11,6 +11,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.ummug.mobilebank.R
 import com.ummug.mobilebank.databinding.FragmentHistoryBottomSheedBinding
@@ -36,26 +37,25 @@ class HistoryBottomSheedFragment : BottomSheetDialogFragment() {
     private val viewModel:HistoryViewModel by viewModels()
     private lateinit var dataList:ArrayList<Data>
 
+    private val binding : FragmentHistoryBottomSheedBinding by viewBinding ()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View? {
-        var binding=FragmentHistoryBottomSheedBinding.inflate(inflater,container,false)
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.listHistory()
 
         binding.batafsil.setOnClickListener {
             findNavController().navigate(R.id.action_historyBottomSheedFragment_to_historyFragment)
         }
-        viewModel.listHistory()
-
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
@@ -81,7 +81,6 @@ class HistoryBottomSheedFragment : BottomSheetDialogFragment() {
                     Toast.makeText(requireContext(), "internet yoq", Toast.LENGTH_SHORT).show()
                 }
             }}
-        return binding.root
     }
 
     companion object {

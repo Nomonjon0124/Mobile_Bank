@@ -133,7 +133,7 @@ class HomeFragment : Fragment(R.layout.fragmnet_home) {
     }
     fun setUpModels(){
         binding.apply {
-            cardView.setOnClickListener {
+            cardview.setOnClickListener {
                 var modal = HistoryBottomSheedFragment()
                 parentFragmentManager.let { modal.show(it,"") }
             }

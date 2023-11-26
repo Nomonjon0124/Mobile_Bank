@@ -400,11 +400,16 @@
                 tools:behavior_hideable="true">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cardview"
                     android:layout_width="40dp"
-                    android:layout_height="5dp"
+                    android:layout_height="15dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="15dp"
-                    android:backgroundTint="#D3DBDE" />
+                    android:backgroundTint="#D3DBDE"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

@@ -75,9 +75,7 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
                 viewModel.openNetworkFlow.collect{
                     Toast.makeText(requireContext(), "internet yoq", Toast.LENGTH_SHORT).show()
                 }
-            }}
-
-
-
+            }
+        }
     }
 }
