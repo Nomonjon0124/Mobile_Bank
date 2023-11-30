@@ -16,14 +16,17 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.SnapHelper
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.ummug.mobilebank.R
 import com.ummug.mobilebank.database.Database
 import com.ummug.mobilebank.databinding.FragmnetHomeBinding
 import com.ummug.mobilebank.domain.adapters.CardAdapter
+import com.ummug.mobilebank.domain.adapters.IstoryAdapter
 import com.ummug.mobilebank.domain.entity.cards.Data
 import com.ummug.mobilebank.ui.AddCard.AddCardFragment
 import com.ummug.mobilebank.ui.Card.CardFragment
 import com.ummug.mobilebank.ui.History.HistoryBottomSheedFragment
+import com.ummug.mobilebank.ui.History.HistoryViewModel
 import com.ummug.mobilebank.ui.Transfer.Transfer
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -37,6 +40,9 @@ class HomeFragment : Fragment(R.layout.fragmnet_home) {
     private lateinit var list:ArrayList<Int>
     private lateinit var adapter: CardAdapter
     private val binding: FragmnetHomeBinding by viewBinding ()
+    private lateinit var adapterH: IstoryAdapter
+    private val viewModelH: HistoryViewModel by viewModels()
+    private lateinit var dataListH:ArrayList<com.ummug.mobilebank.domain.entity.History.Data>
 
     private val database by lazy { Database.getDatabase(requireContext()) }
 
@@ -44,6 +50,7 @@ class HomeFragment : Fragment(R.layout.fragmnet_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getCards()
+        viewModelH.listHistory()
         adapter= CardAdapter()
         binding.apply {
             rvCards.adapter=adapter
@@ -132,11 +139,31 @@ class HomeFragment : Fragment(R.layout.fragmnet_home) {
 
     }
     fun setUpModels(){
-        binding.apply {
-            cardview.setOnClickListener {
-                var modal = HistoryBottomSheedFragment()
-                parentFragmentManager.let { modal.show(it,"") }
+        val behavior= BottomSheetBehavior.from(binding.bottom)
+        behavior.isDraggable=true
+        behavior.peekHeight = 900
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                viewModelH.openSuccesFlow.collect { data ->
+                    dataListH= ArrayList(data.data)
+                    adapterH= IstoryAdapter(dataListH) { _, _ -> }
+                    binding.rvHistorySheed.adapter=adapterH
+                }
             }
         }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.RESUMED){
+                viewModelH.openErrorFlow.collect{
+                    Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.RESUMED){
+                viewModelH.openNetworkFlow.collect{
+                    Toast.makeText(requireContext(), "internet yoq", Toast.LENGTH_SHORT).show()
+                }
+            }}
     }
 }

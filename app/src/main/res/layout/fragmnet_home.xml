@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    app:layout_behavior="@string/bottom_sheet_behavior"
     android:layout_width="match_parent"
     android:background="#F1EEEF"
     android:layout_height="match_parent">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="358dp"
@@ -44,9 +48,9 @@
 
     <LinearLayout
         android:layout_width="350dp"
-        android:layout_height="350dp"
+        android:layout_height="220dp"
         android:layout_gravity="center"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="40dp"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -123,34 +127,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="5dp"
-                android:layout_gravity="center|top"
-                app:cardCornerRadius="10dp">
 
-                <ImageView
-                    android:id="@+id/Credit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center|top"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/credit_card_2"
-                    android:clickable="true"
-                    android:focusable="true" />
-
-                <TextView
-                    android:layout_width="58dp"
-                    android:layout_height="32dp"
-                    android:layout_gravity="center|bottom"
-                    android:layout_marginBottom="15dp"
-                    android:gravity="center"
-                    android:text="Credit card"
-                    android:textColor="#979797"
-                    android:textSize="12sp" />
-
-            </androidx.cardview.widget.CardView>
             <Space
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -235,38 +212,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="5dp"
-                android:layout_gravity="center|top"
-                app:cardCornerRadius="10dp">
 
-                <ImageView
-                    android:id="@+id/report"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center|top"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/file_paragraph_1"
-                    android:clickable="true"
-                    android:focusable="true" />
-
-                <TextView
-                    android:layout_width="58dp"
-                    android:layout_height="32dp"
-                    android:layout_gravity="center|bottom"
-                    android:layout_marginBottom="15dp"
-                    android:gravity="center"
-                    android:text="Transaction report"
-                    android:textColor="#979797"
-                    android:textSize="10sp" />
-
-            </androidx.cardview.widget.CardView>
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
         </LinearLayout>
         <Space
             android:layout_width="wrap_content"
@@ -341,90 +287,34 @@
 
             </androidx.cardview.widget.CardView>
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="5dp"
-                android:layout_gravity="center|top"
-                app:cardCornerRadius="10dp">
-
-                <ImageView
-                    android:id="@+id/withdraw"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center|top"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/credit_card_in_1"
-                    android:clickable="true"
-                    android:focusable="true" />
-
-                <TextView
-                    android:layout_width="58dp"
-                    android:layout_height="32dp"
-                    android:layout_gravity="center|bottom"
-                    android:layout_marginBottom="15dp"
-                    android:gravity="center"
-                    android:text="Withdraw"
-                    android:textColor="#979797"
-                    android:textSize="12sp" />
-
-            </androidx.cardview.widget.CardView>
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
         </LinearLayout>
 
 
     </LinearLayout>
 
+
+    </FrameLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:gravity="bottom"
-        >
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/sheethistory"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="@android:color/white"
-                android:fitsSystemWindows="false"
-                android:orientation="vertical"
-                tools:behavior_hideable="true">
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardview"
-                    android:layout_width="40dp"
-                    android:layout_height="15dp"
-                    android:layout_gravity="center"
-                    android:backgroundTint="#D3DBDE"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="MissingConstraints" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:text="History"
-                    android:textColor="@color/black"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.666" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
+        android:layout_height="match_parent"
+        android:id="@+id/bottom"
+        android:background="@drawable/card_back"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/baseline_arrow_upward_24"
+            android:layout_gravity="center_horizontal"
+            ></ImageView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_history_sheed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_history" />
     </LinearLayout>
 
-</FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

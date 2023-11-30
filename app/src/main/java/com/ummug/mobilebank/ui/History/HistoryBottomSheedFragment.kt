@@ -20,6 +20,7 @@ import com.ummug.mobilebank.R
 import com.ummug.mobilebank.databinding.FragmentHistoryBottomSheedBinding
 import com.ummug.mobilebank.domain.adapters.IstoryAdapter
 import com.ummug.mobilebank.domain.entity.History.Data
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 // TODO: Rename parameter arguments, choose names that match
@@ -32,6 +33,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [HistoryBottomSheedFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+@AndroidEntryPoint
 class HistoryBottomSheedFragment : BottomSheetDialogFragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -40,7 +42,8 @@ class HistoryBottomSheedFragment : BottomSheetDialogFragment() {
     private val viewModel:HistoryViewModel by viewModels()
     private lateinit var dataList:ArrayList<Data>
 
-    private val binding : FragmentHistoryBottomSheedBinding by viewBinding ()
+    private var _binding: FragmentHistoryBottomSheedBinding? =null
+    private val binding get() =_binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,6 +70,9 @@ class HistoryBottomSheedFragment : BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        _binding= FragmentHistoryBottomSheedBinding.inflate(inflater,container,false)
+
+
         return binding.root
     }
 
@@ -74,9 +80,6 @@ class HistoryBottomSheedFragment : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.listHistory()
 
-        binding.batafsil.setOnClickListener {
-            findNavController().navigate(R.id.action_historyBottomSheedFragment_to_historyFragment)
-        }
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
@@ -113,6 +116,7 @@ class HistoryBottomSheedFragment : BottomSheetDialogFragment() {
          * @param param2 Parameter 2.
          * @return A new instance of fragment HistoryBottomSheedFragment.
          */
+        val TAG="LOREM IPSUM LOrEm"
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
