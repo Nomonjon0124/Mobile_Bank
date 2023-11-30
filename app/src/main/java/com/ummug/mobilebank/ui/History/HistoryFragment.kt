@@ -38,9 +38,13 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
         viewModel.listHistory()
         binding.payments.setOnClickListener {
             viewModel.listHistory()
+            binding.rvHistorycard.visibility=View.GONE
+            binding.rvHistory.visibility=View.VISIBLE
         }
         binding.cards.setOnClickListener {
             viewModel.cardhistory(62)
+            binding.rvHistorycard.visibility=View.VISIBLE
+            binding.rvHistory.visibility=View.GONE
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
@@ -66,7 +70,7 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED){
                 viewModel.openErrorFlow.collect{
-                    Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), it.toString()+"errroe", Toast.LENGTH_SHORT).show()
                 }
             }
         }

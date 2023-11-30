@@ -24,9 +24,9 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             updateFullname.setOnClickListener {
                 findNavController().navigate(R.id.action_settingsFragment_to_updateFullname)
             }
-            about.setOnClickListener {
-                findNavController().navigate(R.id.action_settingsFragment_to_myAbout)
-            }
+//            about.setOnClickListener {
+//                findNavController().navigate(R.id.action_settingsFragment_to_myAbout)
+//            }
             phoneUpdate.setOnClickListener {
                 findNavController().navigate(R.id.action_settingsFragment_to_updatePhone)
             }
