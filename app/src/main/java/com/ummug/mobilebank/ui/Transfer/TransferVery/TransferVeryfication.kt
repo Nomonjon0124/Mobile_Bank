@@ -29,7 +29,7 @@ class TransferVeryfication :Fragment(R.layout.fragment_verification) {
         super.onViewCreated(view, savedInstanceState)
 
 
-        binding.pincodecheak.setOnClickListener {
+        binding.pincodech.setOnClickListener {
             viewModel.transferMoneyVery(binding.inputCode.text.toString())
         }
 

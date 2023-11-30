@@ -39,6 +39,8 @@
         android:layout_marginBottom="10dp">
 
         <TextView
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Amount"
@@ -46,6 +48,8 @@
             android:textColor="@color/black"/>
 
         <TextView
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="(USZ)"
@@ -64,6 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center|start"
+                app:startIconDrawable="@drawable/baseline_attach_money_24"
             android:id="@+id/transferAmountError"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
@@ -90,6 +95,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Select card"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
             android:textColor="@color/black"
             android:textSize="14sp"/>
 
@@ -108,6 +115,8 @@
             android:text="Send to"
             android:textColor="@color/black"
             android:textSize="14sp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
             />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -115,6 +124,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center|start"
                     android:id="@+id/phoneNumber"
+                    app:startIconDrawable="@drawable/baseline_credit_card_24"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     >
                     <com.santalu.maskedittext.MaskEditText
@@ -137,6 +147,8 @@
             android:text="Identified user"
             android:textColor="@color/black"
             android:textSize="14sp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
             android:layout_marginTop="20dp"/>
 
         <TextView
@@ -146,6 +158,8 @@
             android:id="@+id/UserName"
             android:textColor="#80000000"
             android:textSize="32sp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
             android:layout_marginTop="20dp"/>
 
         <androidx.appcompat.widget.AppCompatButton
@@ -155,8 +169,11 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/sign_rectangle3"
             android:text="Send"
+            android:layout_marginHorizontal="20dp"
             android:textColor="@color/white"
             android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="20sp"
             />
 
     </LinearLayout>

@@ -13,6 +13,8 @@
         android:layout_marginTop="30dp">
 
         <TextView
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif-medium"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="My accounts"
@@ -79,6 +81,8 @@
                     android:layout_gravity="center|bottom"
                     android:layout_marginBottom="15dp"
                     android:gravity="center"
+                    android:textStyle="normal"
+                    android:fontFamily="sans-serif-medium"
                     android:text="Add Card"
                     android:textColor="#979797"
                     android:textSize="12sp" />
@@ -110,6 +114,8 @@
                     android:layout_gravity="center|bottom"
                     android:layout_marginBottom="15dp"
                     android:gravity="center"
+                    android:textStyle="normal"
+                    android:fontFamily="sans-serif-medium"
                     android:text="Payment history"
                     android:textColor="#979797"
                     android:textSize="12sp" />
@@ -156,6 +162,8 @@
                     android:layout_marginBottom="15dp"
                     android:gravity="center"
                     android:text="Transfer"
+                    android:textStyle="normal"
+                    android:fontFamily="sans-serif-medium"
                     android:textColor="#979797"
                     android:textSize="12sp" />
 
@@ -188,6 +196,8 @@
                     android:layout_marginBottom="15dp"
                     android:gravity="center"
                     android:text="Payment"
+                    android:textStyle="normal"
+                    android:fontFamily="sans-serif-medium"
                     android:textColor="#979797"
                     android:textSize="12sp" />
 
@@ -229,6 +239,8 @@
                     android:layout_gravity="center|bottom"
                     android:layout_marginBottom="15dp"
                     android:gravity="center"
+                    android:textStyle="normal"
+                    android:fontFamily="sans-serif-medium"
                     android:text="Account Settings"
                     android:textColor="#979797"
                     android:textSize="11sp" />
@@ -261,16 +273,12 @@
                     android:layout_marginBottom="15dp"
                     android:gravity="center"
                     android:text="Save online"
+                    android:textStyle="normal"
+                    android:fontFamily="sans-serif-medium"
                     android:textColor="#979797"
                     android:textSize="12sp" />
 
             </androidx.cardview.widget.CardView>
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
 
             <Space
                 android:layout_width="0dp"

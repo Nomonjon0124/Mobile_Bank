@@ -25,7 +25,7 @@ class PhoneVery :Fragment(R.layout.fragment_verification){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.pincodecheak.setOnClickListener {
+        binding.pincodech.setOnClickListener {
             viewModel.PhoneVey(binding.inputCode.text.toString())
         }
 
