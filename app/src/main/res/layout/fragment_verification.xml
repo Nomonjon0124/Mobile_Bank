@@ -5,8 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <ImageButton
         android:id="@+id/back"
-        android:layout_width="15dp"
-        android:layout_height="20dp"
+        android:layout_width="13dp"
+        android:layout_height="17dp"
         app:layout_constraintTop_toTopOf="@id/txt"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/txt"
@@ -23,9 +23,12 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="16dp"
         android:text="Потвердите"
+        android:textColor="@color/black"
+
         android:gravity="center"
         android:textSize="30dp"
-        android:textStyle="bold"
+        android:textStyle="normal"
+        android:fontFamily="sans-serif-medium"
         />
     <TextView
         android:layout_width="176dp"
@@ -34,6 +37,9 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:textSize="14sp"
+        android:textColor="@color/black"
+        android:textStyle="normal"
+        android:fontFamily="sans-serif-medium"
         android:text="Код отправлен на номер"
         android:layout_marginTop="104dp"
         />
@@ -45,6 +51,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:textSize="14sp"
         android:text="+998 90 000 90 90"
+        android:textStyle="normal"
+        android:fontFamily="sans-serif-medium"
         android:layout_marginTop="124dp"
         />
     <com.google.android.material.textfield.TextInputLayout
@@ -64,6 +72,8 @@
             android:inputType="number"
             android:gravity="center"
             android:textSize="18sp"
+            android:textStyle="normal"
+            android:fontFamily="sans-serif-medium"
             android:hint="123456"
             />
     </com.google.android.material.textfield.TextInputLayout>
@@ -76,20 +86,44 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="260dp"
         android:textSize="14sp"
+        android:textStyle="normal"
+        android:fontFamily="sans-serif-medium"
         android:text="resend code 00:45"
         />
-    <LinearLayout
-        android:id="@+id/pincodecheak"
+    <androidx.cardview.widget.CardView
         android:layout_width="328dp"
-        android:layout_height="48dp"
+        android:layout_height="60dp"
         android:clickable="true"
         android:focusable="true"
         android:background="#2979FF"
+        app:cardCornerRadius="10dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="332dp"
-        android:orientation="horizontal" />
+        >
+        <LinearLayout
+            android:id="@+id/pincodech"
+            android:layout_width="328dp"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="#2979FF"
+            android:orientation="horizontal" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:fontFamily="sans-serif-medium"
+                android:textSize="28sp"
+                android:text="next"
+                android:textColor="#FBFBFB"
+                />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
 
 
 

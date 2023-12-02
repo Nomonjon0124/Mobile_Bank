@@ -15,8 +15,8 @@
        android:orientation="horizontal"
        >
        <ImageButton
-           android:layout_width="20dp"
-           android:layout_height="25dp"
+           android:layout_width="13dp"
+           android:layout_height="18sp"
            android:background="@drawable/back"
            android:id="@+id/backHome"
            android:layout_margin="20dp"
@@ -137,14 +137,22 @@
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="new card name"
+        android:layout_marginLeft="25dp"
+        android:textStyle="normal"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-medium"
+        />
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center|start"
-        android:layout_marginTop="20dp"
         android:id="@+id/CardNameError"
         android:layout_marginHorizontal="20dp"
-        android:hint="new card name"
+        app:startIconDrawable="@drawable/baseline_person_24"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         >
         <com.google.android.material.textfield.TextInputEditText
@@ -156,8 +164,7 @@
             android:inputType="textPersonName"
             />
     </com.google.android.material.textfield.TextInputLayout>
-    <LinearLayout
-        android:id="@+id/Saqlash"
+    <androidx.cardview.widget.CardView
         android:layout_width="328dp"
         android:layout_height="60dp"
         android:layout_marginTop="8dp"
@@ -165,17 +172,29 @@
         android:layout_marginBottom="19.82dp"
         android:layout_gravity="center|bottom"
         android:gravity="center"
-        android:orientation="horizontal" >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Saqlash"
-            android:textSize="24sp"
+        app:cardCornerRadius="10dp"
+        >
+        <LinearLayout
+            android:id="@+id/Saqlash"
+            android:layout_width="328dp"
+            android:layout_height="60dp"
+            android:background="#3D5AFE"
             android:gravity="center"
-            android:textColor="@color/black"
-            />
-    </LinearLayout>
+            android:orientation="horizontal" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Saqlash"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="normal"
+                android:textSize="24sp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCardHistory"
         android:layout_width="match_parent"

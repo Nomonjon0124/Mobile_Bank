@@ -26,7 +26,7 @@ class PaymentVeryfication :Fragment(R.layout.fragment_verification) {
         super.onViewCreated(view, savedInstanceState)
 
 
-        binding.pincodecheak.setOnClickListener {
+        binding.pincodech.setOnClickListener {
             viewModel.MoneyVeryPay(binding.inputCode.text.toString())
         }
 

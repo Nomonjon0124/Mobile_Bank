@@ -76,13 +76,13 @@ class VerificationFragment :Fragment(R.layout.fragment_verification) {
         }
         binding.inputCode.addTextChangedListener {
             if (it?.toString()?.length==6){
-                binding.pincodecheak.setBackgroundResource(R.color.button_color)
+                binding.pincodech.setBackgroundResource(R.color.button_color)
             }
             else{
-                binding.pincodecheak.setBackgroundResource(R.color.button_color_defoult)
+                binding.pincodech.setBackgroundResource(R.color.button_color_defoult)
             }
         }
-        binding.pincodecheak.setOnClickListener {
+        binding.pincodech.setOnClickListener {
             val code1 = binding.inputCode.text.toString()
             Log.d("tag", it.toString())
                 Toast.makeText(requireContext(), "o'tdi", Toast.LENGTH_SHORT).show()
